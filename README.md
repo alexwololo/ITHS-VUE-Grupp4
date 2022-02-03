@@ -1,1 +1,1 @@
-# ITHS-VUE-Gruppar4
+# A Vue.js template for Vite
