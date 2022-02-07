@@ -1,31 +1,34 @@
 <template>
-  <header>
-    <NavBar />
-  </header>
+  <div class="container">
+    <div class="landing-view">
+      <h1>SLOGAN</h1>
+    </div>
+  </div>
 </template>
 
-<script>
-  import NavBar from '../components/NavBar.vue'
-
-  export default {
-    components: {
-      NavBar
-    }
-  }
-</script>
+<script></script>
 
 <style>
-  body {
-    box-sizing: border-box;
-    font-family: sans-serif;
+  .landing-view {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    margin: 80px auto;
+    width: 40%;
+    padding-top: 20px;
+    padding-bottom: 20px;
     text-align: center;
-    color: #2c3e50;
-    margin-top: 60px;
   }
 
-  header {
-    width: 100vw;
-    background-color: #222;
-    padding: 15px;
+  body {
+    background: url(assets/photo-1542338347-4fff3276af78.jpg) no-repeat center
+      center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    overflow: visible;
   }
 </style>

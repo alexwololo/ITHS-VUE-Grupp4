@@ -26,13 +26,28 @@
 
 <script>
   export default {
-    props: [
-      'navLinks',
-      'background',
-      'linkColor',
-      'hoverBackground',
-      'imagePath'
-    ],
+    props: {
+      navLinks: {
+        default: '',
+        type: String
+      },
+      background: {
+        default: '',
+        type: String
+      },
+      linkColor: {
+        default: '',
+        type: String
+      },
+      hoverBackground: {
+        default: '',
+        type: String
+      },
+      imagePath: {
+        default: '',
+        type: String
+      }
+    },
     methods: {
       toggleNav() {
         const nav = this.$refs.nav.classList

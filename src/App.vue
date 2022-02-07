@@ -1,44 +1,33 @@
 <template>
-  <div id="app">
-    <ResponsiveNavigation
-      :nav-links="navLinks"
-      background="#FFF"
-      link-color="#777"
-      hover-background="#DDD"
-    />
-    <RouterView />
-  </div>
+  <TheHeader />
+  <LandingHomeView />
+  <RouterView />
 </template>
 
 <script>
-  import ResponsiveNavigation from './components/ResponsiveNavigation.vue'
+  import TheHeader from './components/TheHeader.vue'
+  import LandingHomeView from './views/LandingHomeView.vue'
 
   export default {
     components: {
-      ResponsiveNavigation
-    },
-    data: () => ({
-      navLinks: [
-        {
-          text: 'Web',
-          path: '#',
-          icon: 'ion-ios-megaphone'
-        },
-        {
-          text: 'Design',
-          path: '#',
-          icon: 'ion-ios-business'
-        },
-        {
-          text: 'Videos',
-          path: '#',
-          icon: 'ion-ios-briefcase'
-        }
-      ]
-    })
+      TheHeader,
+      LandingHomeView
+    }
   }
 </script>
 
-<style lang="scss">
-  @import 'https://unpkg.com/ionicons@4.2.2/dist/css/ionicons.min.css';
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap');
+
+  html {
+    font-family: 'Roboto', sans-serif;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+  }
 </style>
