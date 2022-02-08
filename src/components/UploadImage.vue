@@ -2,7 +2,6 @@
   <div id="img-container">
     <img :src="profilePic" alt="" id="profile-pic" :key="updateKey" />
   </div>
-  <p>Då</p>
   <input
     type="file"
     name=""
@@ -59,11 +58,13 @@
 
 <style>
   #img-container {
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 400px;
-    height: 400px;
+    width: 250px;
+    height: 250px;
     background-color: lightcoral;
     border-radius: 50%;
     overflow: hidden;
