@@ -5,7 +5,7 @@
       <ul>
         <li><a href="#" class="options">Produkter</a></li>
         <li><a href="#" class="options">Support</a></li>
-        <li><a href="test-page.html" class="login">Logga in</a></li>
+        <li><a href="#" class="login">Logga in</a></li>
       </ul>
     </nav>
   </header>
