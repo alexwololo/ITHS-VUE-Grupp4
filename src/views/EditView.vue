@@ -3,7 +3,7 @@
     <h1>Redigera profil</h1>
     <UploadImage />
     <EditProfileParameters />
-    <input type="button" value="Spara din profil" />
+    <input id="saveProfile" type="button" value="Spara din profil" />
   </div>
 </template>
 
@@ -21,9 +21,11 @@
 
 <style lang="scss">
   div {
-    background-color: lightblue;
+    background-color: white;
+    height: 100vh;
   }
   h1 {
     text-align: center;
+    margin-top: 1rem;
   }
 </style>
