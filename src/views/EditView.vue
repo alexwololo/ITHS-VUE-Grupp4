@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>Hej</p>
+    <h1>Redigera profil</h1>
     <UploadImage />
     <EditProfileParameters />
     <input type="button" value="Spara din profil" />
@@ -19,8 +19,11 @@
   }
 </script>
 
-<style>
+<style lang="scss">
   div {
     background-color: lightblue;
+  }
+  h1 {
+    text-align: center;
   }
 </style>
