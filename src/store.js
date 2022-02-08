@@ -1,12 +1,24 @@
 import { createStore } from 'vuex'
+import VuexPersistence from 'vuex-persist'
+const vuexLocal = new VuexPersistence({
+  storage: window.localStorage,
 
-const mutations = {
-    increment(state) {
-      state.counter += 1
+  mutations: {
+    setUser(state, user) {
+      state.user = user
+    },
+    setPassword(state, password) {
+      state.password = password
+    },
+    setEmail(state, email) {
+      state.email = email
     }
   },
-  state = {
-    counter: 0
-  }
-
-export default createStore({ mutations, state, strict: true })
+  state: {
+    user: {},
+    password: {},
+    email: {}
+  },
+  plugins: [vuexLocal.plugin]
+})
+export default createStore({ vuexLocal, strict: true })

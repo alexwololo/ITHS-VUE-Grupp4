@@ -1,5 +1,6 @@
 <template>
   <TheHeader />
+  <LandingHomeView />
   <RouterView />
 </template>
 
