@@ -21,8 +21,7 @@
 </script>
 
 <style lang="scss">
-
-//"Lådan" till bar:en
+  //"Lådan" till bar:en
   .loading-bar {
     position: relative;
     width: 400px;
@@ -31,11 +30,10 @@
     margin: auto;
   }
 
-//Den rörliga delen av bar:en
+  //Den rörliga delen av bar:en
   .percentage {
     position: absolute;
     height: 100%;
     background-color: #ad74ff;
   }
 </style>
-
