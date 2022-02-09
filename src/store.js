@@ -26,8 +26,7 @@
 import { createStore } from 'vuex'
 import VuexPersistence from 'vuex-persist'
 console.log(new VuexPersistence({ storage: localStorage }))
-export default
-createStore({
+export default createStore({
   mutations: {
     setUser(state, user) {
       state.user = user
