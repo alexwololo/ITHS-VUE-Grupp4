@@ -24,14 +24,16 @@
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    margin: 0;
+    min-height: 100vh;
   }
 
   .landing-view {
-    margin: 50px auto;
     min-width: 200px;
     padding: 60px 30px;
+    margin: 60px 30%;
     text-align: left;
-    background-color: rgba(128, 128, 128, 0.582);
+    background-color: rgba(255, 255, 255, 0.5);
   }
 
   .landing-view p {
@@ -39,7 +41,6 @@
     font-weight: bold;
     margin-bottom: 40px;
   }
-
   .register {
     text-decoration: none;
     font-weight: bold;
@@ -50,15 +51,9 @@
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.11);
   }
 
-  @media (max-width: 375px) {
-    .landing-view {
-      margin: 30px auto;
-      padding: 30px 15px;
-    }
-
-    .register {
-      min-width: 70%;
-      float: left;
+  @media (max-width: 768px) {
+    .container-landing a {
+      display: block;
     }
   }
 </style>
