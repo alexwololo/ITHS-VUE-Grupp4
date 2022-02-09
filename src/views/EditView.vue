@@ -1,14 +1,18 @@
 <template>
-  <div>
-    <h1>Redigera profil</h1>
-    <UploadImage />
-    <EditProfileParameters />
-    <input
-      id="saveProfile"
-      type="button"
-      value="Spara din profil"
-      @click="saveChanges()"
-    />
+  <div id="edit-container">
+    <div id="left-side">
+      <h1>Redigera profil</h1>
+      <UploadImage />
+    </div>
+    <div id="right-side">
+      <EditProfileParameters />
+      <input
+        id="saveProfile"
+        type="button"
+        value="Spara din profil"
+        @click="saveChanges()"
+      />
+    </div>
   </div>
 </template>
 
@@ -48,24 +52,22 @@
 </script>
 
 <style lang="scss" scoped>
-  $btn: #3369ff;
-  div {
+  $btn: #6200ee;
+  #edit-container {
     background-color: white;
-    height: 100vh;
     text-align: center;
   }
   h1 {
     text-align: center;
-    margin-top: 1rem;
+    padding-top: 1rem;
   }
   #saveProfile {
     border: none;
-    font-size: 0.9rem;
-    border-radius: 1.5em;
+    font-size: 1rem;
+    border-radius: 4px;
     box-sizing: border-box;
     text-decoration: none;
     font-family: 'Roboto', sans-serif;
-    text-transform: uppercase;
     font-weight: 400;
     color: #ffffff;
     background-color: $btn;
@@ -73,18 +75,36 @@
     text-align: center;
     position: relative;
     display: inline-block;
-    height: min-content;
-    width: min-content;
+    height: max-content;
+    width: max-content;
     padding: 0.7em 1.4em;
+    margin-bottom: 1rem;
     cursor: pointer;
   }
-  #saveProfile:hover {
-    background-color: #1948ca;
-  }
+  #saveProfile:hover,
   #saveProfile:focus {
-    background-color: #1948ca;
+    background-color: #4a00b3;
   }
   #saveProfile:active {
     top: 0.1em;
+  }
+
+  @media screen and (min-width: 980px) {
+    h1 {
+      margin-top: 0.7rem;
+      padding: 0;
+    }
+    #edit-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #left-side {
+      margin-right: 20rem;
+    }
+    #right-side {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
   }
 </style>
