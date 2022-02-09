@@ -2,14 +2,17 @@
   <div id="img-container">
     <img :src="profilePic" alt="" id="profile-pic" :key="updateKey" />
   </div>
-  <input
-    type="file"
-    name=""
-    id="uploadImage"
-    ref="myFile"
-    @change="imageToBase64(), imageUploaded()"
-  />
-  <input type="button" value="Ladda upp" @click="reload()" />
+  <div id="input-container">
+    <label for="uploadImage" class="custom-file-upload"> Bläddra... </label>
+    <input
+      type="file"
+      name=""
+      id="uploadImage"
+      ref="myFile"
+      @change="imageToBase64(), imageUploaded()"
+    />
+    <input type="button" value="Ladda upp" @click="reload()" />
+  </div>
 </template>
 
 <script>
@@ -56,16 +59,17 @@
   }
 </script>
 
-<style>
+<style lang="scss">
+  $size: lightgrey;
   #img-container {
-    margin-left: auto;
-    margin-right: auto;
+    margin: 1rem auto 1.5rem auto;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 250px;
     height: 250px;
-    background-color: lightcoral;
+    background-color: white;
+    border: 2px solid black;
     border-radius: 50%;
     overflow: hidden;
   }
@@ -73,5 +77,66 @@
     object-fit: cover;
     width: 100%;
     height: 100%;
+  }
+  #input-container {
+    max-height: 50px;
+    display: flex;
+    justify-content: center;
+    input[type='file'] {
+      display: none;
+    }
+    input {
+      border: none;
+      font-size: 0.9rem;
+      border-radius: 1.5em;
+      box-sizing: border-box;
+      text-decoration: none;
+      font-family: 'Roboto', sans-serif;
+      text-transform: uppercase;
+      font-weight: 400;
+      color: #ffffff;
+      background-color: #3369ff;
+      box-shadow: inset 0 -0.6em 0 -0.35em rgba(0, 0, 0, 0.17);
+      text-align: center;
+      position: relative;
+      display: inline-block;
+      height: min-content;
+      width: min-content;
+      margin-left: 1rem;
+      padding: 0.7em 1.4em;
+      cursor: pointer;
+    }
+    input:hover,
+    input:focus,
+    .custom-file-upload:hover,
+    .custom-file-upload:focus {
+      background-color: #1948ca;
+    }
+    input:active {
+      top: 0.1em;
+    }
+    .custom-file-upload {
+      font-size: 0.9rem;
+      border-radius: 1.5em;
+      box-sizing: border-box;
+      text-decoration: none;
+      font-family: 'Roboto', sans-serif;
+      text-transform: uppercase;
+      font-weight: 400;
+      color: #ffffff;
+      background-color: #3369ff;
+      box-shadow: inset 0 -0.6em 0 -0.35em rgba(0, 0, 0, 0.17);
+      text-align: center;
+      position: relative;
+      display: inline-block;
+      height: min-content;
+      width: min-content;
+      margin-right: 1rem;
+      padding: 0.7em 1.4em;
+      cursor: pointer;
+    }
+    .custom-file-upload:active {
+      top: 0.1em;
+    }
   }
 </style>

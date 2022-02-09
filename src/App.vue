@@ -1,17 +1,13 @@
 <template>
   <TheHeader />
-  <LandingHomeView />
   <RouterView />
 </template>
 
 <script>
   import TheHeader from './components/TheHeader.vue'
-  import LandingHomeView from './views/LandingHomeView.vue'
-
   export default {
     components: {
-      TheHeader,
-      LandingHomeView
+      TheHeader
     }
   }
 </script>
