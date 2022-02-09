@@ -2,10 +2,10 @@
   export default {
     methods: {
       onYes() {
-        alert('Yes')
+        alert('Yes.')
       },
       onNo() {
-        alert('No')
+        alert('No.')
       }
     }
   }
