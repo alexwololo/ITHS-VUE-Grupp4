@@ -19,7 +19,7 @@
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
  $btn: #3369ff;
   div {
     background-color: white;

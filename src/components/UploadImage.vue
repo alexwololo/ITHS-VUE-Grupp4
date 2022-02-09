@@ -59,7 +59,7 @@
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   $btn: #3369ff;
   #img-container {
     margin: 1rem auto 1.5rem auto;
