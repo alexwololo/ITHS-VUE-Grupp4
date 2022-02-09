@@ -20,28 +20,13 @@
   <div class="wrapper">
     <form>
       <label for="username">Användarnamn:</label>
-      <input
-        v-model="s"
-        id="username"
-        type="text"
-        placeholder="Användarnamn"
-      />
+      <input v-model="s" id="username" type="text" placeholder="Användarnamn" />
       <br />
       <label for="email">Email:</label
-      ><input
-        v-model="t"
-        id="email"
-        type="text"
-        placeholder="Mail"
-      />
+      ><input v-model="t" id="email" type="text" placeholder="Mail" />
       <br />
       <label for="password">Lösen:</label
-      ><input
-        v-model="u"
-        id="password"
-        type="password"
-        placeholder="Lösen"
-      />
+      ><input v-model="u" id="password" type="password" placeholder="Lösen" />
       <input @click="regUser" type="button" value="Registrera" />
     </form>
   </div>

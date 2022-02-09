@@ -20,7 +20,7 @@
 </script>
 
 <style lang="scss" scoped>
- $btn: #3369ff;
+  $btn: #3369ff;
   div {
     background-color: white;
     height: 100vh;
