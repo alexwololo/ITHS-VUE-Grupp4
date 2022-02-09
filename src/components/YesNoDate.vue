@@ -20,7 +20,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
   img {
     float: right;
     width: 10%;
