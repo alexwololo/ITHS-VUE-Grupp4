@@ -3,7 +3,12 @@
     <h1>Redigera profil</h1>
     <UploadImage />
     <EditProfileParameters />
-    <input id="saveProfile" type="button" value="Spara din profil" />
+    <input
+      id="saveProfile"
+      type="button"
+      value="Spara din profil"
+      @click="saveChanges()"
+    />
   </div>
 </template>
 
@@ -12,9 +17,32 @@
   import EditProfileParameters from '../components/EditProfileParameters.vue'
 
   export default {
+    data() {
+      return {
+        nameValue: '',
+        ageValue: '',
+        interestsValue: '',
+        biographyValue: '',
+        pictureValue: ''
+      }
+    },
     components: {
       UploadImage,
       EditProfileParameters
+    },
+    methods: {
+      saveChanges() {
+        this.nameValue = this.$store.state.name
+        this.ageValue = this.$store.state.age
+        this.interestsValue = this.$store.state.interests
+        this.biographyValue = this.$store.state.biography
+        this.pictureValue = this.$store.state.picture
+        this.$store.commit('setName', this.nameValue)
+        this.$store.commit('setAge', this.ageValue)
+        this.$store.commit('setInterests', this.interestsValue)
+        this.$store.commit('setBiography', this.biographyValue)
+        this.$store.commit('setPicture', this.pictureValue)
+      }
     }
   }
 </script>
@@ -50,10 +78,10 @@
     padding: 0.7em 1.4em;
     cursor: pointer;
   }
-  #saveProfile:hover,
-  #saveProfile:focus,
-  .custom-file-upload:hover,
-  .custom-file-upload:focus {
+  #saveProfile:hover {
+    background-color: #1948ca;
+  }
+  #saveProfile:focus {
     background-color: #1948ca;
   }
   #saveProfile:active {

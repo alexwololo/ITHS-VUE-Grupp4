@@ -45,25 +45,48 @@
   export default {
     data() {
       return {
-        nameValue: localStorage.getItem('name'),
-        ageValue: localStorage.getItem('age'),
-        interestsValue: localStorage.getItem('interests'),
-        biographyValue: localStorage.getItem('biography')
+        nameValue: this.$store.state.name,
+        ageValue: this.$store.state.age,
+        interestsValue: this.$store.state.interests,
+        biographyValue: this.$store.state.biography
       }
     },
     methods: {
       changedValue() {
-        let name = document.getElementById('editName').value
-        let age = document.getElementById('editAge').value
-        let interests = document.getElementById('editInterests').value
-        let biography = document.getElementById('editBiography').value
-        localStorage.setItem('name', name)
-        localStorage.setItem('age', age)
-        localStorage.setItem('interests', interests)
-        localStorage.setItem('biography', biography)
+        this.nameValue = document.getElementById('editName').value
+        this.ageValue = document.getElementById('editAge').value
+        this.interestsValue = document.getElementById('editInterests').value
+        this.biographyValue = document.getElementById('editBiography').value
+        this.$store.commit('setName', this.nameValue)
+        this.$store.commit('setAge', this.ageValue)
+        this.$store.commit('setInterests', this.interestsValue)
+        this.$store.commit('setBiography', this.biographyValue)
       }
     }
   }
 </script>
 
-<style lang="scss" scoped></style>
+<!-- <script>
+  export default {
+    data() {
+      return {
+        nameValue: this.$store.state.name,
+        ageValue: this.$store.state.age,
+        interestsValue: this.$store.state.interests,
+        biographyValue: this.$store.state.biography
+      }
+    },
+    methods: {
+      changedValue() {
+        let nameValue = document.getElementById('editName').value
+        let ageValue = document.getElementById('editAge').value
+        let interestsValue = document.getElementById('editInterests').value
+        let biographyValue = document.getElementById('editBiography').value
+        this.$store.commit('setName', nameValue)
+        this.$store.commit('setAge', ageValue)
+        this.$store.commit('setInterests', interestsValue)
+        this.$store.commit('setBiography', biographyValue)
+      }
+    }
+  }
+</script> -->

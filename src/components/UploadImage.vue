@@ -18,16 +18,17 @@
 <script>
   export default {
     data() {
-      if (localStorage.getItem('savedImage')) {
+      if (this.$store.state.picture) {
         return {
-          profilePic: localStorage.getItem('savedImage'),
+          profilePic: this.$store.state.picture,
           pic2: './assets/save-image.png',
           file: {},
           updateKey: 0
         }
       } else {
         return {
-          profilePic: './assets/no-profile.png',
+          profilePic: './assets/no-image.png',
+          pic2: './assets/save-image.png',
           file: {},
           updateKey: 0
         }
@@ -38,8 +39,8 @@
         document.getElementById('profile-pic').src = this.pic2
       },
       reload() {
-        document.getElementById('profile-pic').src =
-          localStorage.getItem('savedImage')
+        this.$store.commit('setPicture', localStorage.getItem('savedImage'))
+        document.getElementById('profile-pic').src = this.$store.state.picture
       },
       imageToBase64() {
         var filesSelected = document.getElementById('uploadImage').files

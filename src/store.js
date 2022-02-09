@@ -26,8 +26,8 @@
 import { createStore } from 'vuex'
 import VuexPersistence from 'vuex-persist'
 console.log(new VuexPersistence({ storage: localStorage }))
-export default createStore({
-  mutations: {
+
+const mutations = {
     setUser(state, user) {
       state.user = user
     },
@@ -36,9 +36,37 @@ export default createStore({
     },
     setEmail(state, email) {
       state.email = email
+    },
+    setName(state, name) {
+      state.name = name
+    },
+    setAge(state, age) {
+      state.age = age
+    },
+    setInterests(state, interests) {
+      state.interests = interests
+    },
+    setBiography(state, biography) {
+      state.biography = biography
+    },
+    setPicture(state, picture) {
+      state.picture = picture
     }
   },
+  state = {
+    user: {},
+    password: {},
+    email: {},
+    name: {},
+    age: {},
+    interests: {},
+    biography: {},
+    picture: {}
+  }
+
+export default createStore({
+  mutations,
   plugins: [new VuexPersistence({ storage: localStorage }).plugin],
-  state: { user: {}, password: {}, email: {} },
+  state,
   strict: true
 })
