@@ -6,6 +6,7 @@ import SignUpView from './views/SignUpView.vue'
 import ProductsView from './views/ProductsView.vue'
 import SupportView from './views/SupportView.vue'
 import EditView from './views/EditView.vue'
+import DateView from './views/DateView.vue'
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -33,6 +34,10 @@ const router = createRouter({
     {
       component: EditView,
       path: '/edit'
+    },
+    {
+      component: DateView,
+      path: '/date'
     }
   ]
 })

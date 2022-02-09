@@ -26,14 +26,17 @@
     position: relative;
     width: 400px;
     height: 30px;
-    border: 1px solid black;
     margin: auto;
+    background-color: rgb(221, 221, 221);
+    box-shadow: inset 0 -3em 3em rgb(139, 139, 139),
+      0 0 0 2px rgba(139, 139, 139, 0.411),
+      0.3em 0.3em 1em rgba(255, 255, 255, 0.3);
   }
 
   //Den rörliga delen av bar:en
   .percentage {
     position: absolute;
     height: 100%;
-    background-color: #ad74ff;
+    background-color: #ae74ffee;
   }
 </style>
