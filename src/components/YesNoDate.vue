@@ -20,13 +20,16 @@
   </div>
 </template>
 
-<style scoped>
+<style>
   img {
+    float: right;
     width: 10%;
-
-    background-color: aliceblue;
-    border-radius: 60px;
-    margin: 50px;
-    border: solid aliceblue 20px;
+    background-color: white;
+    border-radius: 40px;
+    margin: 60px;
+    padding: 20px;
+    box-shadow: inset 0 -3em 3em rgb(139, 139, 139),
+      0 0 0 2px rgba(139, 139, 139, 0.411),
+      0.3em 0.3em 1em rgba(255, 255, 255, 0.3);
   }
 </style>
