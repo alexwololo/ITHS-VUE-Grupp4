@@ -7,7 +7,9 @@
         dolorum blanditiis quam eligendi. Illum magnam quod soluta, saepe
         accusamus asperiores.
       </p>
-      <a href="#" class="register">Registrera ett konto</a>
+      <router-link to="/signup" class="register"
+        >Registrera ett konto</router-link
+      >
     </div>
   </div>
 </template>
