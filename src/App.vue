@@ -1,19 +1,62 @@
 <template>
-  <TheHeader />
+  <ResponsiveNavigation
+    :nav-links="navLinks"
+    :image-path="link"
+    background="#fff"
+    link-color="#777"
+    hover-background="#ddd"
+  />
   <RouterView />
 </template>
 
 <script>
-  import TheHeader from './components/TheHeader.vue'
+  import ResponsiveNavigation from './components/ResponsiveNavigation.vue'
+
   export default {
     components: {
-      TheHeader
-    }
+      ResponsiveNavigation
+    },
+    data: () => ({
+      navLinks: [
+        {
+          text: 'Swindlr',
+          path: '/',
+          icon: '',
+        },
+        {
+          text: 'Log in',
+          path: '/signin',
+          icon: 'ion-ios-log-in',
+        },
+        {
+          text: 'Products',
+          path: '/products',
+          icon: 'ion-ios-briefcase',
+        },
+        {
+          text: 'Support',
+          path: '/support',
+          icon: 'ion-ios-help-circle'
+        },
+        {
+          text: 'Edit profile',
+          path: '/edit',
+          icon: 'ion-ios-create'
+        },
+        {
+          text: 'Date',
+          path: '/date',
+          icon: 'ion-ios-heart'
+        },
+      ]
+    })
   }
 </script>
 
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap');
+  @import 'https://unpkg.com/ionicons@4.2.2/dist/css/ionicons.min.css';
+
 
   html {
     font-family: 'Roboto', sans-serif;

@@ -29,7 +29,7 @@
     props: {
       navLinks: {
         default: '',
-        type: String
+        type: String,
       },
       background: {
         default: '',
@@ -61,7 +61,6 @@
   nav {
     height: 60px;
     width: 100%;
-    box-shadow: 2px 2px 2px 2px #ccc;
 
     ul {
       display: flex;
@@ -70,7 +69,8 @@
       margin-block-start: 0;
       margin-block-end: 0;
       padding-inline-start: 0;
-      box-shadow: 2px 2px 2px 2px #ccc;
+      box-shadow: 2px 2px 2px 2px #777;
+
 
       figure {
         cursor: pointer;
@@ -82,6 +82,11 @@
         display: flex;
         flex-direction: row-reverse;
         align-items: center;
+      }
+
+      i {
+        margin-right: 10px;
+        font-size: 22px;
       }
 
       li {
@@ -110,11 +115,13 @@
           top: 10px;
           left: 2px;
         }
+
         li {
           width: 100%;
           padding-left: 0;
           padding-right: 0;
         }
+
         a {
           flex-direction: row;
           margin-left: 20px;
