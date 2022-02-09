@@ -29,7 +29,7 @@
     props: {
       navLinks: {
         default: '',
-        type: String,
+        type: String
       },
       background: {
         default: '',
