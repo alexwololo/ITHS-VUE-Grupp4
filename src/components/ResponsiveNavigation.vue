@@ -71,7 +71,6 @@
       padding-inline-start: 0;
       box-shadow: 2px 2px 2px 2px #777;
 
-
       figure {
         cursor: pointer;
         margin-right: 10px;
