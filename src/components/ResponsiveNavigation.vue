@@ -2,7 +2,7 @@
   <nav :style="{ background: background || '#333' }">
     <ul :style="{ background: background || '#333' }" ref="nav">
       <figure class="image-logo" @click="toggleNav">
-        <img :src="imagePath" height="40px" width="40px" />
+        <img src="../../assets/icon.png" alt="logo" />
       </figure>
       <li
         v-for="(link, index) in navLinks"
@@ -28,8 +28,8 @@
   export default {
     props: {
       navLinks: {
-        default: '',
-        type: String
+        default: () => [],
+        type: Array
       },
       background: {
         default: '',
@@ -58,9 +58,15 @@
 </script>
 
 <style scoped lang="scss">
+  img {
+    width: 40px;
+    height: 40px;
+  }
+
   nav {
-    height: 60px;
+    height: 80px;
     width: 100%;
+    box-shadow: 2px 2px 2px 2px #777;
 
     ul {
       display: flex;
@@ -101,9 +107,9 @@
         position: absolute;
         width: 300px;
         flex-direction: column;
-        left: -240px;
+        left: -310px;
         transition: 300ms ease all;
-        top: 60px;
+        top: 80px;
         &.active {
           left: 0px;
         }
