@@ -13,7 +13,7 @@
     <input type="text" id="edit-age" @change="changedValue" :value="ageValue" />
   </label>
   <label>
-    Intressen & Hobbies:
+    Intressen & hobbies:
     <textarea
       id="edit-interests"
       @change="changedValue"

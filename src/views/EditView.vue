@@ -100,7 +100,7 @@
       align-items: center;
     }
     #left-side {
-      margin-right: 20rem;
+      margin-right: 4rem;
     }
     #right-side {
       margin-top: 2rem;

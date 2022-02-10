@@ -2,6 +2,7 @@
   <div id="img-container">
     <img :src="profilePic" alt="" id="profile-pic" :key="updateKey" />
   </div>
+  <p>Välj ny profilbild.</p>
   <div id="input-container">
     <label for="uploadImage" class="custom-file-upload btn">
       Bläddra...
