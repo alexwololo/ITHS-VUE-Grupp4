@@ -66,7 +66,7 @@
     padding: 8px;
     border: none;
     outline: 2px solid lightgrey;
-    background-color: none;
+    background-color: white;
     font-family: 'Roboto', sans-serif;
     font-size: 1rem;
     resize: none;
@@ -77,7 +77,7 @@
     padding: 8px;
     border: none;
     outline: 2px solid lightgrey;
-    background-color: none;
+    background-color: white;
     font-family: 'Roboto', sans-serif;
     font-size: 1rem;
   }
