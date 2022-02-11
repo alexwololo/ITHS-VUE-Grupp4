@@ -51,22 +51,9 @@ emits: ['show-message'],
       <input @click="regUser" @show-message="welcomeUser" id="button" type="button" value="Registrera" />
       <a id="loginLink" href="">Logga in</a>
       <div v-if="message">
-      <h3>{{ 'Välkommen ' + this.$store.state.user + '!' }}</h3>
+      <h3>Välkommen {{ this.$store.state.user }}!</h3>
+
       </div>
-  <!-- <h1>Registrering</h1>
-  <div class="wrapper">
-    <form>
-      <label for="username">Användarnamn:</label>
-      <input v-model="s" id="username" type="text" placeholder="Användarnamn" />
-      <br />
-      <label for="email">Email:</label
-      ><input v-model="t" id="email" type="text" placeholder="Mail" />
-      <br />
-      <label for="password">Lösen:</label
-      ><input v-model="u" id="password" type="password" placeholder="Lösen" />
-      <input @click="regUser" type="button" value="Registrera" />
-    </form>
-  </div> -->
 </div>
 </template>
 
