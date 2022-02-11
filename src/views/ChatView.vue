@@ -1,13 +1,69 @@
+<template>
+  <ResponsiveNavigation
+    :nav-links="navLinks"
+    background="#fff"
+    link-color="#777"
+    hover-background="#ddd"
+  />
+  <ChatComponent />
+</template>
+
 <script>
-import ChatComponent from "../components/ChatComponent.vue";
-export default {
-  components: {
-    ChatComponent
+  import ResponsiveNavigation from '../components/ResponsiveNavigation.vue'
+  import ChatComponent from '../components/ChatComponent.vue'
+
+  export default {
+    components: {
+      ResponsiveNavigation,
+      ChatComponent
+    },
+    data() {
+      return {
+        navLinks: [
+          {
+            text: 'Home',
+            path: '/lounge',
+            icon: 'ion-ios-home'
+          },
+          {
+            text: 'Messages',
+            path: '/chat',
+            icon: 'ion-ios-mail'
+          },
+          {
+            text: 'Favourites',
+            path: '/favorites',
+            icon: 'ion-ios-heart'
+          },
+          {
+            text: 'Edit profile',
+            path: '/edit',
+            icon: 'ion-ios-create'
+          },
+          {
+            text: 'Log out',
+            path: '/',
+            icon: 'ion-ios-log-out'
+          }
+        ]
+      }
+    }
   }
-}
 </script>
 
-<template>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap');
+  @import 'https://unpkg.com/ionicons@4.2.2/dist/css/ionicons.min.css';
 
-<ChatComponent />
-</template>
+  html {
+    font-family: 'Roboto', sans-serif;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+  }
+</style>
