@@ -42,8 +42,10 @@ const router = createRouter({
       path: '/date'
     },
     {
-    component: ChatView,
-    path: '/chat'
+      component: ChatView,
+      path: '/chat'
+    },
+    {
       component: FavoritesListView,
       path: '/favorites'
     }
