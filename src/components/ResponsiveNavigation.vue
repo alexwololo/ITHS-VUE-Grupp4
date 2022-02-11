@@ -66,8 +66,7 @@
   nav {
     height: 80px;
     width: 100%;
-    box-shadow: 2px 2px 2px 2px #777;
-
+    box-shadow: 2px 2px 2px 2px rgb(230, 230, 230);
     .image-logo {
       flex-grow: 4;
     }
@@ -80,7 +79,6 @@
       margin-block-end: 0;
       padding-inline-start: 0;
       padding-right: 30px;
-      box-shadow: 2px 2px 2px 2px #777;
 
       figure {
         cursor: pointer;
@@ -106,7 +104,7 @@
     }
   }
 
-  @media screen and (max-width: 909px) {
+  @media screen and (max-width: 916px) {
     nav {
       ul {
         position: absolute;
@@ -115,6 +113,8 @@
         left: -191px;
         transition: 300ms ease all;
         top: 80px;
+        box-shadow: 2px 2px 2px 2px rgb(230, 230, 230);
+
         &.active {
           left: 0px;
         }
