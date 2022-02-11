@@ -1,69 +1,97 @@
 <template>
-  <p>Parameters</p>
   <label>
     Namn:
     <input
       type="text"
-      id="editName"
+      id="edit-name"
       @change="changedValue"
       :value="nameValue"
     />
   </label>
-  <br />
-  <br />
   <label>
     Ålder:
-    <input type="text" id="editAge" @change="changedValue" :value="ageValue" />
+    <input type="text" id="edit-age" @change="changedValue" :value="ageValue" />
   </label>
-  <br />
-  <br />
   <label>
-    Intressen & Hobbies:
-    <input
-      type="text"
-      id="editInterests"
+    Intressen & hobbies:
+    <textarea
+      id="edit-interests"
       @change="changedValue"
       :value="interestsValue"
+      rows="4"
+      cols="50"
     />
   </label>
-  <br />
-  <br />
   <label>
     Biografi:
-    <input
-      type="text"
-      id="editBiography"
+    <textarea
+      id="edit-biography"
       @change="changedValue"
       :value="biographyValue"
+      rows="4"
+      cols="50"
     />
   </label>
-  <br />
-  <br />
 </template>
 
 <script>
   export default {
     data() {
       return {
-        nameValue: localStorage.getItem('name'),
-        ageValue: localStorage.getItem('age'),
-        interestsValue: localStorage.getItem('interests'),
-        biographyValue: localStorage.getItem('biography')
+        nameValue: this.$store.state.name,
+        ageValue: this.$store.state.age,
+        interestsValue: this.$store.state.interests,
+        biographyValue: this.$store.state.biography
       }
     },
     methods: {
       changedValue() {
-        let name = document.getElementById('editName').value
-        let age = document.getElementById('editAge').value
-        let interests = document.getElementById('editInterests').value
-        let biography = document.getElementById('editBiography').value
-        localStorage.setItem('name', name)
-        localStorage.setItem('age', age)
-        localStorage.setItem('interests', interests)
-        localStorage.setItem('biography', biography)
+        this.nameValue = document.getElementById('edit-name').value
+        this.ageValue = document.getElementById('edit-age').value
+        this.interestsValue = document.getElementById('edit-interests').value
+        this.biographyValue = document.getElementById('edit-biography').value
+        this.$store.commit('setName', this.nameValue)
+        this.$store.commit('setAge', this.ageValue)
+        this.$store.commit('setInterests', this.interestsValue)
+        this.$store.commit('setBiography', this.biographyValue)
       }
     }
   }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+  textarea {
+    border-radius: 7px;
+    margin-top: 0.25rem;
+    padding: 8px;
+    border: none;
+    outline: 2px solid lightgrey;
+    background-color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    resize: none;
+  }
+  input {
+    border-radius: 7px;
+    margin-top: 0.25rem;
+    padding: 8px;
+    border: none;
+    outline: 2px solid lightgrey;
+    background-color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+  }
+  label {
+    text-align: left;
+    margin: 0 1rem 1rem 1rem;
+  }
+  label,
+  textarea {
+    display: flex;
+    flex-direction: column;
+  }
+  input:focus,
+  textarea:focus {
+    outline: 2px solid grey;
+  }
+</style>

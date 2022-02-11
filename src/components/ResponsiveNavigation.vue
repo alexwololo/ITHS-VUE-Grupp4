@@ -2,7 +2,7 @@
   <nav :style="{ background: background || '#333' }">
     <ul :style="{ background: background || '#333' }" ref="nav">
       <figure class="image-logo" @click="toggleNav">
-        <img :src="imagePath" height="40px" width="40px" />
+        <img src="../../assets/icon.png" alt="logo" />
       </figure>
       <li
         v-for="(link, index) in navLinks"
@@ -28,8 +28,8 @@
   export default {
     props: {
       navLinks: {
-        default: '',
-        type: String
+        default: () => [],
+        type: Array
       },
       background: {
         default: '',
@@ -58,10 +58,15 @@
 </script>
 
 <style scoped lang="scss">
+  img {
+    width: 40px;
+    height: 40px;
+  }
+
   nav {
-    height: 60px;
+    height: 80px;
     width: 100%;
-    box-shadow: 2px 2px 2px 2px #ccc;
+    box-shadow: 2px 2px 2px 2px #777;
 
     ul {
       display: flex;
@@ -70,7 +75,7 @@
       margin-block-start: 0;
       margin-block-end: 0;
       padding-inline-start: 0;
-      box-shadow: 2px 2px 2px 2px #ccc;
+      box-shadow: 2px 2px 2px 2px #777;
 
       figure {
         cursor: pointer;
@@ -82,6 +87,11 @@
         display: flex;
         flex-direction: row-reverse;
         align-items: center;
+      }
+
+      i {
+        margin-right: 10px;
+        font-size: 22px;
       }
 
       li {
@@ -97,9 +107,9 @@
         position: absolute;
         width: 300px;
         flex-direction: column;
-        left: -240px;
+        left: -310px;
         transition: 300ms ease all;
-        top: 60px;
+        top: 80px;
         &.active {
           left: 0px;
         }
@@ -110,11 +120,13 @@
           top: 10px;
           left: 2px;
         }
+
         li {
           width: 100%;
           padding-left: 0;
           padding-right: 0;
         }
+
         a {
           flex-direction: row;
           margin-left: 20px;

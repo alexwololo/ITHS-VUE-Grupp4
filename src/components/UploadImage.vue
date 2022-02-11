@@ -2,32 +2,35 @@
   <div id="img-container">
     <img :src="profilePic" alt="" id="profile-pic" :key="updateKey" />
   </div>
+  <p>Välj ny profilbild.</p>
   <div id="input-container">
-    <label for="uploadImage" class="custom-file-upload"> Bläddra... </label>
-    <input
-      type="file"
-      name=""
-      id="uploadImage"
-      ref="myFile"
-      @change="imageToBase64(), imageUploaded()"
-    />
-    <input type="button" value="Ladda upp" @click="reload()" />
+    <label for="uploadImage" class="custom-file-upload btn">
+      Bläddra...
+      <input
+        type="file"
+        id="uploadImage"
+        ref="myFile"
+        @change="imageToBase64(), imageUploaded()"
+      />
+    </label>
+    <input class="btn" type="button" value="Ladda upp" @click="reload()" />
   </div>
 </template>
 
 <script>
   export default {
     data() {
-      if (localStorage.getItem('savedImage')) {
+      if (this.$store.state.picture) {
         return {
-          profilePic: localStorage.getItem('savedImage'),
+          profilePic: this.$store.state.picture,
           pic2: './assets/save-image.png',
           file: {},
           updateKey: 0
         }
       } else {
         return {
-          profilePic: './assets/no-profile.png',
+          profilePic: './assets/no-image.png',
+          pic2: './assets/save-image.png',
           file: {},
           updateKey: 0
         }
@@ -38,8 +41,8 @@
         document.getElementById('profile-pic').src = this.pic2
       },
       reload() {
-        document.getElementById('profile-pic').src =
-          localStorage.getItem('savedImage')
+        this.$store.commit('setPicture', localStorage.getItem('savedImage'))
+        document.getElementById('profile-pic').src = this.$store.state.picture
       },
       imageToBase64() {
         var filesSelected = document.getElementById('uploadImage').files
@@ -60,16 +63,16 @@
 </script>
 
 <style lang="scss" scoped>
-  $btn: #3369ff;
+  $btn: #6200ee;
   #img-container {
-    margin: 1rem auto 1.5rem auto;
+    margin: 0 auto 1.5rem auto;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 250px;
     height: 250px;
     background-color: white;
-    border: 2px solid black;
+    border: 2px solid grey;
     border-radius: 50%;
     overflow: hidden;
   }
@@ -82,46 +85,37 @@
     max-height: 50px;
     display: flex;
     justify-content: center;
+    margin-bottom: 1rem;
     input[type='file'] {
-      display: none;
+      opacity: 0;
+      width: 0;
     }
     input {
       border: none;
-      font-size: 0.9rem;
-      border-radius: 1.5em;
-      box-sizing: border-box;
-      text-decoration: none;
-      font-family: 'Roboto', sans-serif;
-      text-transform: uppercase;
-      font-weight: 400;
-      color: #ffffff;
-      background-color: $btn;
-      box-shadow: inset 0 -0.6em 0 -0.35em rgba(0, 0, 0, 0.17);
-      text-align: center;
-      position: relative;
-      display: inline-block;
-      height: min-content;
-      width: min-content;
       margin-left: 1rem;
-      padding: 0.7em 1.4em;
-      cursor: pointer;
     }
     input:hover,
     input:focus,
     .custom-file-upload:hover,
-    .custom-file-upload:focus {
-      background-color: #1948ca;
+    .custom-file-upload:focus,
+    .custom-file-upload:focus-within {
+      background-color: #4a00b3;
     }
     input:active {
       top: 0.1em;
     }
     .custom-file-upload {
-      font-size: 0.9rem;
-      border-radius: 1.5em;
+      margin-right: 1rem;
+    }
+    .custom-file-upload:active {
+      top: 0.1em;
+    }
+    .btn {
+      font-size: 1rem;
+      border-radius: 4px;
       box-sizing: border-box;
       text-decoration: none;
       font-family: 'Roboto', sans-serif;
-      text-transform: uppercase;
       font-weight: 400;
       color: #ffffff;
       background-color: $btn;
@@ -129,14 +123,8 @@
       text-align: center;
       position: relative;
       display: inline-block;
-      height: min-content;
-      width: min-content;
-      margin-right: 1rem;
       padding: 0.7em 1.4em;
       cursor: pointer;
-    }
-    .custom-file-upload:active {
-      top: 0.1em;
     }
   }
 </style>

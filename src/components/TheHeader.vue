@@ -1,7 +1,8 @@
 <template>
   <header>
     <nav>
-      <h2><router-link to="/">Swindler</router-link></h2>
+      <i class="fas fa-bars" />
+      <h2><router-link to="/">Swindlr</router-link></h2>
       <ul>
         <li><a href="#" class="options">Produkter</a></li>
         <li><a href="#" class="options">Support</a></li>
@@ -28,6 +29,12 @@
     justify-content: flex-start;
     align-items: center;
     padding-right: 30px;
+    left: 95%;
+    top: 16px;
+  }
+
+  i {
+    font-size: 2rem;
   }
 
   nav li {
@@ -63,5 +70,17 @@
     display: inline;
     padding-right: 0.9em;
     padding-left: 0.9em;
+  }
+
+  @media (max-width: 768px) {
+    ul {
+      display: none;
+    }
+  }
+
+  @media (min-width: 769px) {
+    ul {
+      display: block;
+    }
   }
 </style>
