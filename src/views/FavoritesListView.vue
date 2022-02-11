@@ -28,12 +28,16 @@
 </script>
 
 <style lang="scss" scoped>
+  h1 {
+    margin: 0;
+  }
   #profiles-container {
     align-self: center;
     background-color: white;
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-content: center;
+    padding-bottom: 0.5rem;
   }
   .profile-card {
     display: flex;
@@ -66,4 +70,11 @@
   // p {
   //   white-space: pre-line;
   // }
+
+  @media screen and (min-width: 980px) {
+    #profiles-container {
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+      padding: 1rem 0 1rem 0;
+    }
+  }
 </style>
