@@ -8,7 +8,11 @@
           <p>{{ user.name }}</p>
           <p>{{ user.age }} år</p>
         </div>
-        <p class="read-more">Visa mer...</p>
+        <p class="read-more">
+          <router-link class="link-style" :to="'/favorite/' + user.id"
+            >Visa mer...</router-link
+          >
+        </p>
       </div>
     </div>
   </div>
@@ -17,13 +21,11 @@
 <script>
   import usersData from '../profiles.json'
   export default {
-    created() {},
     data() {
       return {
         users: usersData
       }
-    },
-    methods: {}
+    }
   }
 </script>
 
@@ -33,7 +35,7 @@
   }
   #profiles-container {
     align-self: center;
-    background-color: white;
+    // background-color: white;
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-content: center;
@@ -55,7 +57,7 @@
   .profile-picture {
     align-self: center;
     width: 150px;
-    border: 1px solid grey;
+    border: 2px solid grey;
     border-radius: 50%;
     margin-top: 0.75rem;
   }
@@ -66,15 +68,19 @@
   .read-more {
     float: right;
     margin-right: 1.25rem;
+    color: #6200ee;
   }
-  // p {
-  //   white-space: pre-line;
-  // }
+  .link-style {
+    text-decoration: none;
+  }
 
   @media screen and (min-width: 980px) {
     #profiles-container {
       grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-      padding: 1rem 0 1rem 0;
+      padding: 1rem 0 0 0;
+    }
+    .profile-card {
+      margin-bottom: 1.5rem;
     }
   }
 </style>
