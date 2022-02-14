@@ -5,7 +5,6 @@
     link-color="#777"
     hover-background="#ddd"
   />
-
   <div id="profile-container">
     <div id="left-side">
       <img

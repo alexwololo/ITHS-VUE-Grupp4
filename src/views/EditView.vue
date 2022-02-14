@@ -5,7 +5,6 @@
     link-color="#777"
     hover-background="#ddd"
   />
-
   <div id="edit-container">
     <div id="left-side">
       <h1>Redigera profil</h1>
@@ -97,6 +96,8 @@
   #edit-container {
     background-color: white;
     text-align: center;
+    margin-top: -17px;
+    padding-bottom: 0.5rem;
   }
   h1 {
     text-align: center;
@@ -139,6 +140,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      margin: 0;
     }
     #left-side {
       margin-right: 4rem;
