@@ -46,6 +46,11 @@
             icon: 'ion-ios-home'
           },
           {
+            text: 'Start dating',
+            path: '/date',
+            icon: 'ion-ios-thumbs-up'
+          },
+          {
             text: 'Messages',
             path: '/chat',
             icon: 'ion-ios-mail'
