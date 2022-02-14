@@ -5,7 +5,7 @@
     link-color="#777"
     hover-background="#ddd"
   />
-  <RouterView />
+  <RouterView class="router-view" />
 </template>
 
 <script>
@@ -78,5 +78,8 @@
 
   body {
     margin: 0;
+  }
+  .router-view {
+    padding-bottom: 1.5rem;
   }
 </style>

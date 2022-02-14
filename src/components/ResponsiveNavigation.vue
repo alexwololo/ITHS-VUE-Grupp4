@@ -122,8 +122,14 @@
         figure {
           position: fixed;
           z-index: 1;
-          top: 10px;
-          left: 2px;
+          top: -16px;
+          left: -40px;
+          background-color: white;
+          padding-left: 42px;
+          padding-top: 26px;
+          padding-bottom: 10px;
+          width: 100%;
+          box-shadow: 2px 2px 2px 2px rgb(230, 230, 230);
         }
 
         li {

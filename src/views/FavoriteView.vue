@@ -12,16 +12,18 @@
       </div>
     </div>
     <div id="right-side">
-      <p class="profile-header">Intressen & Hobbies:</p>
-      <ul>
-        <li
-          class="interests"
-          v-for="interest in interests"
-          :key="interest.length"
-        >
-          {{ interest }}
-        </li>
-      </ul>
+      <div class="interests-container">
+        <p class="profile-header">Intressen & Hobbies:</p>
+        <ul>
+          <li
+            class="interests"
+            v-for="interest in interests"
+            :key="interest.length"
+          >
+            {{ interest }}
+          </li>
+        </ul>
+      </div>
       <p class="profile-header">{{ users[profileId].biography }}</p>
       <p class="to-messages">
         <router-link class="routerlink" :to="'/'"
@@ -74,11 +76,16 @@
   .name-age {
     display: flex;
     justify-content: space-evenly;
-    margin-right: 4rem;
     margin-left: 4rem;
+    margin-right: 4rem;
     h1 {
       margin: 1rem 0 0 0;
     }
+  }
+  .interests-container {
+    border-bottom: 3px solid #e6e6e6;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
   }
   .interests {
     list-style: none;
@@ -91,7 +98,7 @@
   }
   .to-messages {
     display: flex;
-    margin: 0 auto 0 auto;
+    margin: 1rem auto 0 auto;
   }
   .routerlink {
     margin: 1rem auto 1rem auto;
@@ -113,12 +120,22 @@
       justify-content: center;
       align-items: center;
     }
+    .name-age {
+      margin-left: 0;
+      margin-right: 0;
+    }
     #left-side {
       margin-right: 4rem;
     }
+
     #right-side {
       margin-top: 2rem;
       margin-bottom: 1rem;
+    }
+    .interests-container {
+      border-bottom: 3px solid #e6e6e6;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
     }
   }
 </style>

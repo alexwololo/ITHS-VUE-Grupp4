@@ -2,7 +2,13 @@
   <h1>Favoritprofiler</h1>
   <div id="profiles-container">
     <div class="profile-card" v-for="user in users" :key="user.id">
-      <img :src="user.picture" alt="Profile picture" class="profile-picture" />
+      <router-link class="link-style" :to="'/favorite/' + user.id"
+        ><img
+          :src="user.picture"
+          alt="Profile picture"
+          class="profile-picture"
+        />
+      </router-link>
       <div class="profile-information">
         <div class="name-age">
           <p>{{ user.name }}</p>
@@ -31,9 +37,13 @@
 
 <style lang="scss" scoped>
   h1 {
-    margin: 0;
+    margin: 1rem 0 0 1rem;
+    color: #fff;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+      1px 1px 0 #000;
   }
   #profiles-container {
+    margin-top: 0;
     align-self: center;
     // background-color: white;
     display: grid;
@@ -71,13 +81,20 @@
     color: #6200ee;
   }
   .link-style {
+    display: flex;
+    justify-content: center;
     text-decoration: none;
+    color: #6200ee;
+  }
+  a:visited {
+    color: #6200ee;
   }
 
   @media screen and (min-width: 980px) {
     #profiles-container {
       grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
       padding: 1rem 0 0 0;
+      margin-top: -0.5rem;
     }
     .profile-card {
       margin-bottom: 1.5rem;

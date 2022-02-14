@@ -29,21 +29,21 @@
     <label class="labels" for="email">Email</label>
     <input v-model="t" id="email" type="text" placeholder="Mail" />
 
-      <label class="labels" for="password">Lösenord</label>
-      <input
-        v-model="u"
-        id="password"
-        type="password"
-        placeholder="Lösenord"
-      />
-      <input @click="regUser" @show-message="welcomeUser" id="button" type="button" value="Registrera" />
-      <a id="loginLink" href="">Logga in</a>
-      <div v-if="message">
+    <label class="labels" for="password">Lösenord</label>
+    <input v-model="u" id="password" type="password" placeholder="Lösenord" />
+    <input
+      @click="regUser"
+      @show-message="welcomeUser"
+      id="button"
+      type="button"
+      value="Registrera"
+    />
+    <a id="loginLink" href="">Logga in</a>
+    <div v-if="message">
       <h3>Välkommen {{ this.$store.state.user }}!</h3>
-
-      </div>
-</div>
-    <!-- <label class="labels" for="password">Lösenord</label>
+    </div>
+  </div>
+  <!-- <label class="labels" for="password">Lösenord</label>
     <input v-model="u" id="password" type="password" placeholder="Lösenord" />
     <input
       @click="regUser"
@@ -57,7 +57,7 @@
 <<<<<<< HEAD
       <h3>{{ 'Välkommen ' + this.$store.state.user + '!' }}</h3>
     </div> -->
-    <!-- <h1>Registrering</h1>
+  <!-- <h1>Registrering</h1>
 =======
       <h3>Välkommen {{ this.$store.state.user }}!</h3>
     </div>
@@ -70,7 +70,6 @@
       <input @click="regUser" type="button" value="Registrera" />
     </form>
   </div> -->
-
 </template>
 
 <style scoped>
