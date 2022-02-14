@@ -44,6 +44,8 @@ const router = createRouter({
     {
     component: ChatView,
     path: '/chat'
+    },
+    {
       component: FavoritesListView,
       path: '/favorites'
     }
