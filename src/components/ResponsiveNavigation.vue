@@ -78,7 +78,7 @@
       margin-block-start: 0;
       margin-block-end: 0;
       padding-inline-start: 0;
-      padding-right: 0px;
+      padding-right: 50px;
 
       figure {
         cursor: pointer;
@@ -93,7 +93,7 @@
       }
 
       i {
-        margin-right: 40px;
+        margin-right: 20px;
         font-size: 22px;
       }
 
@@ -104,7 +104,7 @@
     }
   }
 
-  @media screen and (max-width: 916px) {
+  @media screen and (max-width: 1144px) {
     nav {
       ul {
         position: fixed;
