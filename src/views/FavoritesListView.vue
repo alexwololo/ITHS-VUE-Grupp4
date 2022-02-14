@@ -1,4 +1,10 @@
 <template>
+  <ResponsiveNavigation
+    :nav-links="navLinks"
+    background="#fff"
+    link-color="#777"
+    hover-background="#ddd"
+  />
   <h1>Favoritprofiler</h1>
   <div id="profiles-container">
     <div class="profile-card" v-for="user in users" :key="user.id">
@@ -26,12 +32,42 @@
 
 <script>
   import usersData from '../profiles.json'
+  import ResponsiveNavigation from '../components/ResponsiveNavigation.vue'
+
   export default {
     data() {
       return {
-        users: usersData
+        users: usersData,
+        navLinks: [
+          {
+            text: 'Home',
+            path: '/lounge',
+            icon: 'ion-ios-home'
+          },
+          {
+            text: 'Messages',
+            path: '/chat',
+            icon: 'ion-ios-mail'
+          },
+          {
+            text: 'Favourites',
+            path: '/favorites',
+            icon: 'ion-ios-heart'
+          },
+          {
+            text: 'Edit profile',
+            path: '/edit',
+            icon: 'ion-ios-create'
+          },
+          {
+            text: 'Log out',
+            path: '/',
+            icon: 'ion-ios-log-out'
+          }
+        ]
       }
-    }
+    },
+    components: { ResponsiveNavigation }
   }
 </script>
 

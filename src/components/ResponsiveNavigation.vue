@@ -107,10 +107,11 @@
   @media screen and (max-width: 916px) {
     nav {
       ul {
-        position: absolute;
+        position: fixed;
         width: 250px;
+        height: 100%;
         flex-direction: column;
-        left: -191px;
+        left: -255px;
         transition: 300ms ease all;
         top: 80px;
         box-shadow: 2px 2px 2px 2px rgb(230, 230, 230);
