@@ -5,7 +5,6 @@
     link-color="#777"
     hover-background="#ddd"
   />
-
   <h1>Favoritprofiler</h1>
   <div id="profiles-container">
     <div class="profile-card" v-for="user in users" :key="user.id">
@@ -36,6 +35,9 @@
   import ResponsiveNavigation from '../components/ResponsiveNavigation.vue'
 
   export default {
+    components: {
+      ResponsiveNavigation
+    },
     data() {
       return {
         users: usersData,
@@ -72,8 +74,7 @@
           }
         ]
       }
-    },
-    components: { ResponsiveNavigation }
+    }
   }
 </script>
 
@@ -132,9 +133,48 @@
     color: #6200ee;
   }
 
-  @media screen and (min-width: 980px) {
+  @media screen and (min-width: 580px) and (max-width: 767px) {
     #profiles-container {
-      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+      padding: 1rem 0 0 0;
+      margin-top: -0.5rem;
+    }
+    .profile-card {
+      margin-bottom: 1rem;
+    }
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 979px) {
+    #profiles-container {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      padding: 1rem 0 0 0;
+      margin-top: -0.5rem;
+    }
+    .profile-card {
+      margin-bottom: 1rem;
+    }
+  }
+
+  @media screen and (min-width: 980px) and (max-width: 1179px) {
+    #profiles-container {
+      width: 980px;
+      margin-left: auto;
+      margin-right: auto;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      padding: 1rem 0 0 0;
+      margin-top: -0.5rem;
+    }
+    .profile-card {
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  @media screen and (min-width: 1180px) {
+    #profiles-container {
+      width: 1180px;
+      margin-left: auto;
+      margin-right: auto;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
       padding: 1rem 0 0 0;
       margin-top: -0.5rem;
     }

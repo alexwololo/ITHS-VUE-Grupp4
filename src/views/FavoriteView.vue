@@ -30,9 +30,9 @@
           </li>
         </ul>
       </div>
-      <p class="profile-header">{{ users[profileId].biography }}</p>
+      <p class="profile-header bio">{{ users[profileId].biography }}</p>
       <p class="to-messages">
-        <router-link class="routerlink" :to="'/'"
+        <router-link class="routerlink" :to="'/chat'"
           >Skicka meddelande till {{ users[profileId].name }}</router-link
         >
       </p>
@@ -45,12 +45,11 @@
   import ResponsiveNavigation from '../components/ResponsiveNavigation.vue'
 
   export default {
-    components: { ResponsiveNavigation },
+    components: {
+      ResponsiveNavigation
+    },
     data() {
       return {
-        users: usersData,
-        profileId: this.$route.params.profileid - 1,
-        interests: usersData[this.$route.params.profileid - 1].interests,
         navLinks: [
           {
             text: 'Home',
@@ -82,7 +81,10 @@
             path: '/',
             icon: 'ion-ios-log-out'
           }
-        ]
+        ],
+        users: usersData,
+        profileId: this.$route.params.profileid - 1,
+        interests: usersData[this.$route.params.profileid - 1].interests
       }
     }
   }
@@ -95,9 +97,14 @@
   .profile-header {
     margin: 0.5rem 0.5rem 0 1rem;
   }
+  .bio {
+    max-width: 500px;
+  }
   #profile-container {
     background-color: white;
-    padding-top: 2rem;
+    margin: 1rem;
+    padding: 1rem 0;
+    border-radius: 1rem;
     ul {
       display: flex;
       flex-wrap: wrap;
@@ -160,6 +167,9 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      margin: 2rem 10rem;
+      padding: 0;
+      border-radius: 1rem;
     }
     .name-age {
       margin-left: 0;
@@ -167,11 +177,12 @@
     }
     #left-side {
       margin-right: 4rem;
+      margin: 2rem 4rem 1.4rem 0;
     }
 
     #right-side {
       margin-top: 2rem;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
     }
     .interests-container {
       border-bottom: 3px solid #e6e6e6;

@@ -96,12 +96,13 @@
   #edit-container {
     background-color: white;
     text-align: center;
-    margin-top: -17px;
+    margin: 0 auto;
     padding-bottom: 0.5rem;
   }
   h1 {
     text-align: center;
-    padding-top: 1rem;
+    padding-top: 1.5rem;
+    margin-top: 0;
   }
   #saveProfile {
     border: none;
@@ -115,7 +116,6 @@
     background-color: $btn;
     box-shadow: inset 0 -0.6em 0 -0.35em rgba(0, 0, 0, 0.17);
     text-align: center;
-    position: relative;
     display: inline-block;
     height: max-content;
     width: max-content;
@@ -140,7 +140,9 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      margin: 0;
+      margin: 2rem 15rem;
+      padding: 0;
+      border-radius: 1rem;
     }
     #left-side {
       margin-right: 4rem;
