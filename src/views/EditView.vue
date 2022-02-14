@@ -1,4 +1,11 @@
 <template>
+  <ResponsiveNavigation
+    :nav-links="navLinks"
+    background="#fff"
+    link-color="#777"
+    hover-background="#ddd"
+  />
+
   <div id="edit-container">
     <div id="left-side">
       <h1>Redigera profil</h1>
@@ -19,6 +26,7 @@
 <script>
   import UploadImage from '../components/UploadImage.vue'
   import EditProfileParameters from '../components/EditProfileParameters.vue'
+  import ResponsiveNavigation from '../components/ResponsiveNavigation.vue'
 
   export default {
     data() {
@@ -27,12 +35,40 @@
         ageValue: '',
         interestsValue: '',
         biographyValue: '',
-        pictureValue: ''
+        pictureValue: '',
+        navLinks: [
+          {
+            text: 'Home',
+            path: '/lounge',
+            icon: 'ion-ios-home'
+          },
+          {
+            text: 'Messages',
+            path: '/chat',
+            icon: 'ion-ios-mail'
+          },
+          {
+            text: 'Favourites',
+            path: '/favorites',
+            icon: 'ion-ios-heart'
+          },
+          {
+            text: 'Edit profile',
+            path: '/edit',
+            icon: 'ion-ios-create'
+          },
+          {
+            text: 'Log out',
+            path: '/',
+            icon: 'ion-ios-log-out'
+          }
+        ]
       }
     },
     components: {
       UploadImage,
-      EditProfileParameters
+      EditProfileParameters,
+      ResponsiveNavigation
     },
     methods: {
       saveChanges() {

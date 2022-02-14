@@ -5,6 +5,7 @@
     link-color="#777"
     hover-background="#ddd"
   />
+
   <h1>Favoritprofiler</h1>
   <div id="profiles-container">
     <div class="profile-card" v-for="user in users" :key="user.id">

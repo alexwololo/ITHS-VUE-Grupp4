@@ -53,7 +53,6 @@
 
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap');
-  @import 'https://unpkg.com/ionicons@4.2.2/dist/css/ionicons.min.css';
 
   html {
     font-family: 'Roboto', sans-serif;

@@ -1,4 +1,11 @@
 <template>
+  <ResponsiveNavigation
+    :nav-links="navLinks"
+    background="#fff"
+    link-color="#777"
+    hover-background="#ddd"
+  />
+
   <div class="container">
     <div class="profilepic"><EmptyProfilePic /></div>
     <div class="bar"><CountDown /></div>
@@ -12,13 +19,46 @@
   import YesNoDate from '../components/YesNoDate.vue'
   import EmptyProfilePic from '../components/EmptyProfilePic.vue'
   import InfoBox from '../components/InfoBox.vue'
+  import ResponsiveNavigation from '../components/ResponsiveNavigation.vue'
 
   export default {
     components: {
       CountDown,
       YesNoDate,
       EmptyProfilePic,
-      InfoBox
+      InfoBox,
+      ResponsiveNavigation
+    },
+    data() {
+      return {
+        navLinks: [
+          {
+            text: 'Home',
+            path: '/lounge',
+            icon: 'ion-ios-home'
+          },
+          {
+            text: 'Messages',
+            path: '/chat',
+            icon: 'ion-ios-mail'
+          },
+          {
+            text: 'Favourites',
+            path: '/favorites',
+            icon: 'ion-ios-heart'
+          },
+          {
+            text: 'Edit profile',
+            path: '/edit',
+            icon: 'ion-ios-create'
+          },
+          {
+            text: 'Log out',
+            path: '/',
+            icon: 'ion-ios-log-out'
+          }
+        ]
+      }
     }
   }
 </script>
