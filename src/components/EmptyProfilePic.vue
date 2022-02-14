@@ -4,7 +4,7 @@
 
 <style scoped>
   img {
-    width: 50%;
+    width: 300px;
     background-color: white;
     border-radius: 40px;
     margin: 60px;
