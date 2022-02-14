@@ -78,7 +78,7 @@
       margin-block-start: 0;
       margin-block-end: 0;
       padding-inline-start: 0;
-      padding-right: 30px;
+      padding-right: 0px;
 
       figure {
         cursor: pointer;
@@ -93,7 +93,7 @@
       }
 
       i {
-        margin-right: 10px;
+        margin-right: 40px;
         font-size: 22px;
       }
 
