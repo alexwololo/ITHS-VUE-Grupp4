@@ -54,16 +54,16 @@
     />
     <a id="loginLink" href="">Logga in</a>
     <div v-if="message">
+<<<<<<< HEAD
       <h3>{{ 'Välkommen ' + this.$store.state.user + '!' }}</h3>
     </div> -->
     <!-- <h1>Registrering</h1>
-  <div class="wrapper">
-    <form>
-      <label for="username">Användarnamn:</label>
-      <input v-model="s" id="username" type="text" placeholder="Användarnamn" />
-      <br />
-      <label for="email">Email:</label
-      ><input v-model="t" id="email" type="text" placeholder="Mail" />
+=======
+      <h3>Välkommen {{ this.$store.state.user }}!</h3>
+    </div>
+  <label class="labels" for="password">Lösenord</label>
+  <input v-model="u" id="password" type="password" placeholder="Lösenord" />
+  <input
       <br />
       <label for="password">Lösen:</label
       ><input v-model="u" id="password" type="password" placeholder="Lösen" />

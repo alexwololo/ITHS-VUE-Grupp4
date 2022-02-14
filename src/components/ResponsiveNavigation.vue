@@ -2,7 +2,7 @@
   <nav :style="{ background: background || '#333' }">
     <ul :style="{ background: background || '#333' }" ref="nav">
       <figure class="image-logo" @click="toggleNav">
-        <img src="../../assets/icon.png" alt="logo" />
+        <img src="../../assets/logo.png" alt="logo" />
       </figure>
       <li
         v-for="(link, index) in navLinks"
@@ -59,23 +59,26 @@
 
 <style scoped lang="scss">
   img {
-    width: 40px;
+    width: 150px;
     height: 40px;
   }
 
   nav {
     height: 80px;
     width: 100%;
-    box-shadow: 2px 2px 2px 2px #777;
-
+    box-shadow: 2px 2px 2px 2px rgb(230, 230, 230);
+    .image-logo {
+      flex-grow: 4;
+    }
     ul {
       display: flex;
       height: 100%;
+      width: 100%;
       align-items: center;
       margin-block-start: 0;
       margin-block-end: 0;
       padding-inline-start: 0;
-      box-shadow: 2px 2px 2px 2px #777;
+      padding-right: 30px;
 
       figure {
         cursor: pointer;
@@ -101,15 +104,17 @@
     }
   }
 
-  @media screen and (max-width: 759px) {
+  @media screen and (max-width: 916px) {
     nav {
       ul {
         position: absolute;
-        width: 300px;
+        width: 250px;
         flex-direction: column;
-        left: -310px;
+        left: -191px;
         transition: 300ms ease all;
         top: 80px;
+        box-shadow: 2px 2px 2px 2px rgb(230, 230, 230);
+
         &.active {
           left: 0px;
         }
@@ -131,7 +136,7 @@
           flex-direction: row;
           margin-left: 20px;
           justify-content: space-between;
-          margin-right: 13px;
+          margin-right: -20px;
         }
       }
     }

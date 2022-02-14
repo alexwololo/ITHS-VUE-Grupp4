@@ -9,6 +9,7 @@ import EditView from './views/EditView.vue'
 import DateView from './views/DateView.vue'
 import ChatView from './views/ChatView.vue'
 import FavoritesListView from './views/FavoritesListView.vue'
+import FavoriteView from './views/FavoriteView.vue'
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -42,12 +43,16 @@ const router = createRouter({
       path: '/date'
     },
     {
-    component: ChatView,
-    path: '/chat'
+      component: ChatView,
+      path: '/chat'
     },
     {
       component: FavoritesListView,
       path: '/favorites'
+    },
+    {
+      component: FavoriteView,
+      path: '/favorite/:profileid'
     }
   ]
 })

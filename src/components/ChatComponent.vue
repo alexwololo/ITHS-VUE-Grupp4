@@ -69,7 +69,6 @@ chatBot3() {
     width: 50%;
     padding: 5px;
     border-radius: 7px;
-
   }
 
   #chatAnswers {
@@ -78,7 +77,6 @@ chatBot3() {
     width: 50%;
     padding: 5px;
     border-radius: 7px;
-
   }
 
 

@@ -12,6 +12,9 @@
   import ResponsiveNavigation from './components/ResponsiveNavigation.vue'
 
   export default {
+    created() {
+      window.addEventListener('keyup', this.historyBack)
+    },
     components: {
       ResponsiveNavigation
     },
@@ -49,6 +52,13 @@
             icon: 'ion-ios-heart'
           }
         ]
+      }
+    },
+    methods: {
+      historyBack(e) {
+        if (e.keyCode === 8) {
+          this.$router.go(-1)
+        }
       }
     }
   }
