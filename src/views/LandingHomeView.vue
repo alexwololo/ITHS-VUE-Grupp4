@@ -1,10 +1,5 @@
 <template>
-  <ResponsiveNavigation
-    :nav-links="navLinks"
-    background="#fff"
-    link-color="#777"
-    hover-background="#ddd"
-  />
+  <TheHeader />
 
   <div class="container-landing">
     <div class="landing-view">
@@ -22,41 +17,10 @@
 </template>
 
 <script>
-  import ResponsiveNavigation from '../components/ResponsiveNavigation.vue'
+  import TheHeader from '../components/TheHeader.vue'
 
   export default {
-    components: { ResponsiveNavigation },
-    data() {
-      return {
-        navLinks: [
-          {
-            text: 'Home',
-            path: '/lounge',
-            icon: 'ion-ios-home'
-          },
-          {
-            text: 'Messages',
-            path: '/chat',
-            icon: 'ion-ios-mail'
-          },
-          {
-            text: 'Favourites',
-            path: '/favorites',
-            icon: 'ion-ios-heart'
-          },
-          {
-            text: 'Edit profile',
-            path: '/edit',
-            icon: 'ion-ios-create'
-          },
-          {
-            text: 'Log out',
-            path: '/',
-            icon: 'ion-ios-log-out'
-          }
-        ]
-      }
-    }
+    components: { TheHeader }
   }
 </script>
 
