@@ -13,10 +13,8 @@
   .info {
     background-color: lightgrey;
     width: 300px;
-    height: 300px;
     border-radius: 40px;
-    margin: 60px;
-    padding: 20px;
-    text-align: center;
+    margin: 25px;
+    padding: 25px;
   }
 </style>
