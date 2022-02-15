@@ -1,4 +1,10 @@
 <template>
+  <ResponsiveNavigation
+    :nav-links="navLinks"
+    background="#fff"
+    link-color="#777"
+    hover-background="#ddd"
+  />
   <div id="edit-container">
     <div id="left-side">
       <h1>Redigera profil</h1>
@@ -19,6 +25,7 @@
 <script>
   import UploadImage from '../components/UploadImage.vue'
   import EditProfileParameters from '../components/EditProfileParameters.vue'
+  import ResponsiveNavigation from '../components/ResponsiveNavigation.vue'
 
   export default {
     data() {
@@ -27,12 +34,45 @@
         ageValue: '',
         interestsValue: '',
         biographyValue: '',
-        pictureValue: ''
+        pictureValue: '',
+        navLinks: [
+          {
+            text: 'Home',
+            path: '/lounge',
+            icon: 'ion-ios-home'
+          },
+          {
+            text: 'Start dating',
+            path: '/date',
+            icon: 'ion-ios-thumbs-up'
+          },
+          {
+            text: 'Messages',
+            path: '/chat',
+            icon: 'ion-ios-mail'
+          },
+          {
+            text: 'Favourites',
+            path: '/favorites',
+            icon: 'ion-ios-heart'
+          },
+          {
+            text: 'Edit profile',
+            path: '/edit',
+            icon: 'ion-ios-create'
+          },
+          {
+            text: 'Log out',
+            path: '/',
+            icon: 'ion-ios-log-out'
+          }
+        ]
       }
     },
     components: {
       UploadImage,
-      EditProfileParameters
+      EditProfileParameters,
+      ResponsiveNavigation
     },
     methods: {
       saveChanges() {
@@ -56,10 +96,13 @@
   #edit-container {
     background-color: white;
     text-align: center;
+    margin: 0 auto;
+    padding-bottom: 0.5rem;
   }
   h1 {
     text-align: center;
-    padding-top: 1rem;
+    padding-top: 1.5rem;
+    margin-top: 0;
   }
   #saveProfile {
     border: none;
@@ -73,7 +116,6 @@
     background-color: $btn;
     box-shadow: inset 0 -0.6em 0 -0.35em rgba(0, 0, 0, 0.17);
     text-align: center;
-    position: relative;
     display: inline-block;
     height: max-content;
     width: max-content;
@@ -89,6 +131,12 @@
     top: 0.1em;
   }
 
+  // @media screen and (min-width: 768px) and (max-width: 979px) {
+  //   #edit-container {
+  //     margin: 2rem 5rem;
+  //   }
+  // }
+
   @media screen and (min-width: 980px) {
     h1 {
       margin-top: 0.7rem;
@@ -98,6 +146,9 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      margin: 2rem 3rem;
+      padding: 0;
+      border-radius: 1rem;
     }
     #left-side {
       margin-right: 4rem;
@@ -105,6 +156,12 @@
     #right-side {
       margin-top: 2rem;
       margin-bottom: 1rem;
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    #edit-container {
+      margin: 2rem 10rem;
     }
   }
 </style>

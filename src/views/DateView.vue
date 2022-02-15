@@ -1,8 +1,15 @@
 <template>
+  <ResponsiveNavigation
+    :nav-links="navLinks"
+    background="#fff"
+    link-color="#777"
+    hover-background="#ddd"
+  />
+
   <div class="container">
     <div class="profilepic"><EmptyProfilePic /></div>
-    <div class="info"><InfoBox /></div>
     <div class="bar"><CountDown /></div>
+    <div class="info"><InfoBox /></div>
     <div class="buttons"><YesNoDate /></div>
   </div>
 </template>
@@ -12,13 +19,51 @@
   import YesNoDate from '../components/YesNoDate.vue'
   import EmptyProfilePic from '../components/EmptyProfilePic.vue'
   import InfoBox from '../components/InfoBox.vue'
+  import ResponsiveNavigation from '../components/ResponsiveNavigation.vue'
 
   export default {
     components: {
       CountDown,
       YesNoDate,
       EmptyProfilePic,
-      InfoBox
+      InfoBox,
+      ResponsiveNavigation
+    },
+    data() {
+      return {
+        navLinks: [
+          {
+            text: 'Home',
+            path: '/lounge',
+            icon: 'ion-ios-home'
+          },
+          {
+            text: 'Start dating',
+            path: '/date',
+            icon: 'ion-ios-thumbs-up'
+          },
+          {
+            text: 'Messages',
+            path: '/chat',
+            icon: 'ion-ios-mail'
+          },
+          {
+            text: 'Favourites',
+            path: '/favorites',
+            icon: 'ion-ios-heart'
+          },
+          {
+            text: 'Edit profile',
+            path: '/edit',
+            icon: 'ion-ios-create'
+          },
+          {
+            text: 'Log out',
+            path: '/',
+            icon: 'ion-ios-log-out'
+          }
+        ]
+      }
     }
   }
 </script>
@@ -30,16 +75,18 @@
     grid-template-rows: auto;
     grid-column-gap: 5px;
     grid-row-gap: 5px;
+    background-color: white;
+    text-align: center;
   }
 
   .profilepic {
     grid-area: 1 / 1 / 2 / 2;
   }
-  .info {
-    grid-area: 1 / 2 / 2 / 3;
-  }
   .bar {
     grid-area: 2 / 1 / 3 / 2;
+  }
+  .info {
+    grid-area: 1 / 2 / 2 / 3;
   }
   .buttons {
     grid-area: 2 / 2 / 3 / 3;
@@ -57,10 +104,10 @@
     .profilepic {
       grid-area: 1 / 1 / 2 / 2;
     }
-    .info {
+    .bar {
       grid-area: 2 / 1 / 3 / 2;
     }
-    .bar {
+    .info {
       grid-area: 3 / 1 / 4 / 2;
     }
     .buttons {

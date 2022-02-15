@@ -1,4 +1,10 @@
 <template>
+  <ResponsiveNavigation
+    :nav-links="navLinks"
+    background="#fff"
+    link-color="#777"
+    hover-background="#ddd"
+  />
   <div id="profile-container">
     <div id="left-side">
       <img
@@ -12,19 +18,21 @@
       </div>
     </div>
     <div id="right-side">
-      <p class="profile-header">Intressen & Hobbies:</p>
-      <ul>
-        <li
-          class="interests"
-          v-for="interest in interests"
-          :key="interest.length"
-        >
-          {{ interest }}
-        </li>
-      </ul>
-      <p class="profile-header">{{ users[profileId].biography }}</p>
+      <div class="interests-container">
+        <p class="profile-header">Intressen & Hobbies:</p>
+        <ul>
+          <li
+            class="interests"
+            v-for="interest in interests"
+            :key="interest.length"
+          >
+            {{ interest }}
+          </li>
+        </ul>
+      </div>
+      <p class="profile-header bio">{{ users[profileId].biography }}</p>
       <p class="to-messages">
-        <router-link class="routerlink" :to="'/'"
+        <router-link class="routerlink" :to="'/chat'"
           >Skicka meddelande till {{ users[profileId].name }}</router-link
         >
       </p>
@@ -34,9 +42,46 @@
 
 <script>
   import usersData from '../profiles.json'
+  import ResponsiveNavigation from '../components/ResponsiveNavigation.vue'
+
   export default {
+    components: {
+      ResponsiveNavigation
+    },
     data() {
       return {
+        navLinks: [
+          {
+            text: 'Home',
+            path: '/lounge',
+            icon: 'ion-ios-home'
+          },
+          {
+            text: 'Start dating',
+            path: '/date',
+            icon: 'ion-ios-thumbs-up'
+          },
+          {
+            text: 'Messages',
+            path: '/chat',
+            icon: 'ion-ios-mail'
+          },
+          {
+            text: 'Favourites',
+            path: '/favorites',
+            icon: 'ion-ios-heart'
+          },
+          {
+            text: 'Edit profile',
+            path: '/edit',
+            icon: 'ion-ios-create'
+          },
+          {
+            text: 'Log out',
+            path: '/',
+            icon: 'ion-ios-log-out'
+          }
+        ],
         users: usersData,
         profileId: this.$route.params.profileid - 1,
         interests: usersData[this.$route.params.profileid - 1].interests
@@ -52,9 +97,14 @@
   .profile-header {
     margin: 0.5rem 0.5rem 0 1rem;
   }
+  .bio {
+    max-width: 500px;
+  }
   #profile-container {
     background-color: white;
-    padding-top: 2rem;
+    margin: 1rem;
+    padding: 1rem 0;
+    border-radius: 1rem;
     ul {
       display: flex;
       flex-wrap: wrap;
@@ -74,11 +124,16 @@
   .name-age {
     display: flex;
     justify-content: space-evenly;
-    margin-right: 4rem;
     margin-left: 4rem;
+    margin-right: 4rem;
     h1 {
       margin: 1rem 0 0 0;
     }
+  }
+  .interests-container {
+    border-bottom: 3px solid #e6e6e6;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
   }
   .interests {
     list-style: none;
@@ -91,7 +146,7 @@
   }
   .to-messages {
     display: flex;
-    margin: 0 auto 0 auto;
+    margin: 1rem auto 0 auto;
   }
   .routerlink {
     margin: 1rem auto 1rem auto;
@@ -112,13 +167,33 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      margin: 2rem 5rem;
+      padding: 0;
+      border-radius: 1rem;
+    }
+    .name-age {
+      margin-left: 0;
+      margin-right: 0;
     }
     #left-side {
       margin-right: 4rem;
+      margin: 2rem 4rem 1.4rem 0;
     }
+
     #right-side {
       margin-top: 2rem;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .interests-container {
+      border-bottom: 3px solid #e6e6e6;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    #profile-container {
+      margin: 2rem 10rem;
     }
   }
 </style>

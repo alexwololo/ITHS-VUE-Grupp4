@@ -43,6 +43,39 @@
       <h3>Välkommen {{ this.$store.state.user }}!</h3>
     </div>
   </div>
+  <!-- <label class="labels" for="password">Lösenord</label>
+    <input v-model="u" id="password" type="password" placeholder="Lösenord" />
+    <input
+      @click="regUser"
+      @show-message="welcomeUser"
+      id="button"
+      type="button"
+      value="Registrera"
+    />
+    <a id="loginLink" href="">Logga in</a>
+    <div v-if="message">
+<<<<<<< HEAD
+      <h3>Välkommen {{ this.$store.state.user }}!</h3>
+    </div>
+  </div>
+=======
+<<<<<<< HEAD
+      <h3>{{ 'Välkommen ' + this.$store.state.user + '!' }}</h3>
+    </div> -->
+  <!-- <h1>Registrering</h1>
+=======
+      <h3>Välkommen {{ this.$store.state.user }}!</h3>
+    </div>
+  <label class="labels" for="password">Lösenord</label>
+  <input v-model="u" id="password" type="password" placeholder="Lösenord" />
+  <input
+      <br />
+      <label for="password">Lösen:</label
+      ><input v-model="u" id="password" type="password" placeholder="Lösen" />
+      <input @click="regUser" type="button" value="Registrera" />
+    </form>
+  </div> -->
+  >>>>>>> 7c8aa3e8a575143bbe7e927d731ffc2f08736b4c
 </template>
 
 <style scoped>

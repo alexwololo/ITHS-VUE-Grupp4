@@ -1,8 +1,20 @@
 <template>
+  <ResponsiveNavigation
+    :nav-links="navLinks"
+    background="#fff"
+    link-color="#777"
+    hover-background="#ddd"
+  />
   <h1>Favoritprofiler</h1>
   <div id="profiles-container">
     <div class="profile-card" v-for="user in users" :key="user.id">
-      <img :src="user.picture" alt="Profile picture" class="profile-picture" />
+      <router-link class="link-style" :to="'/favorite/' + user.id"
+        ><img
+          :src="user.picture"
+          alt="Profile picture"
+          class="profile-picture"
+        />
+      </router-link>
       <div class="profile-information">
         <div class="name-age">
           <p>{{ user.name }}</p>
@@ -20,10 +32,47 @@
 
 <script>
   import usersData from '../profiles.json'
+  import ResponsiveNavigation from '../components/ResponsiveNavigation.vue'
+
   export default {
+    components: {
+      ResponsiveNavigation
+    },
     data() {
       return {
-        users: usersData
+        users: usersData,
+        navLinks: [
+          {
+            text: 'Home',
+            path: '/lounge',
+            icon: 'ion-ios-home'
+          },
+          {
+            text: 'Start dating',
+            path: '/date',
+            icon: 'ion-ios-thumbs-up'
+          },
+          {
+            text: 'Messages',
+            path: '/chat',
+            icon: 'ion-ios-mail'
+          },
+          {
+            text: 'Favourites',
+            path: '/favorites',
+            icon: 'ion-ios-heart'
+          },
+          {
+            text: 'Edit profile',
+            path: '/edit',
+            icon: 'ion-ios-create'
+          },
+          {
+            text: 'Log out',
+            path: '/',
+            icon: 'ion-ios-log-out'
+          }
+        ]
       }
     }
   }
@@ -31,9 +80,13 @@
 
 <style lang="scss" scoped>
   h1 {
-    margin: 0;
+    margin: 1rem 0 0 1rem;
+    color: #fff;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+      1px 1px 0 #000;
   }
   #profiles-container {
+    margin-top: 0;
     align-self: center;
     // background-color: white;
     display: grid;
@@ -71,13 +124,59 @@
     color: #6200ee;
   }
   .link-style {
+    display: flex;
+    justify-content: center;
     text-decoration: none;
+    color: #6200ee;
+  }
+  a:visited {
+    color: #6200ee;
   }
 
-  @media screen and (min-width: 980px) {
+  @media screen and (min-width: 580px) and (max-width: 767px) {
     #profiles-container {
-      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
       padding: 1rem 0 0 0;
+      margin-top: -0.5rem;
+    }
+    .profile-card {
+      margin-bottom: 1rem;
+    }
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 979px) {
+    #profiles-container {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      padding: 1rem 0 0 0;
+      margin-top: -0.5rem;
+    }
+    .profile-card {
+      margin-bottom: 1rem;
+    }
+  }
+
+  @media screen and (min-width: 980px) and (max-width: 1179px) {
+    #profiles-container {
+      width: 980px;
+      margin-left: auto;
+      margin-right: auto;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      padding: 1rem 0 0 0;
+      margin-top: -0.5rem;
+    }
+    .profile-card {
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  @media screen and (min-width: 1180px) {
+    #profiles-container {
+      width: 1180px;
+      margin-left: auto;
+      margin-right: auto;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+      padding: 1rem 0 0 0;
+      margin-top: -0.5rem;
     }
     .profile-card {
       margin-bottom: 1.5rem;

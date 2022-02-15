@@ -13,6 +13,7 @@
   div {
     background-color: lightgrey;
     width: 300px;
+    height: 300px;
     border-radius: 40px;
     margin: 60px;
     padding: 20px;

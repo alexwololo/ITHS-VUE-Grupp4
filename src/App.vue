@@ -1,58 +1,15 @@
 <template>
-  <ResponsiveNavigation
-    :nav-links="navLinks"
-    background="#fff"
-    link-color="#777"
-    hover-background="#ddd"
-  />
-  <RouterView />
+  <RouterView class="router-view" />
 </template>
 
 <script>
-  import ResponsiveNavigation from './components/ResponsiveNavigation.vue'
-
   export default {
     created() {
       window.addEventListener('keyup', this.historyBack)
     },
-    components: {
-      ResponsiveNavigation
-    },
+    components: {},
     data() {
-      return {
-        navLinks: [
-          {
-            text: 'Swindlr',
-            path: '/',
-            icon: ''
-          },
-          {
-            text: 'Log in',
-            path: '/signin',
-            icon: 'ion-ios-log-in'
-          },
-          {
-            text: 'Products',
-            path: '/products',
-            icon: 'ion-ios-briefcase'
-          },
-          {
-            text: 'Support',
-            path: '/support',
-            icon: 'ion-ios-help-circle'
-          },
-          {
-            text: 'Edit profile',
-            path: '/edit',
-            icon: 'ion-ios-create'
-          },
-          {
-            text: 'Date',
-            path: '/date',
-            icon: 'ion-ios-heart'
-          }
-        ]
-      }
+      return {}
     },
     methods: {
       historyBack(e) {
@@ -78,5 +35,8 @@
 
   body {
     margin: 0;
+  }
+  .router-view {
+    padding-bottom: 1.5rem;
   }
 </style>
