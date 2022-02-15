@@ -167,7 +167,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      margin: 2rem 10rem;
+      margin: 2rem 5rem;
       padding: 0;
       border-radius: 1rem;
     }
@@ -188,6 +188,12 @@
       border-bottom: 3px solid #e6e6e6;
       padding-bottom: 10px;
       margin-bottom: 20px;
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    #profile-container {
+      margin: 2rem 10rem;
     }
   }
 </style>

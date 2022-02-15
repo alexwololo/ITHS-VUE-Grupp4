@@ -131,6 +131,12 @@
     top: 0.1em;
   }
 
+  // @media screen and (min-width: 768px) and (max-width: 979px) {
+  //   #edit-container {
+  //     margin: 2rem 5rem;
+  //   }
+  // }
+
   @media screen and (min-width: 980px) {
     h1 {
       margin-top: 0.7rem;
@@ -140,7 +146,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      margin: 2rem 15rem;
+      margin: 2rem 3rem;
       padding: 0;
       border-radius: 1rem;
     }
@@ -150,6 +156,12 @@
     #right-side {
       margin-top: 2rem;
       margin-bottom: 1rem;
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    #edit-container {
+      margin: 2rem 10rem;
     }
   }
 </style>
