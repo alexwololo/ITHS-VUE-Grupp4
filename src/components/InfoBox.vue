@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="info">
     <h1>Namn, xx år</h1>
     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
     aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
@@ -10,13 +10,11 @@
 </template>
 
 <style scoped>
-  div {
+  .info {
     background-color: lightgrey;
     width: 300px;
-    height: 300px;
     border-radius: 40px;
-    margin: 60px;
-    padding: 20px;
-    text-align: center;
+    margin: 25px;
+    padding: 25px;
   }
 </style>

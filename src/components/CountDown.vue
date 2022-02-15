@@ -20,7 +20,7 @@
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   //"Lådan" till bar:en
   .loading-bar {
     position: relative;
