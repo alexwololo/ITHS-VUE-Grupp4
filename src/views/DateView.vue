@@ -104,6 +104,7 @@
       align-items: center;
       text-align: center;
       width: auto;
+      height: max-content;
       margin-top: 0;
     }
   }

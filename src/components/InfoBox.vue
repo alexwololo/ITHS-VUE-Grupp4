@@ -13,8 +13,13 @@
   .info {
     background-color: lightgrey;
     width: 300px;
+    height: 300px;
     border-radius: 40px;
     margin: 25px;
-    padding: 25px;
+    padding: 20px;
+  }
+
+  h1 {
+    margin-top: 15px;
   }
 </style>
