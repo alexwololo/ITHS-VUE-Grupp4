@@ -1,4 +1,6 @@
 <template>
+  <TheHeader />
+
   <div class="container-landing">
     <div class="landing-view">
       <h1>SLOGAN</h1>
@@ -14,7 +16,13 @@
   </div>
 </template>
 
-<script></script>
+<script>
+  import TheHeader from '../components/TheHeader.vue'
+
+  export default {
+    components: { TheHeader }
+  }
+</script>
 
 <style>
   body {
