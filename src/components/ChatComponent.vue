@@ -12,6 +12,9 @@
       }
     },
     methods: {
+      sendChat() {
+        this.chatMessages()
+      },
       chatMessages() {
         this.convo.push(this.messages)
         console.log(this.convo)
@@ -67,6 +70,7 @@
         <input id="chatInput" v-model="messages" type="text" />
         <input
           @click="chatMessages()"
+          @keydown.enter="chatMessages()"
           type="button"
           id="button"
           value="Skicka!"
@@ -77,12 +81,19 @@
 </template>
 
 <style scoped>
+  h3 {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 2px;
+    border-radius: 7px;
+  }
   #chatMessage {
     background-color: rgb(92, 209, 82);
     color: white;
     width: 50%;
     padding: 5px;
     border-radius: 7px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 5px 0 rgba(0, 0, 0, 0.3);
   }
 
   #chatAnswers {
@@ -91,6 +102,7 @@
     width: 50%;
     padding: 5px;
     border-radius: 7px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 5px 0 rgba(0, 0, 0, 0.3);
   }
 
   #list1 {
@@ -120,6 +132,7 @@
   #mainChat {
     display: flex;
     flex-direction: column;
+    align-items: center;
     background-color: rgba(255, 255, 255, 0.5);
     width: 80%;
     height: 500px;
