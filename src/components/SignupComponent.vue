@@ -55,6 +55,11 @@
     <a id="loginLink" href="">Logga in</a>
     <div v-if="message">
 <<<<<<< HEAD
+      <h3>Välkommen {{ this.$store.state.user }}!</h3>
+    </div>
+  </div>
+=======
+<<<<<<< HEAD
       <h3>{{ 'Välkommen ' + this.$store.state.user + '!' }}</h3>
     </div> -->
   <!-- <h1>Registrering</h1>
@@ -70,6 +75,7 @@
       <input @click="regUser" type="button" value="Registrera" />
     </form>
   </div> -->
+  >>>>>>> 7c8aa3e8a575143bbe7e927d731ffc2f08736b4c
 </template>
 
 <style scoped>
