@@ -49,10 +49,10 @@
   },
   {
     "id": "7",
-    "name": "Patrik",
-    "age": "29",
-    "interests": ["Måla keramik", "Laga mat", "Geo-tagging", "Skriva haikun"],
-    "biography": "Patrik är en riktig toppengrabb! - mormor \n\nDen tjej som får Patrik kan skatta sig lycklig! - mamma",
+    "name": "Simon",
+    "age": "31",
+    "interests": ["Flyga privatjet", "Festa", "Leva livet"],
+    "biography": "Son till Lev Leviev, tro inte på alla lögner som cirkulerar om mig.",
     "picture": "/assets/profilepics/7.png"
   },
   {
@@ -166,5 +166,13 @@
     "interests": ["Odla grönsaker", "Längdskidåkning"],
     "biography": "Fördelar: \nÖppen till att dela mitt Netflixkonto \nKan äta 30 sushibitar i en sittning \nÄr inte beroende av heroin \nNackdelar: \nAnvänder sarkasm som en försvarsmekanism \nNattuggla \nKommer äta 30 sushibitar i en sittning",
     "picture": "/assets/profilepics/21.png"
+  },
+  {
+    "id": "22",
+    "name": "Patrik",
+    "age": "29",
+    "interests": ["Måla keramik", "Laga mat", "Geo-tagging", "Skriva haikun"],
+    "biography": "Patrik är en riktig toppengrabb! - mormor \n\nDen tjej som får Patrik kan skatta sig lycklig! - mamma",
+    "picture": "/assets/profilepics/22.png"
   }
 ]
