@@ -93,7 +93,7 @@
       }
 
       i {
-        margin-right: 40px;
+        margin-right: 20px;
         font-size: 22px;
       }
 
