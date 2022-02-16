@@ -10,19 +10,29 @@
     <div class="welcome">
       <h1>Välkommen, {{ this.$store.state.user }}!</h1>
     </div>
-    <div class="profile-container">
-      <div class="profile-top">
-        <a href="#/edit">Edit profile</a>
+    <div class="grid-1">
+      <div class="profile-container">
+        <div class="profile-top">
+          <a href="#/edit">Edit profile</a>
+        </div>
+        <div class="profile-pic">
+          <img :src="this.$store.state.picture" alt="" />
+        </div>
+        <div class="profile-description">empty</div>
       </div>
-      <div class="profile-pic">
-        <img :src="this.$store.state.picture" alt="" />
-      </div>
-      <div class="profile-description">empty</div>
     </div>
-    <div class="favorites">DINA FAVOURITER</div>
-    <div class="messages">DINA MEDDELANDEN</div>
-    <div>
-      <a class="date-button" href="#/date">Börja snabbdejta</a>
+    <div class="grid-2">
+      <div class="lounge-container">
+        <div class="favorites">
+          <h2>Dina senaste favoriter</h2>
+        </div>
+        <div class="messages">
+          <h2>Du har X olästa meddelanden.</h2>
+        </div>
+        <div class="date-button-container">
+          <a class="date-button" href="#/date">Börja snabbdejta</a>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -94,6 +104,12 @@
     align-items: center;
   }
 
+  .grid-1 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
   .profile-container img {
     width: 250px;
     border-radius: 50%;
@@ -123,5 +139,59 @@
 
   .messages {
     display: none;
+  }
+
+  @media screen and (min-width: 980px) {
+    .welcome {
+      display: none;
+    }
+    .container {
+      background-color: rgba(255, 255, 255, 0);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .profile-container {
+      margin-top: 10%;
+    }
+
+    .favorites {
+      display: block;
+      width: 80%;
+      background-color: white;
+      margin: 1rem;
+    }
+
+    .messages {
+      display: block;
+      width: 80%;
+      background-color: white;
+      margin: 1rem;
+    }
+
+    .date-button {
+      border: 0;
+    }
+
+    .date-button-container {
+      margin-top: 2rem;
+      margin-left: 1rem;
+    }
+
+    .lounge-container {
+      width: 70%;
+      height: 60vh;
+      background-color: white;
+      margin-top: 10%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+    }
+
+    .grid-2 {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
   }
 </style>
