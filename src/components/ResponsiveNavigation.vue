@@ -107,6 +107,7 @@
   @media screen and (max-width: 1085px) {
     nav {
       ul {
+        z-index: 1;
         position: fixed;
         width: 250px;
         height: 100%;
@@ -122,7 +123,6 @@
 
         figure {
           position: fixed;
-          z-index: 1;
           top: -16px;
           left: -40px;
           background-color: white;
