@@ -5,7 +5,7 @@
         newArray: [],
         bot: [],
         convo: [],
-        answer: 'Hej!',
+        answer: 'Hej ' + this.$store.state.user + '!',
         answer2: 'Hur mår du?',
         answer3: 'Härligt! Vill du ses på en fika?',
         messages: ''
