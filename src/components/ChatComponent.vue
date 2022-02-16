@@ -21,6 +21,7 @@
         setTimeout(this.chatBot, 3100)
         setTimeout(this.chatBot2, 5000)
         setTimeout(this.chatBot3, 3000)
+        this.messages = ''
       },
       chatBot() {
         if (this.newArray < 1) {

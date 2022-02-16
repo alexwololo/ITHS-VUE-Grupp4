@@ -39,7 +39,7 @@
   .percentage {
     position: absolute;
     height: 100%;
-    background-color: #ae74ffee;
+    background-color: #4a00b3;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
   }
