@@ -20,17 +20,21 @@
 </script>
 
 <template>
-  <RouterView />
-  <h3 id="skapakonto">Skapa nytt konto</h3>
+  <h2 id="skapakonto">Skapa nytt konto</h2>
   <div class="wrapper">
-    <label id="userlabel" for="username">Användarnamn</label>
-    <input v-model="s" id="username" type="text" placeholder="Användarnamn" />
+    <label id="userlabel" for="username"
+      >Användarnamn
+      <input v-model="s" id="username" type="text" placeholder="Användarnamn"
+    /></label>
 
-    <label class="labels" for="email">Email</label>
-    <input v-model="t" id="email" type="text" placeholder="Mail" />
+    <label id="elabel" for="email"
+      >email <input v-model="t" id="email" type="text" placeholder="Mail"
+    /></label>
 
-    <label class="labels" for="password">Lösenord</label>
-    <input v-model="u" id="password" type="password" placeholder="Lösenord" />
+    <label id="plabel" for="password"
+      >Lösenord
+      <input v-model="u" id="password" type="password" placeholder="Lösenord"
+    /></label>
     <input
       @click="regUser"
       @show-message="welcomeUser"
@@ -38,41 +42,19 @@
       type="button"
       value="Registrera"
     />
-    <a id="loginLink" href="">Logga in</a>
+    <RouterLink to="/signin"><a id="loginLink" href="">Logga in</a></RouterLink>
     <div v-if="message">
       <h3>Välkommen {{ this.$store.state.user }}!</h3>
     </div>
   </div>
-  <!-- <label class="labels" for="password">Lösenord</label>
-    <input v-model="u" id="password" type="password" placeholder="Lösenord" />
-    <input
-      @click="regUser"
-      @show-message="welcomeUser"
-      id="button"
-      type="button"
-      value="Registrera"
-    />
-    <a id="loginLink" href="">Logga in</a>
-    <div v-if="message">
-<<<<<<< HEAD
-      <h3>{{ 'Välkommen ' + this.$store.state.user + '!' }}</h3>
-    </div> -->
-  <!-- <h1>Registrering</h1>
-=======
-      <h3>Välkommen {{ this.$store.state.user }}!</h3>
-    </div>
-  <label class="labels" for="password">Lösenord</label>
-  <input v-model="u" id="password" type="password" placeholder="Lösenord" />
-  <input
-      <br />
-      <label for="password">Lösen:</label
-      ><input v-model="u" id="password" type="password" placeholder="Lösen" />
-      <input @click="regUser" type="button" value="Registrera" />
-    </form>
-  </div> -->
 </template>
 
 <style scoped>
+  h2 {
+    color: #fff;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+      1px 1px 0 #000;
+  }
   .wrapper {
     display: flex;
     flex-direction: column;
@@ -80,29 +62,28 @@
     text-align: center;
     background-color: rgba(255, 255, 255, 0.5);
     padding: 20px;
-    margin-top: 50px;
+    margin-top: 30px;
     border-radius: 10px;
     margin-left: 30px;
     margin-right: 30px;
     color: black;
   }
 
-  #username {
-    border-radius: 7px;
-    padding: 8px;
-    border: none;
+  label {
+    display: flex;
+    flex-direction: column;
   }
 
-  #email {
+  input[type='text'],
+  input[type='password'] {
     border-radius: 7px;
+    margin-top: 0.25rem;
     padding: 8px;
     border: none;
-  }
-
-  #password {
-    border-radius: 7px;
-    padding: 8px;
-    border: none;
+    outline: 2px solid lightgrey;
+    background-color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
   }
 
   #skapakonto {
@@ -115,26 +96,22 @@
     background-color: #6200ee;
     padding: 10px;
     color: white;
-    border-radius: 10px;
+    border-radius: 4px;
     border: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    margin-bottom: 1rem;
   }
 
-  .labels {
-    margin-right: 140px;
-    margin-bottom: 5px;
-    font-size: 13px;
-    margin-top: 5px;
-  }
-
+  #elabel,
+  #plabel,
   #userlabel {
-    margin-right: 85px;
-    margin-bottom: 5px;
-    font-size: 13px;
+    text-align: left;
+    margin: 0 1rem 1rem 1rem;
   }
 
   #loginLink {
     margin-top: 5px;
-    font-size: 12px;
     color: black;
   }
 </style>

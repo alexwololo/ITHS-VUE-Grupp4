@@ -20,13 +20,15 @@
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   //"Lådan" till bar:en
   .loading-bar {
     position: relative;
-    width: 400px;
+    width: 300px;
     height: 30px;
     margin: auto;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
     background-color: rgb(221, 221, 221);
     box-shadow: inset 0 -3em 3em rgb(139, 139, 139),
       0 0 0 2px rgba(139, 139, 139, 0.411),
@@ -37,6 +39,8 @@
   .percentage {
     position: absolute;
     height: 100%;
-    background-color: #ae74ffee;
+    background-color: #4a00b3;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
   }
 </style>

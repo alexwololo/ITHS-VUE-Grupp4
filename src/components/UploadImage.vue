@@ -121,7 +121,6 @@
       background-color: $btn;
       box-shadow: inset 0 -0.6em 0 -0.35em rgba(0, 0, 0, 0.17);
       text-align: center;
-      position: relative;
       display: inline-block;
       padding: 0.7em 1.4em;
       cursor: pointer;

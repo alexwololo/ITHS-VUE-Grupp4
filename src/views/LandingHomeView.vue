@@ -1,4 +1,6 @@
 <template>
+  <TheHeader />
+
   <div class="container-landing">
     <div class="landing-view">
       <h1>SLOGAN</h1>
@@ -14,7 +16,13 @@
   </div>
 </template>
 
-<script></script>
+<script>
+  import TheHeader from '../components/TheHeader.vue'
+
+  export default {
+    components: { TheHeader }
+  }
+</script>
 
 <style>
   body {
@@ -47,7 +55,7 @@
     background-color: #6200ee;
     color: white;
     padding: 11px 25px;
-    border-radius: 2px;
+    border-radius: 4px;
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.11);
   }
 
