@@ -83,10 +83,9 @@
 
 <style scoped>
   h3 {
-    color: white;
-    background-color: rgba(0, 0, 0, 0.3);
-    padding: 2px;
-    border-radius: 7px;
+    color: #fff;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+      1px 1px 0 #000;
   }
   #chatMessage {
     background-color: rgb(92, 209, 82);
@@ -142,10 +141,12 @@
   }
 
   #button {
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
     background-color: #6200ee;
     padding: 8px;
     color: white;
-    border-radius: 10px;
+    border-radius: 4px;
     border: none;
     margin-left: 5px;
   }

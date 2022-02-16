@@ -55,7 +55,7 @@
     background-color: #6200ee;
     color: white;
     padding: 11px 25px;
-    border-radius: 2px;
+    border-radius: 4px;
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.11);
   }
 
