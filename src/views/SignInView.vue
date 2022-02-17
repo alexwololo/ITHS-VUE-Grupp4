@@ -1,5 +1,8 @@
 <script>
+  import TheHeader from '../components/TheHeader.vue'
+
   export default {
+    components: { TheHeader },
     emits: ['show-message'],
     data() {
       return {
@@ -38,6 +41,7 @@
 </script>
 
 <template>
+  <TheHeader />
   <div class="wrapper">
     <h3 id="skapakonto">Logga in på konto</h3>
     <label id="elabel" for="email">Email</label>
@@ -57,7 +61,9 @@
       type="button"
       value="Logga in"
     />
-    <RouterLink to="/signin"><a id="loginLink" href="">Logga in</a></RouterLink>
+    <RouterLink to="/signup"
+      ><a id="loginLink" href="">Registrera</a></RouterLink
+    >
     <div v-if="message">
       <h3>Välkommen {{ this.$store.state.user }}!</h3>
     </div>
