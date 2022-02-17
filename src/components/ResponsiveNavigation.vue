@@ -136,7 +136,7 @@
         li {
           width: 100%;
           padding-left: 0;
-          padding-right: 0;
+          padding-right: 10px;
         }
 
         a {
