@@ -173,7 +173,7 @@
     background-color: white;
     border-radius: 10px;
     height: inherit;
-    width: 260px;
+    width: 270px;
     border: solid grey 1px;
   }
 </style>
