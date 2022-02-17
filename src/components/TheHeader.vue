@@ -82,5 +82,9 @@
     ul {
       display: block;
     }
+
+    i {
+      display: none;
+    }
   }
 </style>

@@ -3,15 +3,9 @@
 
   <div class="container-landing">
     <div class="landing-view">
-      <h1>SLOGAN</h1>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia
-        dolorum blanditiis quam eligendi. Illum magnam quod soluta, saepe
-        accusamus asperiores.
-      </p>
-      <router-link to="/signup" class="register"
-        >Registrera ett konto</router-link
-      >
+      <h1>Hitta den du söker!</h1>
+      <p>Träffa och chatta med nya personer i närheten.</p>
+      <router-link to="/signup" class="register">Skapa ett konto</router-link>
     </div>
   </div>
 </template>
