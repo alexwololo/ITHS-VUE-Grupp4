@@ -5,36 +5,15 @@
     link-color="#777"
     hover-background="#ddd"
   />
-
-  <div class="container">
-    <div class="welcome">
-      <h1>Välkommen, {{ this.$store.state.user }}!</h1>
-    </div>
-    <div class="grid-1">
-      <div class="profile-container">
-        <div class="profile-top">
-          <a href="#/edit">Edit profile</a>
-        </div>
-        <div class="profile-pic">
-          <img :src="this.$store.state.picture" alt="" />
-        </div>
-        <h3>{{ this.$store.state.name }}, {{ this.$store.state.age }}</h3>
-        <div class="profile-description">{{ this.$store.state.interests }}</div>
-        <div>{{ this.$store.state.biography }}</div>
+  <ProfileComponent />
+  <div class="grid-2">
+    <div class="lounge-container">
+      <div class="favorites">
+        <h2>Dina senaste favoriter</h2>
+        <FavouritesCarousel />
       </div>
-    </div>
-    <div class="grid-2">
-      <div class="lounge-container">
-        <div class="favorites">
-          <h2>Dina senaste favoriter</h2>
-          <FavouritesCarousel />
-        </div>
-        <div class="messages">
-          <h2>Du har X olästa meddelanden.</h2>
-        </div>
-        <div class="date-button-container">
-          <a class="date-button" href="#/date">Börja snabbdejta</a>
-        </div>
+      <div class="messages">
+        <h2>Du har X olästa meddelanden.</h2>
       </div>
     </div>
   </div>
@@ -43,11 +22,13 @@
 <script>
   import ResponsiveNavigation from '../components/ResponsiveNavigation.vue'
   import FavouritesCarousel from '../components/FavouritesCarousel.vue'
+  import ProfileComponent from '../components/ProfileComponent.vue'
 
   export default {
     components: {
       ResponsiveNavigation,
-      FavouritesCarousel
+      FavouritesCarousel,
+      ProfileComponent
     },
     data() {
       return {
@@ -89,48 +70,6 @@
 </script>
 
 <style scoped>
-  .container {
-    width: 100vw;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .welcome {
-    color: black;
-  }
-
-  .profile-container {
-    width: 70%;
-    height: 60vh;
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    align-items: center;
-  }
-
-  .grid-1 {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-
-  .profile-pic {
-    width: 250px;
-    height: 250px;
-    border-radius: 50%;
-  }
-
-  .profile-pic img {
-    width: 100%;
-    border-radius: 50%;
-    border: 2px solid grey;
-  }
-  .profile-top {
-    width: 100%;
-    display: flex;
-    flex-direction: row-reverse;
-  }
   .date-button {
     background-color: orange;
     font-weight: 600;
