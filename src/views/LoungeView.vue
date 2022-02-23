@@ -5,7 +5,6 @@
     link-color="#777"
     hover-background="#ddd"
   />
-
   <div class="container">
     <div class="welcome">
       <h1>Välkommen, {{ this.$store.state.user }}!</h1>
@@ -18,7 +17,9 @@
         <div class="profile-pic">
           <img :src="this.$store.state.picture" alt="" />
         </div>
-        <div class="profile-description">empty</div>
+        <h3>{{ this.$store.state.name }}, {{ this.$store.state.age }}</h3>
+        <div class="profile-description">{{ this.$store.state.interests }}</div>
+        <div>{{ this.$store.state.biography }}</div>
       </div>
     </div>
     <div class="grid-2">
@@ -110,8 +111,14 @@
     justify-content: center;
   }
 
-  .profile-container img {
+  .profile-pic {
     width: 250px;
+    height: 250px;
+    border-radius: 50%;
+  }
+
+  .profile-pic img {
+    width: 100%;
     border-radius: 50%;
     border: 2px solid grey;
   }
@@ -185,7 +192,6 @@
       margin-top: 10%;
       display: flex;
       flex-direction: column;
-      justify-content: space-around;
     }
 
     .grid-2 {
