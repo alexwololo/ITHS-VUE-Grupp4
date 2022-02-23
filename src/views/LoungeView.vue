@@ -5,6 +5,7 @@
     link-color="#777"
     hover-background="#ddd"
   />
+
   <div class="container">
     <div class="welcome">
       <h1>Välkommen, {{ this.$store.state.user }}!</h1>
@@ -26,6 +27,7 @@
       <div class="lounge-container">
         <div class="favorites">
           <h2>Dina senaste favoriter</h2>
+          <FavouritesCarousel />
         </div>
         <div class="messages">
           <h2>Du har X olästa meddelanden.</h2>
@@ -40,10 +42,12 @@
 
 <script>
   import ResponsiveNavigation from '../components/ResponsiveNavigation.vue'
+  import FavouritesCarousel from '../components/FavouritesCarousel.vue'
 
   export default {
     components: {
-      ResponsiveNavigation
+      ResponsiveNavigation,
+      FavouritesCarousel
     },
     data() {
       return {
