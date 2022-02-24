@@ -57,7 +57,8 @@ const router = createRouter({
     },
     {
       component: LoungeView,
-      path: '/lounge'
+      path: '/lounge',
+      name: 'lounge'
     }
   ]
 })

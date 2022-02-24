@@ -26,7 +26,8 @@
     position: relative;
     width: 300px;
     height: 30px;
-    margin: auto;
+    margin-top: 10px;
+    margin-left: 20px;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
     background-color: rgb(221, 221, 221);

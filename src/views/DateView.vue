@@ -6,31 +6,37 @@
     hover-background="#ddd"
   />
 
-  <div class="container">
-    <div class="profilepic"><EmptyProfilePic /></div>
+  <div class="container" v-for="user in users.slice(0, 1)" :key="user.id">
+    <div class="profilepic">
+      <img :src="user.picture" alt="Profile picture" />
+    </div>
+
     <div class="bar"><CountDown /></div>
-    <div class="info"><InfoBox /></div>
+
+    <div class="info">
+      <h2>{{ user.name }} {{ user.age }} år</h2>
+      <p>{{ user.biography }}</p>
+    </div>
+
     <div class="buttons"><YesNoDate /></div>
   </div>
 </template>
 
 <script>
+  import usersData from '../profiles.json'
   import CountDown from '../components/CountDown.vue'
   import YesNoDate from '../components/YesNoDate.vue'
-  import EmptyProfilePic from '../components/EmptyProfilePic.vue'
-  import InfoBox from '../components/InfoBox.vue'
   import ResponsiveNavigation from '../components/ResponsiveNavigation.vue'
 
   export default {
     components: {
       CountDown,
       YesNoDate,
-      EmptyProfilePic,
-      InfoBox,
       ResponsiveNavigation
     },
     data() {
       return {
+        users: usersData,
         navLinks: [
           {
             text: 'Home',
@@ -72,7 +78,7 @@
   .container {
     display: grid;
     height: max-content;
-    width: max-content;
+    width: 600px;
     grid-column-gap: 1px;
     grid-row-gap: 1px;
     background-color: white;
@@ -80,12 +86,13 @@
     margin: auto;
     border-radius: 4px;
     margin: 0 auto;
-    margin-top: 20px;
+    margin-top: 50px;
     padding-bottom: 10px;
   }
 
   .profilepic {
     grid-area: 1 / 1 / 2 / 2;
+    margin-top: 15px;
   }
   .bar {
     grid-area: 2 / 1 / 3 / 2;
