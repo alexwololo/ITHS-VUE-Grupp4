@@ -6,37 +6,50 @@
     hover-background="#ddd"
   />
 
-  <div class="container" v-for="user in users.slice(0, 1)" :key="user.id">
+  <div class="container" v-if="users.length > 0">
     <div class="profilepic">
-      <img :src="user.picture" alt="Profile picture" />
+      <img class="profileimg" :src="users[0].picture" alt="Profile picture" />
     </div>
 
-    <div class="bar"><CountDown /></div>
+    <div class="bar">
+      <div class="loading-bar">
+        <div class="percentage" :style="{ width: percentage + '%' }" />
+      </div>
+    </div>
 
     <div class="info">
-      <h2>{{ user.name }} {{ user.age }} år</h2>
-      <p>{{ user.biography }}</p>
+      <h2>{{ users[0].name }}, {{ users[0].age }} år</h2>
+      <p>{{ users[0].biography }}</p>
     </div>
 
-    <div class="buttons"><YesNoDate /></div>
+    <div class="buttons">
+      <img class="butt" src="/assets/thumb-up.svg" @click="onYes" />
+      <img class="butt" src="/assets/thumb-down.svg" @click="onNo" />
+    </div>
+  </div>
+  <div class="container" v-else>
+    <p>Du har gått igenom alla profiler!</p>
+    <br />
+    <img class="logo" src="/assets/icon.png" />
+    <router-link class="routerlink" :to="'/lounge'"
+      >Återvänd till start</router-link
+    >
   </div>
 </template>
-
 <script>
   import usersData from '../profiles.json'
-  import CountDown from '../components/CountDown.vue'
-  import YesNoDate from '../components/YesNoDate.vue'
   import ResponsiveNavigation from '../components/ResponsiveNavigation.vue'
 
   export default {
     components: {
-      CountDown,
-      YesNoDate,
       ResponsiveNavigation
     },
     data() {
       return {
         users: usersData,
+        percentage: 100,
+        favorites: [],
+
         navLinks: [
           {
             text: 'Home',
@@ -55,7 +68,7 @@
           },
           {
             text: 'Favourites',
-            path: '/favorites',
+            path: '/favoritess',
             icon: 'ion-ios-heart'
           },
           {
@@ -69,6 +82,26 @@
             icon: 'ion-ios-log-out'
           }
         ]
+      }
+    },
+    created() {
+      let intval = setInterval(() => {
+        if (this.percentage < 101) this.percentage -= 0.1
+        else clearInterval(intval)
+      }, 1)
+    },
+
+    methods: {
+      onYes() {
+        this.favorites.push(this.users[0])
+        this.users.splice(0, 1)
+      },
+      onNo() {
+        this.users.splice(0, 1)
+      },
+      goHome() {
+        this.favorites.push(this.users[0])
+        this.users.splice(0, 1)
       }
     }
   }
@@ -104,6 +137,60 @@
     grid-area: 2 / 2 / 3 / 3;
   }
 
+  .profileimg {
+    width: auto;
+    background-color: white;
+    border-radius: 40px;
+    margin-left: 30px;
+    margin-right: 30px;
+    padding: 20px;
+    box-shadow: inset 0 -3em 3em rgb(139, 139, 139),
+      0 0 0 2px rgba(139, 139, 139, 0.411),
+      0.3em 0.3em 1em rgba(255, 255, 255, 0.3);
+  }
+
+  .butt {
+    width: auto;
+    background-color: white;
+    border-radius: 40px;
+    margin-left: 30px;
+    margin-right: 30px;
+    padding: 20px;
+    box-shadow: inset 0 -3em 3em rgb(139, 139, 139),
+      0 0 0 2px rgba(139, 139, 139, 0.411),
+      0.3em 0.3em 1em rgba(255, 255, 255, 0.3);
+  }
+
+  .logo {
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* "Lådan" till bar:en */
+  .loading-bar {
+    position: relative;
+    width: 300px;
+    height: 30px;
+    margin-top: 10px;
+    margin-left: 20px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background-color: rgb(221, 221, 221);
+    box-shadow: inset 0 -3em 3em rgb(139, 139, 139),
+      0 0 0 2px rgba(139, 139, 139, 0.411),
+      0.3em 0.3em 1em rgba(255, 255, 255, 0.3);
+  }
+
+  /* Den rörliga delen av bar:en */
+  .percentage {
+    position: absolute;
+    height: 100%;
+    background-color: #4a00b3;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+  }
+
   @media (max-width: 375px) {
     .container {
       display: flex;
@@ -111,8 +198,18 @@
       align-items: center;
       text-align: center;
       width: auto;
-      height: max-content;
       margin-top: 0;
+    }
+
+    .profileimg {
+      width: auto;
+      background-color: white;
+      padding: 30px;
+      border-radius: 40px;
+      margin: 10px;
+      box-shadow: inset 0 -3em 3em rgb(139, 139, 139),
+        0 0 0 2px rgba(139, 139, 139, 0.411),
+        0.3em 0.3em 1em rgba(255, 255, 255, 0.3);
     }
   }
 </style>
