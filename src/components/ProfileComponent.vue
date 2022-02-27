@@ -16,7 +16,7 @@
     <div id="right-side">
       <div class="interests-container">
         <p class="profile-header">Intressen & Hobbies:</p>
-        <ul>
+        <ul v-if="this.$store.state.interests && this.$store.state.interests.length > 0">
           <li
             class="interests"
             v-for="interest in this.$store.state.interests.split(', ')"
