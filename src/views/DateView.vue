@@ -8,12 +8,12 @@
 
   <div class="container" v-if="users.length > 0">
     <div class="profilepic">
-      <img class="profileimg" :src="users[0].picture" alt="Profile picture" />
+      <img id="profile-picture" :src="users[0].picture" alt="Profile picture" />
     </div>
 
     <div class="bar">
       <div class="loading-bar">
-        <div class="percentage" :style="{ width: percentage + '%' }" />
+        <div class="percentage" :style="{ width: this.counter / 6 + '%' }" />
       </div>
     </div>
 
@@ -47,7 +47,7 @@
     data() {
       return {
         users: usersData,
-        percentage: 100,
+        counter: 600,
         favorites: [],
 
         navLinks: [
@@ -68,7 +68,7 @@
           },
           {
             text: 'Favourites',
-            path: '/favoritess',
+            path: '/favorites',
             icon: 'ion-ios-heart'
           },
           {
@@ -85,19 +85,42 @@
       }
     },
     created() {
-      let intval = setInterval(() => {
-        if (this.percentage < 101) this.percentage -= 0.1
-        else clearInterval(intval)
-      }, 1)
+      setInterval(() => {
+        this.counter--
+        if (this.counter < 1) {
+          this.counter = 600
+          this.onNo()
+        }
+      }, 10)
     },
 
     methods: {
       onYes() {
-        this.favorites.push(this.users[0])
+        this.favorites.push({ id: this.users[0].id })
         this.users.splice(0, 1)
+        this.counter = 600
+        var existingEntries = JSON.parse(
+          localStorage.getItem('favoritedProfiles')
+        )
+        if (existingEntries === null) existingEntries = []
+        var idNumber = this.users[0].id - 1
+        var entry = {
+          id: idNumber
+        }
+        if (existingEntries.some((e) => e.id === idNumber)) {
+          console.log('Finns redan')
+          return
+        } else {
+          existingEntries.push(entry)
+          localStorage.setItem(
+            'favoritedProfiles',
+            JSON.stringify(existingEntries)
+          )
+        }
       },
       onNo() {
         this.users.splice(0, 1)
+        this.counter = 600
       },
       goHome() {
         this.favorites.push(this.users[0])
@@ -108,33 +131,56 @@
 </script>
 
 <style scoped>
+  p {
+    white-space: pre-line;
+  }
   .container {
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     height: max-content;
-    width: 600px;
-    grid-column-gap: 1px;
-    grid-row-gap: 1px;
+    width: auto;
     background-color: white;
     text-align: center;
-    margin: auto;
-    border-radius: 4px;
-    margin: 0 auto;
-    margin-top: 50px;
-    padding-bottom: 10px;
+    border-radius: 10px;
+    margin: 1.5rem 1rem;
+  }
+  .loading-bar {
+    position: relative;
+    width: 300px;
+    height: 30px;
+    margin-top: 1.5rem;
+    border-radius: 0 15px 15px 0;
+    background-color: rgb(221, 221, 221);
+    box-shadow: inset 0 -3em 3em rgb(139, 139, 139),
+      0 0 0 2px rgba(139, 139, 139, 0.411),
+      0.3em 0.3em 1em rgba(255, 255, 255, 0.3);
+  }
+  .percentage {
+    position: absolute;
+    height: 100%;
+    background-color: #4a00b3;
+    border-radius: 0 15px 15px 0;
   }
 
   .profilepic {
     grid-area: 1 / 1 / 2 / 2;
-    margin-top: 15px;
+    margin-top: 1rem;
+    margin-left: 1rem;
+  }
+  #profile-picture {
+    border-radius: 50%;
   }
   .bar {
     grid-area: 2 / 1 / 3 / 2;
   }
   .info {
     grid-area: 1 / 2 / 2 / 3;
+    margin: auto 0;
   }
   .buttons {
     grid-area: 2 / 2 / 3 / 3;
+    margin-bottom: 0.5rem;
   }
 
   .profileimg {
@@ -167,49 +213,25 @@
     margin-right: auto;
   }
 
-  /* "Lådan" till bar:en */
-  .loading-bar {
-    position: relative;
-    width: 300px;
-    height: 30px;
-    margin-top: 10px;
-    margin-left: 20px;
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
-    background-color: rgb(221, 221, 221);
-    box-shadow: inset 0 -3em 3em rgb(139, 139, 139),
-      0 0 0 2px rgba(139, 139, 139, 0.411),
-      0.3em 0.3em 1em rgba(255, 255, 255, 0.3);
-  }
-
-  /* Den rörliga delen av bar:en */
-  .percentage {
-    position: absolute;
-    height: 100%;
-    background-color: #4a00b3;
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
-  }
-
-  @media (max-width: 375px) {
+  @media (min-width: 900px) {
     .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      width: auto;
-      margin-top: 0;
+      display: grid;
+      grid-column-gap: 1px;
+      grid-row-gap: 1px;
+      width: 700px;
+      height: 470px;
+      margin: 50px auto 0 auto;
+      padding-bottom: 10px;
     }
-
-    .profileimg {
-      width: auto;
-      background-color: white;
-      padding: 30px;
-      border-radius: 40px;
-      margin: 10px;
-      box-shadow: inset 0 -3em 3em rgb(139, 139, 139),
-        0 0 0 2px rgba(139, 139, 139, 0.411),
-        0.3em 0.3em 1em rgba(255, 255, 255, 0.3);
+    .loading-bar {
+      margin-left: 1.5rem;
+    }
+    .info {
+      margin-top: 2rem;
+      margin-right: 2rem;
+      width: 350px;
+      align-self: baseline;
+      height: 320px;
     }
   }
 </style>
