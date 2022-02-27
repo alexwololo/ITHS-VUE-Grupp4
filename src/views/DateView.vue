@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 <template>
   <ResponsiveNavigation
     :nav-links="navLinks"
@@ -237,4 +235,3 @@
     }
   }
 </style>
->>>>>>> 52da44717e1f0fb16f2a3882c14e99b5ec30b2f9
