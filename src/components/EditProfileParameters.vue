@@ -2,22 +2,40 @@
   <label>
     Namn:
     <input
+      v-if="this.$store.state.name.length"
       type="text"
       id="edit-name"
       @change="changedValue"
       :value="nameValue"
     />
+    <input v-else type="text" id="edit-name" @change="changedValue" value="" />
   </label>
   <label>
     Ålder:
-    <input type="text" id="edit-age" @change="changedValue" :value="ageValue" />
+    <input
+      v-if="this.$store.state.age.length"
+      type="text"
+      id="edit-age"
+      @change="changedValue"
+      :value="ageValue"
+    />
+    <input v-else type="text" id="edit-age" @change="changedValue" value="" />
   </label>
   <label>
     Intressen & hobbies:
     <textarea
+      v-if="this.$store.state.interests.length"
       id="edit-interests"
       @change="changedValue"
       :value="interestsValue"
+      rows="4"
+      cols="50"
+    />
+    <textarea
+      v-else
+      id="edit-interests"
+      @change="changedValue"
+      value=""
       rows="4"
       cols="50"
     />
@@ -25,9 +43,18 @@
   <label>
     Biografi:
     <textarea
+      v-if="this.$store.state.biography.length"
       id="edit-biography"
       @change="changedValue"
       :value="biographyValue"
+      rows="4"
+      cols="50"
+    />
+    <textarea
+      v-else
+      id="edit-biography"
+      @change="changedValue"
+      value=""
       rows="4"
       cols="50"
     />

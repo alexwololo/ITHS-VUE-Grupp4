@@ -1,6 +1,13 @@
 <template>
   <div id="img-container">
-    <img :src="profilePic" alt="" id="profile-pic" :key="updateKey" />
+    <img
+      v-if="this.$store.state.picture.length"
+      :src="this.$store.state.picture"
+      alt=""
+      id="profile-pic"
+      :key="0"
+    />
+    <img v-else src="assets/no-image.png" alt="" id="profile-pic" :key="1" />
   </div>
   <p>Välj ny profilbild.</p>
   <div id="input-container">
@@ -20,19 +27,13 @@
 <script>
   export default {
     data() {
-      if (this.$store.state.picture) {
+      if (this.$store.state.picture.length) {
         return {
-          profilePic: this.$store.state.picture,
-          pic2: './assets/save-image.png',
-          file: {},
-          updateKey: 0
+          pic2: './assets/save-image.png'
         }
       } else {
         return {
-          profilePic: './assets/no-image.png',
-          pic2: './assets/save-image.png',
-          file: {},
-          updateKey: 0
+          pic2: './assets/save-image.png'
         }
       }
     },
