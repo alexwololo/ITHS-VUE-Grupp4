@@ -50,6 +50,13 @@
   <div id="wrapper">
     <div id="mainChat">
       <h3>Meddelanden</h3>
+      <div id="icebreaker">
+        <p>
+          <router-link to="/icebreaker" id="icebreaker"
+            >Icebreaker-frågor</router-link
+          >
+        </p>
+      </div>
       <div id="chatBubble">
         <ul v-for="answers in this.bot" :key="answers">
           <li id="list2">
@@ -175,5 +182,15 @@
     height: inherit;
     width: 270px;
     border: solid grey 1px;
+  }
+
+  #icebreaker {
+    text-align: center;
+    width: 80%;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: #fff;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+      1px 1px 0 #000;
   }
 </style>
