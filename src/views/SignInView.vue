@@ -3,7 +3,7 @@
   import SigninComponent from '../components/SigninComponent.vue'
 
   export default {
-    components: { TheHeader, SigninComponent },
+    components: { TheHeader, SigninComponent }
   }
 </script>
 

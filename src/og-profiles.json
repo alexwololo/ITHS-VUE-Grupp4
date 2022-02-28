@@ -1,0 +1,178 @@
+[
+  {
+    "id": "1",
+    "name": "Anders",
+    "age": "31",
+    "interests": ["Släktforska", "Springa maratonlopp"],
+    "biography": "Nuvarande relationsstatus: \nGjorde middag för två. Åt upp båda.",
+    "picture": "/assets/profilepics/1.png"
+  },
+  {
+    "id": "2",
+    "name": "Johanna",
+    "age": "27",
+    "interests": ["Läsa", "Resa", "Hälsokost"],
+    "biography": "Hur många pudlar har vi inom 10 år?",
+    "picture": "/assets/profilepics/2.png"
+  },
+  {
+    "id": "3",
+    "name": "Erika",
+    "age": "24",
+    "interests": ["Smyckestillverkning", "Återvinning"],
+    "biography": "Om mig:\n\u2022Jag räddade min syster från att krocka när hon övningskörde \n\u2022Jag har varit i fler än 20 + länder \n\u2022Expert på att mysa \n\u2022Brunetter får mig att bli knäsvag \n\u2022I framtiden vill jag bo i ett slott med 3 barn och katt \n\nOj, missade! vill så klart gå på en dejt också.",
+    "picture": "/assets/profilepics/3.png"
+  },
+  {
+    "id": "4",
+    "name": "Carl",
+    "age": "34",
+    "interests": ["Glasblåsning", "Body building", "Biodling"],
+    "biography": "Läs inte det här… \nNär jag gick i 3:an hatade tjejer att jag drog dom i håret. Det är roligt att se hur det har förändrats. \nJag hoppas att du är lika ironisk som mig, då kommer vi att gå ihop!",
+    "picture": "/assets/profilepics/4.png"
+  },
+  {
+    "id": "5",
+    "name": "Martin",
+    "age": "22",
+    "interests": ["Inredning", "Filateli"],
+    "biography": "Föreställ dig, att vi är på dejt. Vi är på en klassisk restaurang som jag valde och sen går vi ut på en drink. Efter ett par drinkar så är jag lite full och vi går tillbaka mot min bil. Bilen brinner. Du är chockad och redo att ringa 112. \nDu tittar på mig , jag har två marshmallows på en pinne, redo för grillning och mer alkohol. Du rodnar, vi myser tillsammans medans min brinnande bil håller oss varma. Vi skämtar och skrattar, du är på väg att gå in för en kyss… Jag kastar kloroform på dig och rånar sen dig. Det var inte ens min bil som brann.",
+    "picture": "/assets/profilepics/5.png"
+  },
+  {
+    "id": "6",
+    "name": "Lovisa",
+    "age": "19",
+    "interests": ["Fotografi", "Krav Maga", "lyssna på musik"],
+    "biography": "Ett påstående stämmer inte, gissar du rätt bjuder jag på tequila: \n- Jag har hoppat fallskärm \n- Jag har dykt med hajar \n- Min hund är adopterad",
+    "picture": "/assets/profilepics/6.png"
+  },
+  {
+    "id": "7",
+    "name": "Simon",
+    "age": "31",
+    "interests": ["Flyga privatjet", "Festa", "Leva livet"],
+    "biography": "Son till Lev Leviev, tro inte på alla lögner som cirkulerar om mig.",
+    "picture": "/assets/profilepics/7.png"
+  },
+  {
+    "id": "8",
+    "name": "Maja",
+    "age": "18",
+    "interests": ["Skriva noveller", "Vindsurfing"],
+    "biography": "Jag är bara här för att träffa vänner.",
+    "picture": "/assets/profilepics/8.png"
+  },
+  {
+    "id": "9",
+    "name": "Tova",
+    "age": "23",
+    "interests": ["Sjunga", "Bungee jumping"],
+    "biography": "Skicka in din ansökan med personligt brev och CV till epostadress@gmail.com med en motivering till varför du tror att vi skulle vara en bra match. Jag ser fram emot att gå igenom din ansökan och kommer svara inom 3-5 arbetsdagar, men förmodligen inom en timme pga jag är desperat. \nJag skojar inte, gör det.",
+    "picture": "/assets/profilepics/9.png"
+  },
+  {
+    "id": "10",
+    "name": "Karin",
+    "age": "22",
+    "interests": ["Blogga", "Hälsokost", "Skapa nya recept"],
+    "biography": "Snälla hjälp mig att fylla ut min sista mening med ett tredje ord. \nJag älskar .......",
+    "picture": "/assets/profilepics/10.png"
+  },
+  {
+    "id": "11",
+    "name": "David",
+    "age": "19",
+    "interests": ["Spela gitarr", "Motocross"],
+    "biography": "Jag har hört att tjejer brukar gilla killar som är bad boys? \nDu kan vara lugn, jag är dålig på allt. \nVill du lära känna mig mer så kan du fråga mig varför jag har Tinder.",
+    "picture": "/assets/profilepics/11.png"
+  },
+  {
+    "id": "12",
+    "name": "Mikaela",
+    "age": "30",
+    "interests": ["Teckna", "Dykning"],
+    "biography": "Anledningar att dejta mig: \n\u2022Jag kan beställa pizza \n\u2022Jag låter dig välja film \n\u2022Jag kan tänka mig att diska ibland",
+    "picture": "/assets/profilepics/12.png"
+  },
+  {
+    "id": "13",
+    "name": "Henrik",
+    "age": "37",
+    "interests": ["Spela tv-spel", "Segling"],
+    "biography": "Fördel: Jag får ofta komplimanger för mitt utseende \nNackdel: Det är alltid från min mamma \nFördel: Jag har en kaffemaskin \nNackdel: Jag dricker inte kaffe \nFördel: Jag är väldigt lik din nya pojkvän \nNackdel: Jag har en tvillingbror",
+    "picture": "/assets/profilepics/13.png"
+  },
+  {
+    "id": "14",
+    "name": "Casper",
+    "age": "21",
+    "interests": ["Dansa", "Yoga"],
+    "biography": "Min djupaste hemlighet: \nJag är oskuld",
+    "picture": "/assets/profilepics/14.png"
+  },
+  {
+    "id": "15",
+    "name": "Elin",
+    "age": "34",
+    "interests": ["Djur", "Folkrace", "Organisera hemma"],
+    "biography": "Vill du veta min största hemlighet i livet? \nGe en tumme upp och skriv så kanske du får veta.",
+    "picture": "/assets/profilepics/15.png"
+  },
+  {
+    "id": "16",
+    "name": "Per",
+    "age": "31",
+    "interests": ["Måla", "Åka slalom", "Meka med bilen"],
+    "biography": "Fördelar: \nKan göra eld med två pinnar (och tändstickor) \nGillar romantiska komedier \nNackdelar: \nInte Danny Saucedo \nMitt kladdkakerecept kommer förstöra din hälsa",
+    "picture": "/assets/profilepics/16.png"
+  },
+  {
+    "id": "17",
+    "name": "Thomas",
+    "age": "24",
+    "interests": ["Kolla på film", "Snickra"],
+    "biography": "Sant eller falskt: \nJag är längre än dig \nJag har rest till fler länder än dig \nJag kan sänka fler shots än dig \nJag sover längre än dig",
+    "picture": "/assets/profilepics/17.png"
+  },
+  {
+    "id": "18",
+    "name": "Kajsa",
+    "age": "26",
+    "interests": ["Mata småfåglar", "Kolla på fotboll", "Kolla på ishockey"],
+    "biography": "Min dröm är att flytta ut på landet och leva med naturen, jag är väldigt spirituell. \nVad är din dröm?",
+    "picture": "/assets/profilepics/18.png"
+  },
+  {
+    "id": "19",
+    "name": "Amelia",
+    "age": "32",
+    "interests": ["Instagram", "Meditera"],
+    "biography": "Jag har inga barn.",
+    "picture": "/assets/profilepics/19.png"
+  },
+  {
+    "id": "20",
+    "name": "Elisa",
+    "age": "22",
+    "interests": ["Kort- och brädspel", "Jakt och fiske"],
+    "biography": "Jag praktiserar säkert samlag. Jag knyter fast dig i sängen så du inte ramlar av.",
+    "picture": "/assets/profilepics/20.png"
+  },
+  {
+    "id": "21",
+    "name": "Johannes",
+    "age": "24",
+    "interests": ["Odla grönsaker", "Längdskidåkning"],
+    "biography": "Fördelar: \nÖppen till att dela mitt Netflixkonto \nKan äta 30 sushibitar i en sittning \nÄr inte beroende av heroin \nNackdelar: \nAnvänder sarkasm som en försvarsmekanism \nNattuggla \nKommer äta 30 sushibitar i en sittning",
+    "picture": "/assets/profilepics/21.png"
+  },
+  {
+    "id": "22",
+    "name": "Patrik",
+    "age": "29",
+    "interests": ["Måla keramik", "Laga mat", "Geo-tagging", "Skriva haikun"],
+    "biography": "Patrik är en riktig toppengrabb! - mormor \n\nDen tjej som får Patrik kan skatta sig lycklig! - mamma",
+    "picture": "/assets/profilepics/22.png"
+  }
+]

@@ -37,7 +37,6 @@
   }
 </script>
 
-
 <template>
   <div class="wrapper">
     <h3 id="skapakonto">Logga in på konto</h3>

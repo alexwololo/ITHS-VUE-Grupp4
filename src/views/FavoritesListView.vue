@@ -7,12 +7,7 @@
   />
   <h1>Favoritprofiler</h1>
   <div id="profiles-container">
-    <div
-      class="profile-card"
-      @click="onClick"
-      v-for="user in users"
-      :key="user.id"
-    >
+    <div class="profile-card" v-for="user in users" :key="user.id">
       <router-link class="link-style" :to="'/favorite/' + user.id"
         ><img
           :src="usersData[user.id - 1].picture"
@@ -36,17 +31,12 @@
 </template>
 
 <script>
-  import usersData from '../profiles.json'
+  import usersData from '../og-profiles.json'
   import ResponsiveNavigation from '../components/ResponsiveNavigation.vue'
 
   export default {
     components: {
       ResponsiveNavigation
-    },
-    methods: {
-      onClick() {
-        console.log(this.users[0].id)
-      }
     },
     data() {
       return {
