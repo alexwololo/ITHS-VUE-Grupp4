@@ -1,18 +1,31 @@
 <template>
   <header>
     <nav>
-      <i class="fas fa-bars" />
+      <div class="burger-menu">
+        <i class="fas fa-bars" />
+      </div>
       <h2><router-link to="/">Swindlr</router-link></h2>
-      <ul>
-        <li><a href="#" class="options">Produkter</a></li>
-        <li><a href="#" class="options">Support</a></li>
-        <router-link to="/signin" class="login">Logga in</router-link>
-      </ul>
+      <div class="mobile-list">
+        <ul>
+          <li><a href="#" class="options">Produkter</a></li>
+          <li><a href="#" class="options">Support</a></li>
+          <router-link to="/signin" class="login">Logga in</router-link>
+        </ul>
+      </div>
     </nav>
   </header>
+  <LandingNavMobile />
 </template>
 
-<script></script>
+<script>
+  import LandingNavMobile from '../components/LandingNavMobile.vue'
+
+  export default {
+    components: {
+      LandingNavMobile
+    }
+  }
+</script>
 
 <style scoped>
   header {
@@ -33,7 +46,7 @@
     top: 16px;
   }
 
-  i {
+  .burger-menu {
     font-size: 2rem;
   }
 
@@ -72,6 +85,10 @@
     padding-left: 0.9em;
   }
 
+  .open {
+    transform: translateY(300px);
+  }
+
   @media (max-width: 768px) {
     ul {
       display: none;
@@ -83,7 +100,7 @@
       display: block;
     }
 
-    i {
+    .burger-menu {
       display: none;
     }
   }
