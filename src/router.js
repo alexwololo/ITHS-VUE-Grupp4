@@ -11,6 +11,7 @@ import ChatView from './views/ChatView.vue'
 import FavoritesListView from './views/FavoritesListView.vue'
 import FavoriteView from './views/FavoriteView.vue'
 import LoungeView from './views/LoungeView.vue'
+import ChatListView from './views/ChatListView.vue'
 import IceBreaker from './components/IceBreaker.vue'
 
 const router = createRouter({
@@ -46,7 +47,7 @@ const router = createRouter({
     },
     {
       component: ChatView,
-      path: '/chat'
+      path: '/chat/:profileid'
     },
     {
       component: FavoritesListView,
@@ -60,6 +61,10 @@ const router = createRouter({
       component: LoungeView,
       path: '/lounge',
       name: 'lounge'
+    },
+    {
+      component: ChatListView,
+      path: '/chat'
     },
     {
       component: IceBreaker,
