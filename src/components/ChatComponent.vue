@@ -190,6 +190,7 @@
 
   #chatImg {
     border-radius: 50%;
+  }
   #icebreaker {
     text-align: center;
     width: 80%;
