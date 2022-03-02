@@ -44,7 +44,10 @@
       </div>
       <p class="profile-header bio">{{ users[profileId].biography }}</p>
       <p class="to-messages">
-        <router-link v-if="buttonNotClicked" class="routerlink" :to="'/chat'"
+        <router-link
+          v-if="buttonNotClicked"
+          class="routerlink"
+          :to="'/chat/' + this.$route.params.profileid"
           >Skicka meddelande till {{ users[profileId].name }}</router-link
         >
         <button v-if="buttonClicked" class="routerlink-disabled">
