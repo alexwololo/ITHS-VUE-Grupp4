@@ -1,7 +1,10 @@
 <script>
+  import usersData from '../profiles.json'
   export default {
     data() {
       return {
+        users: usersData,
+        profileId: this.$route.params.profileid - 1,
         newArray: [],
         bot: [],
         convo: [],
@@ -49,6 +52,7 @@
 <template>
   <div id="wrapper">
     <div id="mainChat">
+      <img id="chatImg" width="50" :src="users[profileId].picture" alt="" />
       <h3>Meddelanden</h3>
       <div id="chatBubble">
         <ul v-for="answers in this.bot" :key="answers">
@@ -175,5 +179,9 @@
     height: inherit;
     width: 270px;
     border: solid grey 1px;
+  }
+
+  #chatImg {
+    border-radius: 50%;
   }
 </style>
