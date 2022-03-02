@@ -16,11 +16,9 @@
     </div>
     <div class="icbreaker-questions">
       <ul>
-        <li><icebreaker />{{ randomQuestion }}</li>
-        <li><icebreaker />{{ randomQuestion }}</li>
-        <li><icebreaker />{{ randomQuestion }}</li>
-        <li><icebreaker />{{ randomQuestion }}</li>
-        <li><icebreaker />{{ randomQuestion }}</li>
+        <li v-for="question in questions.slice(0, 5)" :key="question">
+          {{ randomQuestion() }}
+        </li>
       </ul>
     </div>
   </div>
@@ -80,7 +78,7 @@
           'Vilka ämnen borde man lära sig i skolan och vilka borde man inte?',
           'Vilket är det största fordonet som du har kört?',
           'Vilken ny regel tycker du ska införas i den sport som du är mest intresserad av?',
-          'Hur ser den perfekta fruskosten ut för dig?',
+          'Hur ser den perfekta frukosten ut för dig?',
           'Om du kunde välja dina drömmar, vad skulle du föredra att drömma om?',
           'Vad säger dig mest om en person?',
           'Vilka är dom bästa skorna som du någonsin haft?',
@@ -101,7 +99,7 @@
         ]
       }
     },
-    computed: {
+    methods: {
       randomQuestion() {
         let q = this.questions.length
         let icebreaker = Math.floor(Math.random() * q)
