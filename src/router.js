@@ -12,6 +12,7 @@ import FavoritesListView from './views/FavoritesListView.vue'
 import FavoriteView from './views/FavoriteView.vue'
 import LoungeView from './views/LoungeView.vue'
 import ChatListView from './views/ChatListView.vue'
+import IceBreaker from './components/IceBreaker.vue'
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -64,6 +65,10 @@ const router = createRouter({
     {
       component: ChatListView,
       path: '/chat'
+    },
+    {
+      component: IceBreaker,
+      path: '/icebreaker'
     }
   ]
 })

@@ -5,25 +5,33 @@
     link-color="#777"
     hover-background="#ddd"
   />
-  <ProfileComponent />
-  <div class="lounge-container">
-    <div class="favorites">
-      <h2>Dina senaste favoriter</h2>
-      <FavouritesCarousel />
+
+  <div class="icbreaker-container">
+    <div class="icebreaker-info">
+      <h1>
+        Vi har satt ihop ett par frågor som kan hjälpa dig att föra ditt samtal
+        vidare
+      </h1>
+      <p>Välj en av nedanstående frågor för att bibehålla er gnista!</p>
+    </div>
+    <div class="icbreaker-questions">
+      <ul>
+        <li><icebreaker /></li>
+        <li><icebreaker /></li>
+        <li><icebreaker /></li>
+        <li><icebreaker /></li>
+        <li><icebreaker /></li>
+      </ul>
     </div>
   </div>
 </template>
 
 <script>
   import ResponsiveNavigation from '../components/ResponsiveNavigation.vue'
-  import FavouritesCarousel from '../components/FavouritesCarousel.vue'
-  import ProfileComponent from '../components/ProfileComponent.vue'
 
   export default {
     components: {
-      ResponsiveNavigation,
-      FavouritesCarousel,
-      ProfileComponent
+      ResponsiveNavigation
     },
     data() {
       return {
@@ -65,42 +73,11 @@
 </script>
 
 <style scoped>
-  .lounge-container {
-    margin: 1rem;
-    padding: 1rem 0;
-    border-radius: 1rem;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-  }
-  .favorites {
-    display: block;
-    width: 97%;
-    background-color: white;
-    margin: 1rem;
-  }
-
-  @media screen and (min-width: 980px) {
-    .favorites {
-      display: block;
-      width: 97%;
-      background-color: white;
-      margin: 1rem;
-    }
-
-    .lounge-container {
-      width: 80%;
-      margin: 2rem 7rem;
-      padding: 0;
-      border-radius: 1rem;
-      background-color: white;
-      display: flex;
-      flex-direction: column;
-    }
-  }
-  @media screen and (min-width: 1200px) {
-    .lounge-container {
-      margin: 2rem 9rem;
-    }
+  .icbreaker-container {
+    min-width: 200px;
+    padding: 60px 30px;
+    margin: 60px 30%;
+    text-align: left;
+    background-color: rgba(255, 255, 255, 0.5);
   }
 </style>

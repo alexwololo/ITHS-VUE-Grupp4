@@ -1,98 +1,69 @@
 <template>
-  <ResponsiveNavigation
-    :nav-links="navLinks"
-    background="#fff"
-    link-color="#777"
-    hover-background="#ddd"
-  />
   <div id="profile-container">
     <div id="left-side">
+      <div class="welcome">
+        <h1 v-if="this.$store.state.user.length">
+          Välkommen, {{ this.$store.state.user }}!
+        </h1>
+        <h1 v-else>Välkommen, (inget användarnamn)!</h1>
+      </div>
       <img
-        :src="users[profileId].picture"
+        v-if="this.$store.state.picture.length"
+        :src="this.$store.state.picture"
+        alt="Profile picture"
+        class="profile-picture"
+      />
+      <img
+        v-else
+        src="assets/profilepics/no-profile-pic.png"
         alt="Profile picture"
         class="profile-picture"
       />
       <div class="name-age">
-        <h1>{{ users[profileId].name }}</h1>
-        <h1>{{ users[profileId].age }} år</h1>
+        <h3 v-if="this.$store.state.name.length">
+          {{ this.$store.state.name }}, {{ this.$store.state.age }} år
+        </h3>
+        <h3 v-else>Inget namn, ingen ålder ifylld.</h3>
       </div>
     </div>
     <div id="right-side">
+      <div id="right-top">
+        <a href="/#/edit">edit profile</a>
+      </div>
       <div class="interests-container">
         <p class="profile-header">Intressen & Hobbies:</p>
-        <ul>
+        <ul v-if="this.$store.state.interests.length">
           <li
             class="interests"
-            v-for="interest in interests"
+            v-for="interest in this.$store.state.interests.split(',')"
             :key="interest.length"
           >
             {{ interest }}
           </li>
         </ul>
+        <ul v-else>
+          <li class="interests">No interests added.</li>
+        </ul>
       </div>
-      <p class="profile-header bio">{{ users[profileId].biography }}</p>
+      <p v-if="this.$store.state.biography.length" class="profile-header bio">
+        {{ this.$store.state.biography }}
+      </p>
+      <p v-else>Biografi inte ifylld.</p>
       <p class="to-messages">
-        <router-link
-          class="routerlink"
-          :to="'/chat/' + this.$route.params.profileid"
-          >Skicka meddelande till {{ users[profileId].name }}</router-link
-        >
+        <router-link class="routerlink" :to="'/date'">Börja dejta</router-link>
       </p>
     </div>
   </div>
 </template>
 
-<script>
-  import usersData from '../og-profiles.json'
-  import ResponsiveNavigation from '../components/ResponsiveNavigation.vue'
-
-  export default {
-    components: {
-      ResponsiveNavigation
-    },
-    data() {
-      return {
-        navLinks: [
-          {
-            text: 'Home',
-            path: '/lounge',
-            icon: 'ion-ios-home'
-          },
-          {
-            text: 'Start dating',
-            path: '/date',
-            icon: 'ion-ios-thumbs-up'
-          },
-          {
-            text: 'Messages',
-            path: '/chat',
-            icon: 'ion-ios-mail'
-          },
-          {
-            text: 'Favourites',
-            path: '/favorites',
-            icon: 'ion-ios-heart'
-          },
-          {
-            text: 'Edit profile',
-            path: '/edit',
-            icon: 'ion-ios-create'
-          },
-          {
-            text: 'Log out',
-            path: '/',
-            icon: 'ion-ios-log-out'
-          }
-        ],
-        users: usersData,
-        profileId: this.$route.params.profileid - 1,
-        interests: usersData[this.$route.params.profileid - 1].interests
-      }
-    }
-  }
-</script>
+<script></script>
 
 <style lang="scss" scoped>
+  .welcome {
+    display: flex;
+    justify-content: center;
+  }
+
   p {
     white-space: pre-line;
   }
@@ -139,7 +110,7 @@
   }
   .interests {
     list-style: none;
-    background-color: #664692;
+    background-color: #6200ee;
     border-radius: 10px;
     color: #fff;
     padding: 0.5rem;
@@ -153,7 +124,7 @@
   .routerlink {
     margin: 1rem auto 1rem auto;
     text-decoration: none;
-    background-color: #6200ee;
+    background-color: orange;
     box-shadow: inset 0 -0.6em 0 -0.35em rgba(0, 0, 0, 0.17);
     border-radius: 4px;
     padding: 0.7em 1.4em;
@@ -161,7 +132,11 @@
   }
   .routerlink:hover,
   .routerlink:focus {
-    background-color: #4a00b3;
+    background-color: darkorange;
+  }
+
+  #right-top {
+    text-align: center;
   }
 
   @media screen and (min-width: 980px) {
@@ -169,7 +144,8 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      margin: 2rem 5rem;
+      width: 80%;
+      margin: 2rem 7rem;
       padding: 0;
       border-radius: 1rem;
     }
@@ -186,6 +162,10 @@
       margin-top: 2rem;
       margin-bottom: 1.5rem;
     }
+
+    #right-top {
+      text-align: right;
+    }
     .interests-container {
       border-bottom: 3px solid #e6e6e6;
       padding-bottom: 10px;
@@ -195,7 +175,7 @@
 
   @media screen and (min-width: 1200px) {
     #profile-container {
-      margin: 2rem 10rem;
+      margin: 2rem 9rem;
     }
   }
 </style>

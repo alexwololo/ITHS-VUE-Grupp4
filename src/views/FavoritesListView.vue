@@ -10,15 +10,15 @@
     <div class="profile-card" v-for="user in users" :key="user.id">
       <router-link class="link-style" :to="'/favorite/' + user.id"
         ><img
-          :src="user.picture"
+          :src="usersData[user.id - 1].picture"
           alt="Profile picture"
-          class="profile-picture"
+          class="profile-picture2"
         />
       </router-link>
       <div class="profile-information">
         <div class="name-age">
-          <p>{{ user.name }}</p>
-          <p>{{ user.age }} år</p>
+          <p>{{ usersData[user.id - 1].name }}</p>
+          <p>{{ usersData[user.id - 1].age }} år</p>
         </div>
         <p class="read-more">
           <router-link class="link-style" :to="'/favorite/' + user.id"
@@ -31,7 +31,7 @@
 </template>
 
 <script>
-  import usersData from '../profiles.json'
+  import usersData from '../og-profiles.json'
   import ResponsiveNavigation from '../components/ResponsiveNavigation.vue'
 
   export default {
@@ -40,7 +40,8 @@
     },
     data() {
       return {
-        users: usersData,
+        users: JSON.parse(localStorage.getItem('favoritedProfiles')),
+        usersData: usersData,
         navLinks: [
           {
             text: 'Home',
@@ -107,7 +108,7 @@
     margin-right: auto;
     padding: 0;
   }
-  .profile-picture {
+  .profile-picture2 {
     align-self: center;
     width: 150px;
     border: 2px solid grey;
