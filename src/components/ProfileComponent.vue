@@ -27,12 +27,15 @@
       </div>
     </div>
     <div id="right-side">
+      <div id="right-top">
+        <a href="/#/edit">edit profile</a>
+      </div>
       <div class="interests-container">
         <p class="profile-header">Intressen & Hobbies:</p>
         <ul v-if="this.$store.state.interests.length">
           <li
             class="interests"
-            v-for="interest in this.$store.state.interests.split(', ')"
+            v-for="interest in this.$store.state.interests.split(',')"
             :key="interest.length"
           >
             {{ interest }}
@@ -132,12 +135,17 @@
     background-color: darkorange;
   }
 
+  #right-top {
+    text-align: center;
+  }
+
   @media screen and (min-width: 980px) {
     #profile-container {
       display: flex;
       justify-content: center;
       align-items: center;
-      margin: 2rem 5rem;
+      width: 80%;
+      margin: 2rem 7rem;
       padding: 0;
       border-radius: 1rem;
     }
@@ -154,6 +162,10 @@
       margin-top: 2rem;
       margin-bottom: 1.5rem;
     }
+
+    #right-top {
+      text-align: right;
+    }
     .interests-container {
       border-bottom: 3px solid #e6e6e6;
       padding-bottom: 10px;
@@ -163,7 +175,7 @@
 
   @media screen and (min-width: 1200px) {
     #profile-container {
-      margin: 2rem 10rem;
+      margin: 2rem 9rem;
     }
   }
 </style>
