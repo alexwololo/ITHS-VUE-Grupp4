@@ -118,7 +118,8 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      margin: 2rem 5rem;
+      width: 80%;
+      margin: 2rem 7rem;
       padding: 0;
       border-radius: 1rem;
     }
@@ -144,7 +145,7 @@
 
   @media screen and (min-width: 1200px) {
     #profile-container {
-      margin: 2rem 10rem;
+      margin: 2rem 9rem;
     }
   }
 </style>
