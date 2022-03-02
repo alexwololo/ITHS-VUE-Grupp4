@@ -4,9 +4,9 @@
       <div class="card" v-for="user in users" :key="user.id">
         <router-link class="link-style" :to="'/favorite/' + user.id"
           ><img
-            :src="user.picture"
+            :src="usersData[user.id - 1].picture"
             alt="Profile picture"
-            class="profile-picture"
+            class="profile-picture2"
           />
         </router-link>
       </div>
@@ -17,12 +17,13 @@
 </template>
 
 <script>
-  import usersData from '../profiles.json'
+  import usersData from '../og-profiles.json'
 
   export default {
     data() {
       return {
-        users: usersData,
+        users: JSON.parse(localStorage.getItem('favoritedProfiles')),
+        usersData: usersData,
         innerStyles: {},
         step: '',
         transitioning: false
@@ -102,12 +103,13 @@
 
 <style scoped>
   .carousel {
-    width: 100%;
+    max-width: 1300px;
     overflow: hidden;
   }
 
   .inner {
     width: 100%;
+    margin-left: 120px;
     white-space: nowrap;
     transition: transform 0.2s;
   }
@@ -125,7 +127,7 @@
     justify-content: center;
   }
 
-  .profile-picture {
+  .profile-picture2 {
     align-self: center;
     width: 150px;
     border: 2px solid grey;
