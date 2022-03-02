@@ -135,6 +135,10 @@
     background-color: darkorange;
   }
 
+  #right-top {
+    text-align: center;
+  }
+
   @media screen and (min-width: 980px) {
     #profile-container {
       display: flex;

@@ -12,8 +12,10 @@
       </div>
     </div>
   </div>
-  <button @click="prev">&larr;</button>
-  <button @click="next">&rarr;</button>
+  <div class="button-container">
+    <img @click="prev" src="../../assets/arrow-left.svg" width="30" />
+    <img @click="next" src="../../assets/arrow-right.svg" width="30" />
+  </div>
 </template>
 
 <script>
@@ -103,15 +105,18 @@
 
 <style scoped>
   .carousel {
-    max-width: 1300px;
+    max-width: 100%;
     overflow: hidden;
   }
 
   .inner {
     width: 100%;
-    margin-left: 120px;
+    height: 200px;
+    margin-left: 150px;
     white-space: nowrap;
     transition: transform 0.2s;
+    display: flex;
+    justify-content: center;
   }
 
   .card {
@@ -138,5 +143,10 @@
   button {
     margin-right: 5px;
     margin-top: 10px;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: space-between;
   }
 </style>

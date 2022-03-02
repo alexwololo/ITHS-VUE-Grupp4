@@ -11,9 +11,6 @@
       <h2>Dina senaste favoriter</h2>
       <FavouritesCarousel />
     </div>
-    <div class="messages">
-      <h2>Du har X olästa meddelanden.</h2>
-    </div>
   </div>
 </template>
 
@@ -83,21 +80,8 @@
     margin: 1rem;
   }
 
-  .messages {
-    display: block;
-    width: 97%;
-    background-color: white;
-    margin: 1rem;
-  }
   @media screen and (min-width: 980px) {
     .favorites {
-      display: block;
-      width: 97%;
-      background-color: white;
-      margin: 1rem;
-    }
-
-    .messages {
       display: block;
       width: 97%;
       background-color: white;
