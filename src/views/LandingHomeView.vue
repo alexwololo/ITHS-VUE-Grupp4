@@ -38,6 +38,10 @@
     background-color: rgba(255, 255, 255, 0.5);
   }
 
+  .container-landing a {
+    max-width: 200px;
+  }
+
   .landing-view p {
     color: black;
     font-weight: bold;
@@ -54,8 +58,16 @@
   }
 
   @media (max-width: 768px) {
+    .landing-view {
+      margin: 40px auto;
+      padding-left: 20%;
+      padding-right: 20%;
+      text-align: center;
+    }
+
     .container-landing a {
       display: block;
+      margin: 0 auto;
     }
   }
 </style>

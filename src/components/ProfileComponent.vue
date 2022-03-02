@@ -2,15 +2,28 @@
   <div id="profile-container">
     <div id="left-side">
       <div class="welcome">
-        <h1>Välkommen, {{ this.$store.state.user }}!</h1>
+        <h1 v-if="this.$store.state.user.length">
+          Välkommen, {{ this.$store.state.user }}!
+        </h1>
+        <h1 v-else>Välkommen, (inget användarnamn)!</h1>
       </div>
       <img
+        v-if="this.$store.state.picture.length"
         :src="this.$store.state.picture"
         alt="Profile picture"
         class="profile-picture"
       />
+      <img
+        v-else
+        src="assets/profilepics/no-profile-pic.png"
+        alt="Profile picture"
+        class="profile-picture"
+      />
       <div class="name-age">
-        <h3>{{ this.$store.state.name }}, {{ this.$store.state.age }} år</h3>
+        <h3 v-if="this.$store.state.name.length">
+          {{ this.$store.state.name }}, {{ this.$store.state.age }} år
+        </h3>
+        <h3 v-else>Inget namn, ingen ålder ifylld.</h3>
       </div>
     </div>
     <div id="right-side">
@@ -19,7 +32,7 @@
       </div>
       <div class="interests-container">
         <p class="profile-header">Intressen & Hobbies:</p>
-        <ul>
+        <ul v-if="this.$store.state.interests.length">
           <li
             class="interests"
             v-for="interest in this.$store.state.interests.split(',')"
@@ -28,8 +41,14 @@
             {{ interest }}
           </li>
         </ul>
+        <ul v-else>
+          <li class="interests">No interests added.</li>
+        </ul>
       </div>
-      <p class="profile-header bio">{{ this.$store.state.biography }}</p>
+      <p v-if="this.$store.state.biography.length" class="profile-header bio">
+        {{ this.$store.state.biography }}
+      </p>
+      <p v-else>Biografi inte ifylld.</p>
       <p class="to-messages">
         <router-link class="routerlink" :to="'/date'">Börja dejta</router-link>
       </p>
@@ -121,7 +140,8 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      margin: 2rem 5rem;
+      width: 80%;
+      margin: 2rem 7rem;
       padding: 0;
       border-radius: 1rem;
     }
@@ -151,7 +171,7 @@
 
   @media screen and (min-width: 1200px) {
     #profile-container {
-      margin: 2rem 10rem;
+      margin: 2rem 9rem;
     }
   }
 </style>

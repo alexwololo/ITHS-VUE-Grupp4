@@ -41,7 +41,7 @@
 </template>
 
 <script>
-  import usersData from '../profiles.json'
+  import usersData from '../og-profiles.json'
   import ResponsiveNavigation from '../components/ResponsiveNavigation.vue'
 
   export default {
