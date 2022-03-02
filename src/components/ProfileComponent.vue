@@ -27,12 +27,15 @@
       </div>
     </div>
     <div id="right-side">
+      <div id="right-top">
+        <a href="/#/edit">edit profile</a>
+      </div>
       <div class="interests-container">
         <p class="profile-header">Intressen & Hobbies:</p>
         <ul v-if="this.$store.state.interests.length">
           <li
             class="interests"
-            v-for="interest in this.$store.state.interests.split(', ')"
+            v-for="interest in this.$store.state.interests.split(',')"
             :key="interest.length"
           >
             {{ interest }}
@@ -154,6 +157,10 @@
     #right-side {
       margin-top: 2rem;
       margin-bottom: 1.5rem;
+    }
+
+    #right-top {
+      text-align: right;
     }
     .interests-container {
       border-bottom: 3px solid #e6e6e6;
