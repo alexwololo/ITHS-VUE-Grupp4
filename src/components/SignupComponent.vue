@@ -2,40 +2,40 @@
   export default {
     emits: ['show-message'],
     data() {
-      return {
-        message: false,
-        s: '',
-        t: '',
-        u: '',
-        msg: [],
-        usernameValid: false,
-        emailValid: false,
-        passwordValid: false,
-        isRegisterDisabled: true
+      return { message: false, s: '', t: '', u: '', msg: [],
+      usernameValid: false,
+      emailValid: false,
+      passwordValid: false,
+      isRegisterDisabled: true,
+      usernameIsTouched: Boolean(false),
+      emailIsTouched: Boolean(false),
+      passwordIsTouched: Boolean(false)
       }
     },
     watch: {
-      t(value) {
-        // binding this till data value i email input
-        this.email = value
-        this.validateEmail(value)
-        this.formCheckValidation()
+    t(value){
+      // binding this till data value i email input
+      this.email = value;
+      this.validateEmail(value);
+      this.formCheckValidation()
       },
-      s(value) {
-        this.username = value
-        this.nameIsValid(value)
-        this.formCheckValidation()
-      },
-      u(value) {
-        this.password = value
-        this.passwordIsValid(value)
-        this.formCheckValidation()
-      }
+    s(value){
+      this.username = value;
+      this.nameIsValid(value);
+      this.formCheckValidation()
     },
+    u(value){
+      this.password = value;
+      this.passwordIsValid(value);
+      this.formCheckValidation()
+    }
+
+    },
+
 
     methods: {
       regUser() {
-        console.log('testing', 'register')
+        console.log("testing", 'register')
         this.$store.commit('setUser', this.s)
         this.$store.commit('setEmail', this.t)
         this.$store.commit('setPassword', this.u)
@@ -52,24 +52,24 @@
         this.$emit('show-message')
       },
 
-      validateEmail(value) {
+      validateEmail(){
         // eslint-disable-next-line no-useless-escape
-        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value)) {
-          this.msg['email'] = ''
-          this.emailValid = true
-        } else {
-          this.msg['email'] = 'Invalid Email Address'
-          this.emailValid = false
+        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.t)){
+          this.msg['email'] = '';
+          this.emailValid = true;
+        } else{
+          this.msg['email'] = 'Invalid Email Address';
+          this.emailValid = false;
         }
       },
-      nameIsValid(value) {
-        const username = value
-        if (username.length >= 5 && username.length <= 20) {
-          this.msg['username'] = ''
-          this.usernameValid = true
-        } else {
-          this.msg['username'] = 'Måste innehålla 5-20 tecken'
-          this.usernameValid = false
+      nameIsValid() {
+        const username = this.s
+        if (username.length >= 5 && username.length <= 20){
+          this.msg['username'] = '';
+          this.usernameValid = true;
+        } else{
+          this.msg['username'] = 'Måste innehålla 5-20 tecken';
+          this.usernameValid = false;
         }
         // return
       },
@@ -77,20 +77,16 @@
         const email = this.userInfo.email
         return email.length > 5 && email.includes('@')
       },
-      passwordIsValid(value) {
-        const password = value
-        if (password.length >= 5 && password.length <= 20) {
-          this.msg['password'] = ''
-          this.passwordValid = true
-        } else {
-          this.msg['password'] = 'Måste innehålla 5-20 tecken'
-          this.passwordValid = false
+      passwordIsValid() {
+        const password = this.u
+        if (password.length >= 5 && password.length <= 20){
+          this.msg['password'] = '';
+          this.passwordValid = true;
+        } else{
+          this.msg['password'] = 'Måste innehålla 5-20 tecken';
+          this.passwordValid = false;
         }
-        // return password.length >= 5 && password.length <= 20
-      }
-      // formIsValid() {
-      //   return this.nameIsValid && this.emailIsValid && this.passwordIsValid
-      // }
+      },
     }
   }
 </script>
@@ -100,33 +96,19 @@
   <div class="wrapper">
     <label id="userlabel" for="username"
       >Användarnamn
-      <input
-        v-model="s"
-        id="username"
-        type="text"
-        placeholder="Användarnamn"
-      /><span class="warning-text" v-if="msg.username">{{ msg.username }}</span>
+      <input v-model="s" id="username" type="text" placeholder="Användarnamn" @blur="nameIsValid()"
+    /><span class="warning-text" v-if="msg.username">{{ msg.username }}</span>
     </label>
     <label id="elabel" for="email"
-      >email
-      <input v-model="t" id="email" type="text" placeholder="Mail" /><span
-        class="warning-text"
-        v-if="msg.email"
-        >{{ msg.email }}</span
-      ></label
-    >
+      >email <input v-model="t" id="email" type="text" placeholder="Mail" @blur="validateEmail()"
+    /><span class="warning-text" v-if="msg.email">{{ msg.email }}</span></label>
 
     <label id="plabel" for="password"
       >Lösenord
-      <input
-        v-model="u"
-        id="password"
-        type="password"
-        placeholder="Lösenord"
-      /><span class="warning-text" v-if="msg.password">{{ msg.password }}</span>
+      <input v-model="u" id="password" type="password" placeholder="Lösenord" @blur="passwordIsValid()"
+    /><span class="warning-text" v-if="msg.password">{{ msg.password }}</span>
     </label>
     <!-- -->
-    <!-- {{ !usernameValid }} {{ !emailValid }} {{ !passwordValid }} -->
     <input
       :disabled="isRegisterDisabled"
       @click="regUser"
@@ -199,7 +181,7 @@
 
   #button:disabled {
     background-color: grey;
-    cursor: default;
+    cursor: default
   }
 
   #elabel,
