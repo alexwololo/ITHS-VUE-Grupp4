@@ -12,7 +12,10 @@
         Vi har satt ihop ett par frågor som kan hjälpa dig att föra ditt samtal
         vidare
       </h1>
-      <p>Välj en av nedanstående frågor för att bibehålla er gnista!</p>
+      <p>
+        Tryck på en av nedanstående frågor för att skicka ditt meddelande och
+        bibehåll er gnista!
+      </p>
     </div>
     <div class="icbreaker-questions">
       <ul>
@@ -21,10 +24,7 @@
         </li>
       </ul>
     </div>
-    <div class="options-buttons">
-      <button class="reloadBtn" @click="reloadPage">Uppdatera</button>
-      <button class="postBtn">Skicka</button>
-    </div>
+    <button class="reloadBtn" @click="reloadPage">Uppdatera</button>
   </div>
 </template>
 
@@ -70,11 +70,11 @@
           }
         ],
         questions: [
-          'Om du skulle starta en organisation inom välgörenhet, vad skulle det isåfall vara?',
+          'Om du skulle starta en organisation inom välgörenhet, vad skulle det isåfall vara om?',
           'Vad är det roligaste du sett online under senare tid?',
-          'Vad innebär självförrbättring för dig?',
+          'Vad innebär självförbättring för dig?',
           'Finns det någon typ webbsida eller app som inte existerar i dagsläget, men som du verkligen önskar gjorde?',
-          'När någon får reda på till exempel vad du jobbar med eller var du kommer ifrån, finns det någon följdfråga som de ställer som återkommer ofta?',
+          'När någon får reda på till exempel vad du jobbar med eller var du kommer ifrån, finns det någon följdfråga som de ställer som ofta återkommer?',
           'Är du som mest produktiv på morgonen eller kvällen? Tror du att det är möjligt att förändra detta och vänja sig till ett nytt schema, isåfall hur?',
           'Finns det något ämne du kan prata om non-stop i 20 minuter, utan någon förberedelse?',
           'Har du någon quilty pleasure?',
@@ -87,7 +87,7 @@
           'Vad säger dig mest om en person?',
           'Vilka är dom bästa skorna som du någonsin haft?',
           'Vilken är din favorit kombination av mat?',
-          'Vad önskar du var olagligt?',
+          'Finns det något du önskar var olagligt?',
           'Vad är ett problem du har, som du anser är unikt för dig?',
           'Vad motiverar dig mest?',
           'Vilken är den bästa platsen för dig för att avnjuta en god kopp kaffe?',
@@ -99,9 +99,15 @@
           'Vad vill du göra när du går i pension?',
           'Vilka offentliga utrymmen trivs du bäst i?',
           'Vem var din favorit lärare?',
-          'Hur ofta dansar du?'
-        ],
-        clicked: true
+          'Hur ofta dansar du?',
+          'Vilken leksak hatade du som mest som barn?',
+          'Finns det något tillfälle då du var helt utanför din comfort-zone?',
+          'Vad är det mest kreativa du har åstadkommit?',
+          'Är det någonting du ser fram emot?',
+          'Tror du att det universum vi lever i är en simulering?',
+          'Vilket är det sämsta rådet du någonsin fått?',
+          'Vad är det som utmärker sig mest i den stad du bor i?'
+        ]
       }
     },
     methods: {
@@ -126,26 +132,7 @@
     background-color: rgba(255, 255, 255, 0.5);
   }
 
-  .options-buttons {
-    display: flex;
-    justify-content: space-between;
-    padding-top: 30px;
-  }
-
   .reloadBtn {
-    background-color: #488fb1;
-    border: none;
-    color: white;
-    padding: 15px 75px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-  }
-
-  .postBtn {
     background-color: #6200ee;
     border: none;
     color: white;
@@ -156,6 +143,7 @@
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
+    width: 100%;
   }
 
   ul li:hover {
@@ -177,9 +165,10 @@
     padding: 5px 10px;
     background-color: white;
     border: 1px solid black;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin: 20px auto;
     padding: 40px 40px;
+    min-height: 130px;
+    cursor: pointer;
   }
 
   @media (max-width: 768px) {
