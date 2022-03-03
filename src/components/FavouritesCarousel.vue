@@ -1,20 +1,31 @@
 <template>
   <div class="carousel">
     <div class="inner" ref="inner" :style="innerStyles">
-      <div class="card" v-for="card in cards" :key="card">
-        {{ card }}
+      <div class="card" v-for="user in users" :key="user.id">
+        <router-link class="link-style" :to="'/favorite/' + user.id"
+          ><img
+            :src="usersData[user.id - 1].picture"
+            alt="Profile picture"
+            class="profile-picture2"
+          />
+        </router-link>
       </div>
     </div>
   </div>
-  <button @click="prev">&larr;</button>
-  <button @click="next">&rarr;</button>
+  <div class="button-container">
+    <img @click="prev" src="../../assets/arrow-left.svg" width="30" />
+    <img @click="next" src="../../assets/arrow-right.svg" width="30" />
+  </div>
 </template>
 
 <script>
+  import usersData from '../og-profiles.json'
+
   export default {
     data() {
       return {
-        cards: [1, 2, 3, 4, 5, 6, 7, 8],
+        users: JSON.parse(localStorage.getItem('favoritedProfiles')),
+        usersData: usersData,
         innerStyles: {},
         step: '',
         transitioning: false
@@ -29,7 +40,7 @@
     methods: {
       setStep() {
         const innerWidth = this.$refs.inner.scrollWidth
-        const totalCards = this.cards.length
+        const totalCards = this.users.length
         this.step = `${innerWidth / totalCards}px`
       },
 
@@ -41,8 +52,8 @@
         this.moveLeft()
 
         this.afterTransition(() => {
-          const card = this.cards.shift()
-          this.cards.push(card)
+          const user = this.users.shift()
+          this.users.push(user)
           this.resetTranslate()
           this.transitioning = false
         })
@@ -53,8 +64,8 @@
         this.transitioning = true
         this.moveRight()
         this.afterTransition(() => {
-          const card = this.cards.pop()
-          this.cards.unshift(card)
+          const user = this.users.pop()
+          this.users.unshift(user)
           this.resetTranslate()
           this.transitioning = false
         })
@@ -94,18 +105,25 @@
 
 <style scoped>
   .carousel {
-    width: 170px;
+    max-width: 100%;
     overflow: hidden;
   }
 
   .inner {
+    width: 100%;
+    height: 200px;
+    margin-left: 150px;
     white-space: nowrap;
     transition: transform 0.2s;
+    display: flex;
+    justify-content: center;
   }
 
   .card {
-    width: 40px;
-    height: 40px;
+    width: 90px;
+    height: 150px;
+    margin-left: 40px;
+    margin-right: 40px;
     background-color: white;
     display: inline-flex;
     color: black;
@@ -114,8 +132,21 @@
     justify-content: center;
   }
 
+  .profile-picture2 {
+    align-self: center;
+    width: 150px;
+    border: 2px solid grey;
+    border-radius: 50%;
+    margin-top: 0.75rem;
+  }
+
   button {
     margin-right: 5px;
     margin-top: 10px;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: space-between;
   }
 </style>
