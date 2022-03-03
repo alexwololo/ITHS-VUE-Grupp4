@@ -16,10 +16,14 @@
     </div>
     <div class="icbreaker-questions">
       <ul>
-        <li v-for="question in questions.slice(0, 5)" :key="question">
+        <li v-for="question in questions.slice(0, 3)" :key="question">
           {{ randomQuestion() }}
         </li>
       </ul>
+    </div>
+    <div class="options-buttons">
+      <button class="reloadBtn" @click="reloadPage">Uppdatera</button>
+      <button class="postBtn">Skicka</button>
     </div>
   </div>
 </template>
@@ -96,7 +100,8 @@
           'Vilka offentliga utrymmen trivs du bäst i?',
           'Vem var din favorit lärare?',
           'Hur ofta dansar du?'
-        ]
+        ],
+        clicked: true
       }
     },
     methods: {
@@ -104,6 +109,9 @@
         let q = this.questions.length
         let icebreaker = Math.floor(Math.random() * q)
         return this.questions[icebreaker]
+      },
+      reloadPage() {
+        window.location.reload()
       }
     }
   }
@@ -116,6 +124,62 @@
     margin: 60px 30%;
     text-align: center;
     background-color: rgba(255, 255, 255, 0.5);
+  }
+
+  .options-buttons {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 30px;
+  }
+
+  .reloadBtn {
+    background-color: #488fb1;
+    border: none;
+    color: white;
+    padding: 15px 75px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+
+  .postBtn {
+    background-color: #6200ee;
+    border: none;
+    color: white;
+    padding: 15px 75px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+
+  ul li:hover {
+    background-color: rgb(197, 188, 188);
+  }
+
+  .icebreaker-info p {
+    font-weight: bold;
+  }
+
+  .icbreaker-questions ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .icbreaker-questions li {
+    text-align: left;
+    padding: 5px 10px;
+    background-color: white;
+    border: 1px solid black;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 40px 40px;
   }
 
   @media (max-width: 768px) {
