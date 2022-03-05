@@ -11,7 +11,10 @@
         usernameValid: false,
         emailValid: false,
         passwordValid: false,
-        isRegisterDisabled: true
+        isRegisterDisabled: true,
+        usernameIsTouched: Boolean(false),
+        emailIsTouched: Boolean(false),
+        passwordIsTouched: Boolean(false)
       }
     },
     watch: {
@@ -52,9 +55,9 @@
         this.$emit('show-message')
       },
 
-      validateEmail(value) {
+      validateEmail() {
         // eslint-disable-next-line no-useless-escape
-        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value)) {
+        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.t)) {
           this.msg['email'] = ''
           this.emailValid = true
         } else {
@@ -62,8 +65,8 @@
           this.emailValid = false
         }
       },
-      nameIsValid(value) {
-        const username = value
+      nameIsValid() {
+        const username = this.s
         if (username.length >= 5 && username.length <= 20) {
           this.msg['username'] = ''
           this.usernameValid = true
@@ -77,8 +80,8 @@
         const email = this.userInfo.email
         return email.length > 5 && email.includes('@')
       },
-      passwordIsValid(value) {
-        const password = value
+      passwordIsValid() {
+        const password = this.u
         if (password.length >= 5 && password.length <= 20) {
           this.msg['password'] = ''
           this.passwordValid = true
@@ -86,11 +89,7 @@
           this.msg['password'] = 'Måste innehålla 5-20 tecken'
           this.passwordValid = false
         }
-        // return password.length >= 5 && password.length <= 20
       }
-      // formIsValid() {
-      //   return this.nameIsValid && this.emailIsValid && this.passwordIsValid
-      // }
     }
   }
 </script>
@@ -105,6 +104,7 @@
         id="username"
         type="text"
         placeholder="Användarnamn"
+        @blur="nameIsValid()"
       /><span class="warning-text" v-if="msg.username">{{ msg.username }}</span>
     </label>
     <label id="elabel" for="email"
@@ -123,10 +123,10 @@
         id="password"
         type="password"
         placeholder="Lösenord"
+        @blur="passwordIsValid()"
       /><span class="warning-text" v-if="msg.password">{{ msg.password }}</span>
     </label>
     <!-- -->
-    <!-- {{ !usernameValid }} {{ !emailValid }} {{ !passwordValid }} -->
     <input
       :disabled="isRegisterDisabled"
       @click="regUser"

@@ -37,11 +37,12 @@
   }
 </script>
 
+
 <template>
   <div class="wrapper">
     <h3 id="skapakonto">Logga in på konto</h3>
     <label id="elabel" for="email">Email</label>
-    <input v-model="t" id="email" type="text" placeholder="Mail" />
+    <input v-model="t" id="email" type="text" placeholder="Mail" @blur.once="usernameIsTouched = true" />
     <small style="color: red" v-if="this.errUser == true"
       >Email Not Match</small
     >

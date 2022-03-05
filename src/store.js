@@ -51,6 +51,9 @@ const mutations = {
     },
     setPicture(state, picture) {
       state.picture = picture
+    },
+    setButton(state, button) {
+      state.button = button
     }
   },
   state = {
@@ -61,7 +64,8 @@ const mutations = {
     age: {},
     interests: {},
     biography: {},
-    picture: {}
+    picture: {},
+    button: {}
   }
 
 export default createStore({

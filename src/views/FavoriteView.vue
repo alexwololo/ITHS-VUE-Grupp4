@@ -18,6 +18,18 @@
       </div>
     </div>
     <div id="right-side">
+      <div id="right-top">
+        <button
+          class="block-button"
+          v-if="buttonNotClicked"
+          @click="blockButton"
+        >
+          block
+        </button>
+        <button class="block-button" v-if="buttonClicked" @click="blockButton">
+          unblock
+        </button>
+      </div>
       <div class="interests-container">
         <p class="profile-header">Intressen & Hobbies:</p>
         <ul>
@@ -33,10 +45,14 @@
       <p class="profile-header bio">{{ users[profileId].biography }}</p>
       <p class="to-messages">
         <router-link
+          v-if="buttonNotClicked"
           class="routerlink"
           :to="'/chat/' + this.$route.params.profileid"
           >Skicka meddelande till {{ users[profileId].name }}</router-link
         >
+        <button v-if="buttonClicked" class="routerlink-disabled">
+          Du har blockat {{ users[profileId].name }}
+        </button>
       </p>
     </div>
   </div>
@@ -86,7 +102,16 @@
         ],
         users: usersData,
         profileId: this.$route.params.profileid - 1,
-        interests: usersData[this.$route.params.profileid - 1].interests
+        interests: usersData[this.$route.params.profileid - 1].interests,
+        buttonClicked: false,
+        buttonNotClicked: true
+      }
+    },
+    methods: {
+      blockButton() {
+        this.buttonClicked = true
+        this.buttonNotClicked = false
+        this.$store.commit('setButton', this.buttonClicked)
       }
     }
   }
@@ -164,7 +189,22 @@
     background-color: #4a00b3;
   }
 
+  .routerlink-disabled {
+    margin: 1rem auto 1rem auto;
+    text-decoration: none;
+    background-color: grey;
+    box-shadow: inset 0 -0.6em 0 -0.35em rgba(0, 0, 0, 0.17);
+    border-radius: 4px;
+    padding: 0.7em 1.4em;
+    color: #fff;
+  }
+  #right-top {
+    text-align: center;
+  }
   @media screen and (min-width: 980px) {
+    #right-top {
+      text-align: right;
+    }
     #profile-container {
       display: flex;
       justify-content: center;
