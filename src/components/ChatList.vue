@@ -12,7 +12,7 @@
 </script>
 
 <template>
-  <div id="wrapper">
+  <div v-if="users" id="wrapper">
     <div id="messageBox">
       <h3>Meddelanden</h3>
     </div>
@@ -29,6 +29,18 @@
           <p>{{ usersData[user.id - 1].age }} år</p>
         </li></router-link
       >
+    </ul>
+  </div>
+  <div v-else id="wrapper">
+    <div id="messageBox">
+      <h3>Meddelanden</h3>
+    </div>
+    <ul>
+      <router-link id="router" :to="'/date'">
+        <li id="wrapper2" class="dateList">
+          Du har ännu inga kontakter. Börja dejta för att skapa nya kontakter.
+        </li>
+      </router-link>
     </ul>
   </div>
 </template>
@@ -73,5 +85,11 @@
   #router {
     text-decoration: none;
     color: black;
+  }
+
+  #wrapper2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 </style>

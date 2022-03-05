@@ -19,9 +19,15 @@
     </div>
     <div class="icbreaker-questions">
       <ul>
-        <li v-for="question in questions.slice(0, 3)" :key="question">
-          {{ randomQuestion() }}
-        </li>
+        <router-link id="router" :to="'/chat/' + this.$route.params.profileid">
+          <li
+            @click="sendQuestion($event)"
+            v-for="question in questions.slice(0, 3)"
+            :key="question"
+          >
+            {{ randomQuestion() }}
+          </li></router-link
+        >
       </ul>
     </div>
     <button class="reloadBtn" @click="reloadPage">Uppdatera</button>
@@ -30,6 +36,7 @@
 
 <script>
   import ResponsiveNavigation from '../components/ResponsiveNavigation.vue'
+  import usersData from '../og-profiles.json'
 
   export default {
     components: {
@@ -37,6 +44,9 @@
     },
     data() {
       return {
+        message: '',
+        users: JSON.parse(localStorage.getItem('favoritedProfiles')),
+        user: usersData,
         navLinks: [
           {
             text: 'Home',
@@ -118,6 +128,11 @@
       },
       reloadPage() {
         window.location.reload()
+      },
+      sendQuestion(event) {
+        let chosenQuestion = event.target.innerText
+        localStorage.setItem('chosenQuestion', chosenQuestion)
+        console.log(event.target.innerText)
       }
     }
   }
@@ -130,6 +145,11 @@
     margin: 60px 30%;
     text-align: center;
     background-color: rgba(255, 255, 255, 0.5);
+  }
+
+  #router {
+    text-decoration: none;
+    color: black;
   }
 
   .reloadBtn {

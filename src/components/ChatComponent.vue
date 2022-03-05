@@ -14,6 +14,14 @@
         messages: ''
       }
     },
+    created() {
+      let question = localStorage.getItem('chosenQuestion')
+      if (question.length) {
+        this.messages = question
+        this.chatMessages()
+        console.log('tjabba')
+      }
+    },
     methods: {
       sendChat() {
         this.chatMessages()
@@ -56,7 +64,9 @@
       <h3>Meddelanden</h3>
       <div id="icebreaker">
         <p>
-          <router-link to="/icebreaker" id="icebreaker"
+          <router-link
+            :to="'/icebreaker/' + this.$route.params.profileid"
+            id="icebreaker"
             >Icebreaker-frågor</router-link
           >
         </p>
