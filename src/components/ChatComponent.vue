@@ -160,6 +160,7 @@
     border-radius: 4px;
     border: none;
     margin-left: 5px;
+    margin-right: 5px;
   }
 
   #chatInput {

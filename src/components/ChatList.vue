@@ -2,7 +2,11 @@
   import usersData from '../profiles.json'
   export default {
     data() {
-      return { users: usersData, profileId: this.$route.params.profileid - 1 }
+      return {
+        users: JSON.parse(localStorage.getItem('favoritedProfiles')),
+        usersData: usersData,
+        profileId: this.$route.params.profileid - 1
+      }
     }
   }
 </script>
@@ -18,11 +22,11 @@
           <img
             width="50"
             class="pics"
-            :src="user.picture"
+            :src="usersData[user.id - 1].picture"
             alt="Profile picture"
           />
-          <p>{{ user.name }}</p>
-          <p>{{ user.age }} år</p>
+          <p>{{ usersData[user.id - 1].name }}</p>
+          <p>{{ usersData[user.id - 1].age }} år</p>
         </li></router-link
       >
     </ul>

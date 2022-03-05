@@ -108,7 +108,7 @@
       /><span class="warning-text" v-if="msg.username">{{ msg.username }}</span>
     </label>
     <label id="elabel" for="email"
-      >email
+      >Email
       <input v-model="t" id="email" type="text" placeholder="Mail" /><span
         class="warning-text"
         v-if="msg.email"
