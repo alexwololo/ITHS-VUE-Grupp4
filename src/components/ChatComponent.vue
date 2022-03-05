@@ -15,11 +15,13 @@
       }
     },
     created() {
-      let question = localStorage.getItem('chosenQuestion')
-      if (question.length) {
-        this.messages = question
-        this.chatMessages()
-        console.log('tjabba')
+      if (localStorage.getItem('chosenQuestion')) {
+        let question = localStorage.getItem('chosenQuestion')
+        if (question.length) {
+          this.messages = question
+          this.chatMessages()
+          console.log('tjabba')
+        }
       }
     },
     methods: {
