@@ -1,5 +1,5 @@
 <script>
-  import usersData from '../profiles.json'
+  import usersData from '../og-profiles.json'
   export default {
     data() {
       return {
