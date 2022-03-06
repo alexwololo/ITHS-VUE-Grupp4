@@ -1,9 +1,12 @@
 <template>
   <nav :style="{ background: background || '#333' }">
     <ul :style="{ background: background || '#333' }" ref="nav">
-      <figure class="image-logo" @click="toggleNav">
-        <img src="../../assets/logo.png" alt="logo" />
-      </figure>
+      <div>
+        <figure class="image-logo">
+          <img src="../../assets/logo.png" alt="logo" style="margin-right: 80px;" />
+          <button @click="toggleNav" class=""><i class="fas fa-bars" data-v-9a9f6144="" /> </button>
+        </figure>
+      </div>
       <li
         v-for="(link, index) in navLinks"
         :key="index"
@@ -83,6 +86,7 @@
       figure {
         cursor: pointer;
         margin-right: 10px;
+        // margin-left: -90px;
       }
 
       a {
