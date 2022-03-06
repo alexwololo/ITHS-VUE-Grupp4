@@ -1,14 +1,18 @@
 <script>
-  import usersData from '../profiles.json'
+  import usersData from '../og-profiles.json'
   export default {
     data() {
-      return { users: usersData, profileId: this.$route.params.profileid - 1 }
+      return {
+        users: JSON.parse(localStorage.getItem('favoritedProfiles')),
+        usersData: usersData,
+        profileId: this.$route.params.profileid - 1
+      }
     }
   }
 </script>
 
 <template>
-  <div id="wrapper">
+  <div v-if="users" id="wrapper">
     <div id="messageBox">
       <h3>Meddelanden</h3>
     </div>
@@ -18,13 +22,25 @@
           <img
             width="50"
             class="pics"
-            :src="user.picture"
+            :src="usersData[user.id - 1].picture"
             alt="Profile picture"
           />
-          <p>{{ user.name }}</p>
-          <p>{{ user.age }} år</p>
+          <p>{{ usersData[user.id - 1].name }}</p>
+          <p>{{ usersData[user.id - 1].age }} år</p>
         </li></router-link
       >
+    </ul>
+  </div>
+  <div v-else id="wrapper">
+    <div id="messageBox">
+      <h3>Meddelanden</h3>
+    </div>
+    <ul>
+      <router-link id="router" :to="'/date'">
+        <li id="wrapper2" class="dateList">
+          Du har ännu inga kontakter. Börja dejta för att skapa nya kontakter.
+        </li>
+      </router-link>
     </ul>
   </div>
 </template>
@@ -69,5 +85,11 @@
   #router {
     text-decoration: none;
     color: black;
+  }
+
+  #wrapper2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 </style>

@@ -1,5 +1,5 @@
 <script>
-  import usersData from '../profiles.json'
+  import usersData from '../og-profiles.json'
   export default {
     data() {
       return {
@@ -12,6 +12,16 @@
         answer2: 'Hur mår du?',
         answer3: 'Härligt! Vill du ses på en fika?',
         messages: ''
+      }
+    },
+    created() {
+      if (localStorage.getItem('chosenQuestion')) {
+        let question = localStorage.getItem('chosenQuestion')
+        if (question.length) {
+          this.messages = question
+          this.chatMessages()
+          console.log('tjabba')
+        }
       }
     },
     methods: {
@@ -56,7 +66,9 @@
       <h3>Meddelanden</h3>
       <div id="icebreaker">
         <p>
-          <router-link to="/icebreaker" id="icebreaker"
+          <router-link
+            :to="'/icebreaker/' + this.$route.params.profileid"
+            id="icebreaker"
             >Icebreaker-frågor</router-link
           >
         </p>
@@ -160,6 +172,7 @@
     border-radius: 4px;
     border: none;
     margin-left: 5px;
+    margin-right: 5px;
   }
 
   #chatInput {

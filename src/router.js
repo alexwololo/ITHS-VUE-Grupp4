@@ -68,7 +68,7 @@ const router = createRouter({
     },
     {
       component: IceBreaker,
-      path: '/icebreaker'
+      path: '/icebreaker/:profileid'
     }
   ]
 })
