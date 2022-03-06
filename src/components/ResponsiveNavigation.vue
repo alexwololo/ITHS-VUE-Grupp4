@@ -1,16 +1,18 @@
 <template>
   <nav :style="{ background: background || '#333' }">
-    <ul :style="{ background: background || '#333' }" ref="nav">
-      <div>
-        <figure class="image-logo">
+      <div class="image-logo">
+          <!-- <h2 class="web-logo" style=""><router-link to="/">Swindlr</router-link></h2> -->
+        <!-- <figure class="image-logo"> -->
           <!-- <img src="../../assets/logo.png" alt="logo" style="margin-right: 80px;" />
           <button  class=""><i class="fas fa-bars" data-v-9a9f6144="" /> </button> -->
           <div class="burger-menu">
-            <i @click="toggleNav" class="fas fa-bars" />
+            <i @click="toggleNav" class="fas fa-bars menu-icon" style="padding: 25px;" />
             <h2 class="" style="display: inline-flex"><router-link to="/">Swindlr</router-link></h2>
           </div>
-        </figure>
+        <!-- </figure> -->
       </div>
+    <ul :style="{ background: background || '#333' }" ref="nav">
+      <h2 class="web-logo" style=""><router-link to="/">Swindlr</router-link></h2>
       <li
         v-for="(link, index) in navLinks"
         :key="index"
@@ -79,6 +81,15 @@
     .image-logo {
       flex-grow: 4;
     }
+    .burger-menu {
+      z-index: 100;
+      a {
+        text-decoration: none;
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+      }
+    }
     ul {
       display: flex;
       height: 100%;
@@ -114,7 +125,10 @@
     }
   }
 
-  @media screen and (max-width: 1085px) {
+  @media screen and (max-width: 770px) {
+    .web-logo {
+      display: none;
+    }
     nav {
       ul {
         z-index: 1;
@@ -132,9 +146,9 @@
         }
 
         figure {
-          position: fixed;
-          top: -16px;
-          left: -40px;
+          // position: fixed;
+          // top: -16px;
+          // left: -40px;
           background-color: white;
           padding-left: 42px;
           padding-top: 26px;
@@ -159,9 +173,14 @@
     }
   }
 
+
   @media (min-width: 769px) {
     // ul {
     //   display: block;
+    .web-logo {
+      display: inline-flex;
+      padding-left: 10px;
+    }
     // }
     ul {
       display: none;
@@ -171,4 +190,5 @@
       display: none;
     }
   }
+
 </style>
