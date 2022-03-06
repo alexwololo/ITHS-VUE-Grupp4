@@ -3,8 +3,12 @@
     <ul :style="{ background: background || '#333' }" ref="nav">
       <div>
         <figure class="image-logo">
-          <img src="../../assets/logo.png" alt="logo" style="margin-right: 80px;" />
-          <button @click="toggleNav" class=""><i class="fas fa-bars" data-v-9a9f6144="" /> </button>
+          <!-- <img src="../../assets/logo.png" alt="logo" style="margin-right: 80px;" />
+          <button  class=""><i class="fas fa-bars" data-v-9a9f6144="" /> </button> -->
+          <div class="burger-menu">
+            <i @click="toggleNav" class="fas fa-bars" />
+            <h2 class="" style="display: inline-flex"><router-link to="/">Swindlr</router-link></h2>
+          </div>
         </figure>
       </div>
       <li
@@ -66,8 +70,10 @@
     height: 40px;
   }
 
+
+
   nav {
-    height: 80px;
+    height: 70px;
     width: 100%;
     box-shadow: 2px 2px 2px 2px rgb(230, 230, 230);
     .image-logo {
@@ -150,6 +156,19 @@
           margin-right: -20px;
         }
       }
+    }
+  }
+
+  @media (min-width: 769px) {
+    // ul {
+    //   display: block;
+    // }
+    ul {
+      display: none;
+    }
+
+    .burger-menu {
+      display: none;
     }
   }
 </style>
