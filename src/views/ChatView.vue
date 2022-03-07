@@ -2,7 +2,7 @@
   <ResponsiveNavigation
     :nav-links="navLinks"
     background="#fff"
-    link-color="#777"
+    link-color="#5E5E5E"
     hover-background="#ddd"
   />
   <ChatComponent />

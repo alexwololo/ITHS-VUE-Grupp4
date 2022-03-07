@@ -2,10 +2,10 @@
   <ResponsiveNavigation
     :nav-links="navLinks"
     background="#fff"
-    link-color="#777"
+    link-color="#5E5E5E"
     hover-background="#ddd"
   />
-
+  <h2>Börja dejta</h2>
   <div class="container" v-if="users.length > 0">
     <div class="profilepic">
       <img id="profile-picture" :src="users[0].picture" alt="Profile picture" />
@@ -130,7 +130,13 @@
   }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+  h2 {
+    margin: 1rem 0 0 1rem;
+    color: #fff;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+      1px 1px 0 #000;
+  }
   p {
     white-space: pre-line;
   }
@@ -142,8 +148,8 @@
     width: auto;
     background-color: white;
     text-align: center;
-    border-radius: 10px;
-    margin: 1.5rem 1rem;
+    border-radius: 1rem;
+    margin: 0.5rem 1rem 1.5rem 1rem;
   }
   .loading-bar {
     position: relative;
@@ -166,17 +172,21 @@
   .profilepic {
     grid-area: 1 / 1 / 2 / 2;
     margin-top: 1rem;
-    margin-left: 1rem;
   }
   #profile-picture {
     border-radius: 50%;
+    border: 2px solid grey;
   }
   .bar {
     grid-area: 2 / 1 / 3 / 2;
   }
   .info {
     grid-area: 1 / 2 / 2 / 3;
-    margin: auto 0;
+    margin: 0 1rem 1rem 1rem;
+    h2 {
+      color: #000;
+      text-shadow: none;
+    }
   }
   .buttons {
     grid-area: 2 / 2 / 3 / 3;
@@ -205,6 +215,16 @@
     box-shadow: inset 0 -3em 3em rgb(139, 139, 139),
       0 0 0 2px rgba(139, 139, 139, 0.411),
       0.3em 0.3em 1em rgba(255, 255, 255, 0.3);
+
+    cursor: pointer;
+  }
+  .butt:first-child:hover {
+    box-shadow: inset 0 -3em 3em rgb(139, 139, 139), 0 0 0 2px rgb(29, 163, 51),
+      0.3em 0.3em 1em rgba(23, 177, 31, 0.3);
+  }
+  .butt:last-child:hover {
+    box-shadow: inset 0 -3em 3em rgb(139, 139, 139),
+      0 0 0 2px rgba(201, 0, 0, 0.411), 0.3em 0.3em 1em rgba(255, 0, 0, 0.3);
   }
 
   .logo {
@@ -212,26 +232,36 @@
     margin-left: auto;
     margin-right: auto;
   }
+  .routerlink {
+    margin-bottom: 1rem;
+  }
 
-  @media (min-width: 900px) {
+  @media (min-width: 980px) {
     .container {
       display: grid;
       grid-column-gap: 1px;
       grid-row-gap: 1px;
       width: 700px;
       height: 470px;
-      margin: 50px auto 0 auto;
+      margin: 1rem auto 0 auto;
       padding-bottom: 10px;
+    }
+    .profilepic {
+      margin-left: 1rem;
     }
     .loading-bar {
       margin-left: 1.5rem;
     }
     .info {
       margin-top: 2rem;
-      margin-right: 2rem;
+      margin-right: 0.5rem;
+      padding-right: 1rem;
       width: 350px;
       align-self: baseline;
       height: 320px;
+    }
+    .routerlink {
+      margin-bottom: 0;
     }
   }
 </style>

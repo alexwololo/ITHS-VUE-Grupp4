@@ -40,8 +40,13 @@
     methods: {
       setStep() {
         const innerWidth = this.$refs.inner.scrollWidth
-        const totalCards = this.users.length
-        this.step = `${innerWidth / totalCards}px`
+        if (this.users) {
+          const totalCards = this.users.length
+          this.step = `${innerWidth / totalCards}px`
+        } else {
+          const totalCards = 1
+          this.step = `${innerWidth / totalCards}px`
+        }
       },
 
       next() {
@@ -146,6 +151,9 @@
   }
 
   .button-container {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
     display: flex;
     justify-content: space-between;
   }

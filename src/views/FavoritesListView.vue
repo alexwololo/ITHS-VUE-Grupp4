@@ -2,11 +2,11 @@
   <ResponsiveNavigation
     :nav-links="navLinks"
     background="#fff"
-    link-color="#777"
+    link-color="#5E5E5E"
     hover-background="#ddd"
   />
-  <h1>Favoritprofiler</h1>
-  <div id="profiles-container">
+  <h2>Favoritprofiler</h2>
+  <div v-if="users" id="profiles-container">
     <div class="profile-card" v-for="user in users" :key="user.id">
       <router-link class="link-style" :to="'/favorite/' + user.id"
         ><img
@@ -27,6 +27,9 @@
         </p>
       </div>
     </div>
+  </div>
+  <div v-else id="no-favorites-container">
+    <p>Du har inga favoriter ännu.</p>
   </div>
 </template>
 
@@ -80,16 +83,26 @@
 </script>
 
 <style lang="scss" scoped>
-  h1 {
+  h2 {
     margin: 1rem 0 0 1rem;
     color: #fff;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
       1px 1px 0 #000;
   }
+  #no-favorites-container {
+    background-color: white;
+    text-align: center;
+    margin: 1rem;
+    border-radius: 1rem;
+    padding-bottom: 0.5rem;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   #profiles-container {
     margin-top: 0;
     align-self: center;
-    // background-color: white;
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-content: center;
@@ -122,19 +135,26 @@
   .read-more {
     float: right;
     margin-right: 1.25rem;
-    color: #6200ee;
+    color: #664692;
   }
   .link-style {
     display: flex;
     justify-content: center;
     text-decoration: none;
-    color: #6200ee;
+    color: #664692;
   }
   a:visited {
-    color: #6200ee;
+    color: #664692;
   }
 
-  @media screen and (min-width: 580px) and (max-width: 767px) {
+  @media screen and (min-width: 580px) {
+    #no-favorites.container {
+      margin-left: auto;
+      margin-right: auto;
+      width: 500px;
+      padding: 0;
+      border-radius: 1rem;
+    }
     #profiles-container {
       grid-template-columns: 1fr 1fr 1fr;
       padding: 1rem 0 0 0;
@@ -145,7 +165,7 @@
     }
   }
 
-  @media screen and (min-width: 768px) and (max-width: 979px) {
+  @media screen and (min-width: 768px) {
     #profiles-container {
       grid-template-columns: 1fr 1fr 1fr 1fr;
       padding: 1rem 0 0 0;
@@ -156,7 +176,7 @@
     }
   }
 
-  @media screen and (min-width: 980px) and (max-width: 1179px) {
+  @media screen and (min-width: 980px) {
     #profiles-container {
       width: 980px;
       margin-left: auto;
@@ -171,6 +191,11 @@
   }
 
   @media screen and (min-width: 1180px) {
+    #no-favorites-container {
+      margin-left: auto;
+      margin-right: auto;
+      width: 500px;
+    }
     #profiles-container {
       width: 1180px;
       margin-left: auto;

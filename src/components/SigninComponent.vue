@@ -37,12 +37,17 @@
   }
 </script>
 
-
 <template>
+  <h2 id="skapakonto">Logga in på konto</h2>
   <div class="wrapper">
-    <h3 id="skapakonto">Logga in på konto</h3>
     <label id="elabel" for="email">Email</label>
-    <input v-model="t" id="email" type="text" placeholder="Mail" @blur.once="usernameIsTouched = true" />
+    <input
+      v-model="t"
+      id="email"
+      type="text"
+      placeholder="Mail"
+      @blur.once="usernameIsTouched = true"
+    />
     <small style="color: red" v-if="this.errUser == true"
       >Email Not Match</small
     >
@@ -69,17 +74,32 @@
 
 <style scoped>
   .wrapper {
+    font-size: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     background-color: rgba(255, 255, 255, 0.5);
     padding: 20px;
-    margin-top: 50px;
+    margin-top: 30px;
     border-radius: 10px;
     margin-left: 30px;
     margin-right: 30px;
     color: black;
+  }
+
+  input {
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  input[type='text'],
+  input[type='password'] {
+    border-radius: 7px;
+    margin-top: 0.25rem;
+    padding: 8px;
+    border: none;
+    outline: 2px solid lightgrey;
   }
 
   #username {
@@ -103,40 +123,46 @@
   #skapakonto {
     color: white;
     text-align: center;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+      1px 1px 0 #000;
   }
 
   #button {
     margin-top: 10px;
     background-color: #6200ee;
+    box-shadow: inset 0 -0.6em 0 -0.35em rgba(0, 0, 0, 0.17);
     padding: 10px;
     color: white;
-    border-radius: 10px;
+    border-radius: 4px;
     border: none;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+  }
+
+  #button:hover {
+    background-color: #4a00b3;
   }
 
   #elabel {
     margin-right: 140px;
     margin-bottom: 5px;
-    font-size: 13px;
     margin-top: 5px;
   }
 
   #plabel {
     margin-right: 120px;
     margin-bottom: 5px;
-    font-size: 13px;
     margin-top: 5px;
   }
 
   #userlabel {
     margin-right: 85px;
     margin-bottom: 5px;
-    font-size: 13px;
   }
 
   #loginLink {
     margin-top: 5px;
-    font-size: 12px;
     color: black;
   }
 </style>

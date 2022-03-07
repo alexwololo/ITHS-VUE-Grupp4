@@ -39,7 +39,7 @@
   }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
   header {
     width: 100%;
     display: flex;
@@ -153,7 +153,11 @@
       color: white;
       padding: 11px 25px;
       border-radius: 4px;
-      box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.228);
+      box-shadow: inset 0 -0.6em 0 -0.35em rgba(0, 0, 0, 0.17);
+    }
+    .login:hover,
+    .login focus {
+      background-color: #4a00b3;
     }
   }
 </style>

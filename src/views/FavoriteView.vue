@@ -2,7 +2,7 @@
   <ResponsiveNavigation
     :nav-links="navLinks"
     background="#fff"
-    link-color="#777"
+    link-color="#5E5E5E"
     hover-background="#ddd"
   />
   <div id="profile-container">
@@ -26,7 +26,7 @@
         >
           block
         </button>
-        <button class="block-button" v-if="buttonClicked" @click="blockButton">
+        <button class="block-button" v-else @click="unblockButton">
           unblock
         </button>
       </div>
@@ -50,9 +50,15 @@
           :to="'/chat/' + this.$route.params.profileid"
           >Skicka meddelande till {{ users[profileId].name }}</router-link
         >
-        <button v-if="buttonClicked" class="routerlink-disabled">
+        <router-link
+          v-else
+          class="routerlink-disabled"
+          :to="'/chat/' + this.$route.params.profileid"
+          >Du har blockat {{ users[profileId].name }}</router-link
+        >
+        <!-- <button v-else class="routerlink-disabled">
           Du har blockat {{ users[profileId].name }}
-        </button>
+        </button> -->
       </p>
     </div>
   </div>
@@ -104,13 +110,37 @@
         profileId: this.$route.params.profileid - 1,
         interests: usersData[this.$route.params.profileid - 1].interests,
         buttonClicked: false,
-        buttonNotClicked: true
+        buttonNotClicked: true,
+        blocked: []
       }
     },
     methods: {
       blockButton() {
         this.buttonClicked = true
         this.buttonNotClicked = false
+        this.$store.commit('setButton', this.buttonClicked)
+        // this.blocked.push({ id: this.users[this.profileId].id })
+        // var existingEntries = JSON.parse(
+        //   localStorage.getItem('blockedProfiles')
+        // )
+        // if (existingEntries === null) existingEntries = []
+        // var idNumber = this.users[this.profileId].id - 1
+        // var entry = {
+        //   id: idNumber
+        // }
+        // if (existingEntries.some((e) => e.id === idNumber)) {
+        //   return
+        // } else {
+        //   existingEntries.push(entry)
+        //   localStorage.setItem(
+        //     'blockedProfiles',
+        //     JSON.stringify(existingEntries)
+        //   )
+        // }
+      },
+      unblockButton() {
+        this.buttonClicked = false
+        this.buttonNotClicked = true
         this.$store.commit('setButton', this.buttonClicked)
       }
     }
@@ -197,6 +227,8 @@
     border-radius: 4px;
     padding: 0.7em 1.4em;
     color: #fff;
+    pointer-events: none;
+    cursor: default;
   }
   #right-top {
     text-align: center;

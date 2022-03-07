@@ -20,7 +20,7 @@
         if (question.length) {
           this.messages = question
           this.chatMessages()
-          console.log('tjabba')
+          localStorage.removeItem('chosenQuestion')
         }
       }
     },
@@ -104,11 +104,9 @@
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
   h3 {
-    color: #fff;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
-      1px 1px 0 #000;
+    color: #000;
   }
   #chatMessage {
     background-color: rgb(92, 209, 82);
@@ -149,30 +147,35 @@
   #wrapper {
     display: flex;
     justify-content: center;
-    margin-top: 50px;
+    margin-top: 53px;
   }
 
   #mainChat {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgb(255, 255, 255);
     width: 80%;
     height: 500px;
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 1rem;
   }
 
   #button {
     font-size: 1rem;
     font-family: 'Roboto', sans-serif;
     background-color: #6200ee;
+    box-shadow: inset 0 -0.6em 0 -0.35em rgba(0, 0, 0, 0.17);
     padding: 8px;
     color: white;
     border-radius: 4px;
     border: none;
     margin-left: 5px;
-    margin-right: 5px;
+  }
+
+  #button:hover,
+  #button:focus {
+    background-color: #4a00b3;
   }
 
   #chatInput {
@@ -203,14 +206,31 @@
 
   #chatImg {
     border-radius: 50%;
+    border: 1px solid grey;
   }
   #icebreaker {
     text-align: center;
     width: 80%;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     text-decoration: none;
-    color: #fff;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
-      1px 1px 0 #000;
+    color: #000;
+  }
+  #icebreaker #icebreaker {
+    background-color: #6200ee;
+    color: white;
+    box-shadow: inset 0 -0.6em 0 -0.35em rgba(0, 0, 0, 0.17);
+    border-radius: 4px;
+    padding: 0.7em 1.4em;
+  }
+
+  #icebreaker #icebreaker:hover,
+  #icebreaker #icebreaker:focus {
+    background-color: #4a00b3;
+  }
+
+  @media screen and (min-width: 980px) {
+    #wrapper {
+      margin-top: 61px;
+    }
   }
 </style>

@@ -109,11 +109,15 @@
     </label>
     <label id="elabel" for="email"
       >Email
-      <input v-model="t" id="email" type="text" placeholder="Mail" /><span
-        class="warning-text"
-        v-if="msg.email"
-        >{{ msg.email }}</span
-      ></label
+      <input
+        v-model="t"
+        id="email"
+        type="text"
+        placeholder="Mail"
+        @blur="validateEmail()"
+      /><span class="warning-text" v-if="msg.email">{{
+        msg.email
+      }}</span></label
     >
 
     <label id="plabel" for="password"
@@ -143,11 +147,6 @@
 </template>
 
 <style scoped>
-  h2 {
-    color: #fff;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
-      1px 1px 0 #000;
-  }
   .wrapper {
     display: flex;
     flex-direction: column;
@@ -182,11 +181,14 @@
   #skapakonto {
     color: white;
     text-align: center;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+      1px 1px 0 #000;
   }
 
   #button {
     margin-top: 10px;
     background-color: #6200ee;
+    box-shadow: inset 0 -0.6em 0 -0.35em rgba(0, 0, 0, 0.17);
     padding: 10px;
     color: white;
     border-radius: 4px;
@@ -197,8 +199,12 @@
     cursor: pointer;
   }
 
+  #button:hover {
+    background-color: #4a00b3;
+  }
+
   #button:disabled {
-    background-color: grey;
+    background-color: #767676;
     cursor: default;
   }
 

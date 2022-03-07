@@ -2,9 +2,10 @@
   <ResponsiveNavigation
     :nav-links="navLinks"
     background="#fff"
-    link-color="#777"
+    link-color="#5E5E5E"
     hover-background="#ddd"
   />
+  <h2>Lounge</h2>
   <ProfileComponent />
   <div class="lounge-container">
     <div class="favorites">
@@ -64,38 +65,39 @@
   }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+  h2 {
+    margin: 1rem 0 0 1rem;
+    color: #fff;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+      1px 1px 0 #000;
+  }
   .lounge-container {
     margin: 1rem;
     padding: 1rem 0;
     border-radius: 1rem;
+    overflow: hidden;
     background-color: white;
     display: flex;
     flex-direction: column;
   }
   .favorites {
     display: block;
-    width: 97%;
+    max-width: 100%;
     background-color: white;
-    margin: 1rem;
+    h2 {
+      color: #000;
+      text-shadow: none;
+      margin-left: 2rem;
+      margin-bottom: 1rem;
+    }
   }
 
   @media screen and (min-width: 980px) {
-    .favorites {
-      display: block;
-      width: 97%;
-      background-color: white;
-      margin: 1rem;
-    }
-
     .lounge-container {
       width: 80%;
       margin: 2rem 7rem;
       padding: 0;
-      border-radius: 1rem;
-      background-color: white;
-      display: flex;
-      flex-direction: column;
     }
   }
   @media screen and (min-width: 1200px) {

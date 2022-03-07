@@ -2,7 +2,7 @@
   <ResponsiveNavigation
     :nav-links="navLinks"
     background="#fff"
-    link-color="#777"
+    link-color="#5E5E5E"
     hover-background="#ddd"
   />
 
@@ -22,7 +22,7 @@
         <router-link id="router" :to="'/chat/' + this.$route.params.profileid">
           <li
             @click="sendQuestion($event)"
-            v-for="question in questions.slice(0, 3)"
+            v-for="question in questionsList"
             :key="question"
           >
             {{ randomQuestion() }}
@@ -45,8 +45,8 @@
     data() {
       return {
         message: '',
-        users: JSON.parse(localStorage.getItem('favoritedProfiles')),
         user: usersData,
+        questionsList: [{ id: 1 }, { id: 2 }, { id: 3 }],
         navLinks: [
           {
             text: 'Home',
@@ -144,7 +144,8 @@
     padding: 60px 30px;
     margin: 60px 30%;
     text-align: center;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgb(255, 255, 255);
+    border-radius: 1rem;
   }
 
   #router {
@@ -153,8 +154,11 @@
   }
 
   .reloadBtn {
+    font-family: 'Roboto', sans-serif;
+    box-shadow: inset 0 -0.6em 0 -0.35em rgba(0, 0, 0, 0.17);
     background-color: #6200ee;
     border: none;
+    border-radius: 4px;
     color: white;
     padding: 15px 75px;
     text-align: center;
@@ -164,6 +168,11 @@
     margin: 4px 2px;
     cursor: pointer;
     width: 100%;
+  }
+
+  .reloadBtn:hover,
+  .reloadBtn:focus {
+    background-color: #4a00b3;
   }
 
   ul li:hover {
@@ -185,6 +194,7 @@
     padding: 5px 10px;
     background-color: white;
     border: 1px solid black;
+    border-radius: 10px;
     margin: 20px auto;
     padding: 40px 40px;
     min-height: 130px;
@@ -193,10 +203,11 @@
 
   @media (max-width: 768px) {
     .icbreaker-container {
-      margin: 40px auto;
+      margin: 0;
       padding-left: 20%;
       padding-right: 20%;
       text-align: center;
+      border-radius: 0;
     }
   }
 </style>

@@ -2,12 +2,12 @@
   <ResponsiveNavigation
     :nav-links="navLinks"
     background="#fff"
-    link-color="#777"
+    link-color="#5E5E5E"
     hover-background="#ddd"
   />
+  <h2>Redigera profil</h2>
   <div id="edit-container">
     <div id="left-side">
-      <h1>Redigera profil</h1>
       <UploadImage />
     </div>
     <div id="right-side">
@@ -93,16 +93,18 @@
 
 <style lang="scss" scoped>
   $btn: #6200ee;
+  h2 {
+    display: flex;
+    padding: 1rem 0 1rem 1rem;
+    margin: 0;
+    background-color: white;
+    color: #000;
+  }
   #edit-container {
     background-color: white;
     text-align: center;
     margin: 0 auto;
     padding-bottom: 0.5rem;
-  }
-  h1 {
-    text-align: center;
-    padding-top: 1.5rem;
-    margin-top: 0;
   }
   #saveProfile {
     border: none;
@@ -131,24 +133,30 @@
     top: 0.1em;
   }
 
-  // @media screen and (min-width: 768px) and (max-width: 979px) {
-  //   #edit-container {
-  //     margin: 2rem 5rem;
-  //   }
-  // }
+  @media screen and (min-width: 768px) {
+    h2 {
+      margin-top: 1rem;
+      margin-left: 1rem;
+      padding: 0;
+      background-color: transparent;
+      color: #fff;
+      text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+        1px 1px 0 #000;
+    }
+    #edit-container {
+      margin: 1rem 3rem;
+      padding: 2rem 1rem 1rem 1rem;
+      border-radius: 1rem;
+    }
+  }
 
   @media screen and (min-width: 980px) {
-    h1 {
-      margin-top: 0.7rem;
-      padding: 0;
-    }
     #edit-container {
       display: flex;
       justify-content: center;
       align-items: center;
-      margin: 2rem 3rem;
+      margin: 1rem 3rem;
       padding: 0;
-      border-radius: 1rem;
     }
     #left-side {
       margin-right: 4rem;
@@ -161,7 +169,7 @@
 
   @media screen and (min-width: 1200px) {
     #edit-container {
-      margin: 2rem 10rem;
+      margin: 1rem 10rem;
     }
   }
 </style>

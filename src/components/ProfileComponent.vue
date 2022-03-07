@@ -28,7 +28,7 @@
     </div>
     <div id="right-side">
       <div id="right-top">
-        <a href="/#/edit">edit profile</a>
+        <router-link :to="'/edit'">edit profile</router-link>
       </div>
       <div class="interests-container">
         <p class="profile-header">Intressen & Hobbies:</p>
@@ -48,7 +48,7 @@
       <p v-if="this.$store.state.biography.length" class="profile-header bio">
         {{ this.$store.state.biography }}
       </p>
-      <p v-else>Biografi inte ifylld.</p>
+      <p v-else class="profile-header bio">Biografi inte ifylld.</p>
       <p class="to-messages">
         <router-link class="routerlink" :to="'/date'">Börja dejta</router-link>
       </p>
@@ -62,6 +62,9 @@
   .welcome {
     display: flex;
     justify-content: center;
+    h1 {
+      text-align: center;
+    }
   }
 
   p {
@@ -110,7 +113,7 @@
   }
   .interests {
     list-style: none;
-    background-color: #6200ee;
+    background-color: #664692;
     border-radius: 10px;
     color: #fff;
     padding: 0.5rem;
@@ -128,7 +131,7 @@
     box-shadow: inset 0 -0.6em 0 -0.35em rgba(0, 0, 0, 0.17);
     border-radius: 4px;
     padding: 0.7em 1.4em;
-    color: #fff;
+    color: #2d2d2d;
   }
   .routerlink:hover,
   .routerlink:focus {
@@ -137,6 +140,13 @@
 
   #right-top {
     text-align: center;
+    a,
+    a:visited {
+      color: #664692;
+    }
+    a:hover {
+      color: #2e0f58;
+    }
   }
 
   @media screen and (min-width: 980px) {
@@ -145,7 +155,7 @@
       justify-content: center;
       align-items: center;
       width: 80%;
-      margin: 2rem 7rem;
+      margin: 1rem 7rem 2rem 7rem;
       padding: 0;
       border-radius: 1rem;
     }
@@ -175,7 +185,7 @@
 
   @media screen and (min-width: 1200px) {
     #profile-container {
-      margin: 2rem 9rem;
+      margin: 1rem 9rem 2rem 9rem;
     }
   }
 </style>

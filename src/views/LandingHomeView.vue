@@ -36,6 +36,7 @@
     margin: 60px 30%;
     text-align: left;
     background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 1rem;
   }
 
   .container-landing a {
@@ -54,7 +55,11 @@
     color: white;
     padding: 11px 25px;
     border-radius: 4px;
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.11);
+    box-shadow: inset 0 -0.6em 0 -0.35em rgba(0, 0, 0, 0.17);
+  }
+  .register:hover,
+  .register:focus {
+    background-color: #4a00b3;
   }
 
   @media (max-width: 768px) {
