@@ -156,7 +156,7 @@
       box-shadow: inset 0 -0.6em 0 -0.35em rgba(0, 0, 0, 0.17);
     }
     .login:hover,
-    .login focus {
+    .login:focus {
       background-color: #4a00b3;
     }
   }
