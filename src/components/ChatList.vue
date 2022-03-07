@@ -1,16 +1,3 @@
-<script>
-  import usersData from '../og-profiles.json'
-  export default {
-    data() {
-      return {
-        users: JSON.parse(localStorage.getItem('favoritedProfiles')),
-        usersData: usersData,
-        profileId: this.$route.params.profileid - 1
-      }
-    }
-  }
-</script>
-
 <template>
   <div v-if="users" id="wrapper">
     <div id="messageBox">
@@ -44,6 +31,19 @@
     </ul>
   </div>
 </template>
+
+<script>
+  import usersData from '../og-profiles.json'
+  export default {
+    data() {
+      return {
+        users: JSON.parse(localStorage.getItem('favoritedProfiles')),
+        usersData: usersData,
+        profileId: this.$route.params.profileid - 1
+      }
+    }
+  }
+</script>
 
 <style scoped>
   #wrapper {

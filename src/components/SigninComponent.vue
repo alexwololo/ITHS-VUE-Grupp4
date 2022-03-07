@@ -1,3 +1,38 @@
+<template>
+  <h2 id="skapakonto">Logga in på konto</h2>
+  <div class="wrapper">
+    <label id="elabel" for="email">Email</label>
+    <input
+      v-model="t"
+      id="email"
+      type="text"
+      placeholder="Mail"
+      @blur.once="usernameIsTouched = true"
+    />
+    <small style="color: red" v-if="this.errUser == true"
+      >Email Not Match</small
+    >
+    <label id="plabel" for="password">Lösenord</label>
+    <input v-model="u" id="password" type="password" placeholder="Lösenord" />
+    <small style="color: red" v-if="this.errPass == true"
+      >Password Not Match</small
+    >
+    <input
+      @click="loginUser"
+      @show-message="welcomeUser"
+      id="button"
+      type="button"
+      value="Logga in"
+    />
+    <RouterLink to="/signup"
+      ><a id="loginLink" href="">Registrera</a></RouterLink
+    >
+    <div v-if="message">
+      <h3>Välkommen {{ this.$store.state.user }}!</h3>
+    </div>
+  </div>
+</template>
+
 <script>
   export default {
     emits: ['show-message'],
@@ -36,41 +71,6 @@
     }
   }
 </script>
-
-<template>
-  <h2 id="skapakonto">Logga in på konto</h2>
-  <div class="wrapper">
-    <label id="elabel" for="email">Email</label>
-    <input
-      v-model="t"
-      id="email"
-      type="text"
-      placeholder="Mail"
-      @blur.once="usernameIsTouched = true"
-    />
-    <small style="color: red" v-if="this.errUser == true"
-      >Email Not Match</small
-    >
-    <label id="plabel" for="password">Lösenord</label>
-    <input v-model="u" id="password" type="password" placeholder="Lösenord" />
-    <small style="color: red" v-if="this.errPass == true"
-      >Password Not Match</small
-    >
-    <input
-      @click="loginUser"
-      @show-message="welcomeUser"
-      id="button"
-      type="button"
-      value="Logga in"
-    />
-    <RouterLink to="/signup"
-      ><a id="loginLink" href="">Registrera</a></RouterLink
-    >
-    <div v-if="message">
-      <h3>Välkommen {{ this.$store.state.user }}!</h3>
-    </div>
-  </div>
-</template>
 
 <style scoped>
   .wrapper {

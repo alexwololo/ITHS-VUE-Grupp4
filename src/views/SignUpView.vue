@@ -1,3 +1,8 @@
+<template>
+  <TheHeader />
+  <SignupComponent />
+</template>
+
 <script>
   import SignupComponent from '../components/SignupComponent.vue'
   import TheHeader from '../components/TheHeader.vue'
@@ -9,8 +14,3 @@
     }
   }
 </script>
-
-<template>
-  <TheHeader />
-  <SignupComponent />
-</template>

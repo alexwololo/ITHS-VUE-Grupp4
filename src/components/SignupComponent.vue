@@ -1,3 +1,55 @@
+<template>
+  <h2 id="skapakonto">Skapa nytt konto</h2>
+  <div class="wrapper">
+    <label id="userlabel" for="username"
+      >Användarnamn
+      <input
+        v-model="s"
+        id="username"
+        type="text"
+        placeholder="Användarnamn"
+        @blur="nameIsValid()"
+      /><span class="warning-text" v-if="msg.username">{{ msg.username }}</span>
+    </label>
+    <label id="elabel" for="email"
+      >Email
+      <input
+        v-model="t"
+        id="email"
+        type="text"
+        placeholder="Mail"
+        @blur="validateEmail()"
+      /><span class="warning-text" v-if="msg.email">{{
+        msg.email
+      }}</span></label
+    >
+
+    <label id="plabel" for="password"
+      >Lösenord
+      <input
+        v-model="u"
+        id="password"
+        type="password"
+        placeholder="Lösenord"
+        @blur="passwordIsValid()"
+      /><span class="warning-text" v-if="msg.password">{{ msg.password }}</span>
+    </label>
+    <!-- -->
+    <input
+      :disabled="isRegisterDisabled"
+      @click="regUser"
+      @show-message="welcomeUser"
+      id="button"
+      type="button"
+      value="Registrera"
+    />
+    <RouterLink to="/signin"><a id="loginLink" href="">Logga in</a></RouterLink>
+    <div v-if="message">
+      <h3>Välkommen {{ this.$store.state.user }}!</h3>
+    </div>
+  </div>
+</template>
+
 <script>
   export default {
     emits: ['show-message'],
@@ -93,58 +145,6 @@
     }
   }
 </script>
-
-<template>
-  <h2 id="skapakonto">Skapa nytt konto</h2>
-  <div class="wrapper">
-    <label id="userlabel" for="username"
-      >Användarnamn
-      <input
-        v-model="s"
-        id="username"
-        type="text"
-        placeholder="Användarnamn"
-        @blur="nameIsValid()"
-      /><span class="warning-text" v-if="msg.username">{{ msg.username }}</span>
-    </label>
-    <label id="elabel" for="email"
-      >Email
-      <input
-        v-model="t"
-        id="email"
-        type="text"
-        placeholder="Mail"
-        @blur="validateEmail()"
-      /><span class="warning-text" v-if="msg.email">{{
-        msg.email
-      }}</span></label
-    >
-
-    <label id="plabel" for="password"
-      >Lösenord
-      <input
-        v-model="u"
-        id="password"
-        type="password"
-        placeholder="Lösenord"
-        @blur="passwordIsValid()"
-      /><span class="warning-text" v-if="msg.password">{{ msg.password }}</span>
-    </label>
-    <!-- -->
-    <input
-      :disabled="isRegisterDisabled"
-      @click="regUser"
-      @show-message="welcomeUser"
-      id="button"
-      type="button"
-      value="Registrera"
-    />
-    <RouterLink to="/signin"><a id="loginLink" href="">Logga in</a></RouterLink>
-    <div v-if="message">
-      <h3>Välkommen {{ this.$store.state.user }}!</h3>
-    </div>
-  </div>
-</template>
 
 <style scoped>
   .wrapper {

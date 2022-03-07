@@ -1,3 +1,48 @@
+<template>
+  <div id="wrapper">
+    <div id="mainChat">
+      <img id="chatImg" width="50" :src="users[profileId].picture" alt="" />
+      <h3>Meddelanden</h3>
+      <div id="icebreaker">
+        <p>
+          <router-link
+            :to="'/icebreaker/' + this.$route.params.profileid"
+            id="icebreaker"
+            >Icebreaker-frågor</router-link
+          >
+        </p>
+      </div>
+      <div id="chatBubble">
+        <ul v-for="answers in this.bot" :key="answers">
+          <li id="list2">
+            <p id="chatAnswers">{{ answers }}</p>
+          </li>
+        </ul>
+        <ul v-for="answers3 in this.newArray" :key="answers3">
+          <li id="list3">
+            <p id="chatAnswers">{{ answers3 }}</p>
+          </li>
+        </ul>
+        <ul v-for="message in this.convo" :key="message">
+          <li id="list1">
+            <p id="chatMessage">{{ message }}</p>
+          </li>
+        </ul>
+      </div>
+      <div id="inputs">
+        <input id="chatInput" v-model="messages" type="text" />
+        <input
+          @click="chatMessages()"
+          @keydown.enter="chatMessages()"
+          type="button"
+          id="button"
+          value="Skicka!"
+        />
+      </div>
+    </div>
+  </div>
+</template>
+
 <script>
   import usersData from '../og-profiles.json'
   export default {
@@ -59,50 +104,6 @@
     }
   }
 </script>
-<template>
-  <div id="wrapper">
-    <div id="mainChat">
-      <img id="chatImg" width="50" :src="users[profileId].picture" alt="" />
-      <h3>Meddelanden</h3>
-      <div id="icebreaker">
-        <p>
-          <router-link
-            :to="'/icebreaker/' + this.$route.params.profileid"
-            id="icebreaker"
-            >Icebreaker-frågor</router-link
-          >
-        </p>
-      </div>
-      <div id="chatBubble">
-        <ul v-for="answers in this.bot" :key="answers">
-          <li id="list2">
-            <p id="chatAnswers">{{ answers }}</p>
-          </li>
-        </ul>
-        <ul v-for="answers3 in this.newArray" :key="answers3">
-          <li id="list3">
-            <p id="chatAnswers">{{ answers3 }}</p>
-          </li>
-        </ul>
-        <ul v-for="message in this.convo" :key="message">
-          <li id="list1">
-            <p id="chatMessage">{{ message }}</p>
-          </li>
-        </ul>
-      </div>
-      <div id="inputs">
-        <input id="chatInput" v-model="messages" type="text" />
-        <input
-          @click="chatMessages()"
-          @keydown.enter="chatMessages()"
-          type="button"
-          id="button"
-          value="Skicka!"
-        />
-      </div>
-    </div>
-  </div>
-</template>
 
 <style lang="scss" scoped>
   h3 {

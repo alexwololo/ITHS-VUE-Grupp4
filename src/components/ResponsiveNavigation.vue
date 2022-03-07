@@ -1,18 +1,26 @@
 <template>
   <nav :style="{ background: background || '#333' }">
-      <div class="image-logo">
-          <!-- <h2 class="web-logo" style=""><router-link to="/">Swindlr</router-link></h2> -->
-        <!-- <figure class="image-logo"> -->
-          <!-- <img src="../../assets/logo.png" alt="logo" style="margin-right: 80px;" />
+    <div class="image-logo">
+      <!-- <h2 class="web-logo" style=""><router-link to="/">Swindlr</router-link></h2> -->
+      <!-- <figure class="image-logo"> -->
+      <!-- <img src="../../assets/logo.png" alt="logo" style="margin-right: 80px;" />
           <button  class=""><i class="fas fa-bars" data-v-9a9f6144="" /> </button> -->
-          <div class="burger-menu">
-            <i @click="toggleNav" class="fas fa-bars menu-icon" style="padding: 25px;" />
-            <h2 class="" style="display: inline-flex"><router-link to="/">Swindlr</router-link></h2>
-          </div>
-        <!-- </figure> -->
+      <div class="burger-menu">
+        <i
+          @click="toggleNav"
+          class="fas fa-bars menu-icon"
+          style="padding: 25px"
+        />
+        <h2 class="" style="display: inline-flex">
+          <router-link to="/">Swindlr</router-link>
+        </h2>
       </div>
+      <!-- </figure> -->
+    </div>
     <ul :style="{ background: background || '#333' }" ref="nav">
-      <h2 class="web-logo" style=""><router-link to="/">Swindlr</router-link></h2>
+      <h2 class="web-logo" style="">
+        <router-link to="/">Swindlr</router-link>
+      </h2>
       <li
         v-for="(link, index) in navLinks"
         :key="index"
@@ -71,8 +79,6 @@
     width: 150px;
     height: 40px;
   }
-
-
 
   nav {
     height: 70px;
@@ -173,7 +179,6 @@
     }
   }
 
-
   @media (min-width: 769px) {
     // ul {
     //   display: block;
@@ -190,5 +195,4 @@
       display: none;
     }
   }
-
 </style>
